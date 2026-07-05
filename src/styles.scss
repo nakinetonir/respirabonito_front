@@ -1,3 +1,4 @@
+@import 'material-icons/iconfont/material-icons.css';
 @import '@angular/material/prebuilt-themes/rose-red.css';
 @tailwind base;
 @tailwind components;
@@ -35,3 +36,52 @@ a { color: inherit; text-decoration: none; }
 .flower-orb { position:absolute; border-radius:9999px; background:#efd3da80; filter: blur(1px); }
 .mat-mdc-card { font-family: Georgia, 'Times New Roman', serif; }
 .mat-mdc-button-base { letter-spacing: 0 !important; }
+
+
+.rb-list-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  min-width: 2.25rem;
+  border-radius: 9999px;
+  background: rgba(229, 187, 199, .45);
+  color: #91336f;
+  font-size: 1.1rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  box-shadow: 0 10px 24px rgba(145, 51, 111, .12);
+}
+.rb-svg-hero {
+  max-height: 520px;
+  width: 100%;
+  filter: drop-shadow(0 26px 30px rgba(145, 51, 111, .12));
+}
+.rb-soft-frame {
+  border-radius: 2.5rem;
+  background: rgba(255,255,255,.55);
+  border: 1px solid rgba(229,187,199,.55);
+  padding: 1rem;
+}
+
+
+/* SVG dinámico flor + lago */
+.dynamic-flower-lake-section {
+  display: flex;
+  justify-content: center;
+  padding: clamp(2.5rem, 7vw, 5rem) 1rem;
+  background: linear-gradient(180deg, #fbfae8 0%, #f4e3df 100%);
+}
+
+.dynamic-flower-lake-card {
+  width: min(920px, 100%);
+  border-radius: 2rem;
+  padding: clamp(1rem, 3vw, 2rem);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 22px 70px rgba(145, 47, 108, 0.16);
+}
+
+.dynamic-flower-lake-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}

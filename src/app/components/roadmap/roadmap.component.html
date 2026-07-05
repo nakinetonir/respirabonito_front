@@ -1,10 +1,40 @@
-<section id="viaje" class="section bg-white/70">
-  <div class="shell">
-    <h2 class="title text-center">Dinámicas del viaje</h2>
-    <mat-tab-group class="mt-12">
-      <mat-tab label="Cuerpo"><div class="grid md:grid-cols-3 gap-5 mt-8"><div class="card" *ngFor="let h of cuerpo">{{h}}</div></div></mat-tab>
-      <mat-tab label="Alma"><div class="grid md:grid-cols-3 gap-5 mt-8"><div class="card" *ngFor="let h of alma">{{h}}</div></div></mat-tab>
-      <mat-tab label="Vida diaria"><div class="grid md:grid-cols-3 gap-5 mt-8"><div class="card" *ngFor="let h of vida">{{h}}</div></div></mat-tab>
+<section class="journey-section" id="dinamicas-viaje">
+  <div class="journey-shell">
+    <p class="journey-kicker">Método RespiraBonito</p>
+    <h2>Dinámicas del viaje</h2>
+    <p class="journey-intro">
+      Un recorrido de bienestar integral para conectar cuerpo, alma y vida diaria,
+      con prácticas sencillas y progresivas.
+    </p>
+
+    <mat-tab-group class="journey-tabs" animationDuration="450ms" mat-stretch-tabs="false" mat-align-tabs="center">
+      <mat-tab label="Cuerpo">
+        <div class="timeline-wrap">
+          <article class="timeline-card" *ngFor="let item of cuerpoItems; let i = index">
+            <div class="timeline-ribbon">Paso {{ i + 1 }}</div>
+            <div class="timeline-dot"><mat-icon>{{ item.icon }}</mat-icon></div>
+            <div class="timeline-content"><h3>{{ item.title }}</h3><p>{{ item.description }}</p></div>
+          </article>
+        </div>
+      </mat-tab>
+      <mat-tab label="Alma">
+        <div class="timeline-wrap">
+          <article class="timeline-card" *ngFor="let item of almaItems; let i = index">
+            <div class="timeline-ribbon">Paso {{ i + 1 }}</div>
+            <div class="timeline-dot"><mat-icon>{{ item.icon }}</mat-icon></div>
+            <div class="timeline-content"><h3>{{ item.title }}</h3><p>{{ item.description }}</p></div>
+          </article>
+        </div>
+      </mat-tab>
+      <mat-tab label="Vida diaria">
+        <div class="timeline-wrap">
+          <article class="timeline-card" *ngFor="let item of vidaItems; let i = index">
+            <div class="timeline-ribbon">Paso {{ i + 1 }}</div>
+            <div class="timeline-dot"><mat-icon>{{ item.icon }}</mat-icon></div>
+            <div class="timeline-content"><h3>{{ item.title }}</h3><p>{{ item.description }}</p></div>
+          </article>
+        </div>
+      </mat-tab>
     </mat-tab-group>
   </div>
 </section>

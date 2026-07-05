@@ -1,0 +1,228 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="title desc">
+  <title id="title">Flor y lago animados con líneas</title>
+  <desc id="desc">SVG dinámico donde las líneas dibujan progresivamente un lago, una flor, tallos, hojas y reflejos de agua.</desc>
+
+  <style>
+    :root {
+      --cream:#f8f8df;
+      --water:#4e9fb3;
+      --water-soft:#9dd5dd;
+      --stem:#6f7f3d;
+      --leaf:#5f8b58;
+      --petal-dark:#8f276f;
+      --petal-mid:#b55293;
+      --petal-light:#f3b9d7;
+      --sun:#e6b86b;
+      --ink:#7b1e63;
+      --progress:100;
+    }
+
+    .bg { fill:var(--cream); }
+
+    .draw {
+      fill:none;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+      stroke-dasharray:1000;
+      stroke-dashoffset:1000;
+      animation: draw 8s ease-in-out forwards;
+    }
+
+    .lake-main {
+      stroke:var(--water);
+      stroke-width:6;
+      animation-delay:.1s;
+    }
+
+    .lake-soft {
+      stroke:var(--water-soft);
+      stroke-width:3;
+      opacity:.85;
+      animation-delay:.7s;
+    }
+
+    .stem {
+      stroke:var(--stem);
+      stroke-width:6;
+      animation-delay:1.6s;
+    }
+
+    .branch {
+      stroke:var(--stem);
+      stroke-width:4;
+      animation-delay:2.2s;
+    }
+
+    .leaf-line {
+      stroke:var(--leaf);
+      stroke-width:3.2;
+      animation-delay:2.8s;
+    }
+
+    .petal {
+      opacity:0;
+      transform-box:fill-box;
+      transform-origin:center;
+      animation:bloom .85s ease-out forwards;
+    }
+
+    .flower-top .petal { animation-delay:4.1s; }
+    .flower-main .petal { animation-delay:4.8s; }
+
+    .petal:nth-child(2){ animation-delay:calc(var(--d,4s) + .08s); }
+    .petal:nth-child(3){ animation-delay:calc(var(--d,4s) + .16s); }
+    .petal:nth-child(4){ animation-delay:calc(var(--d,4s) + .24s); }
+    .petal:nth-child(5){ animation-delay:calc(var(--d,4s) + .32s); }
+    .petal:nth-child(6){ animation-delay:calc(var(--d,4s) + .40s); }
+    .petal:nth-child(7){ animation-delay:calc(var(--d,4s) + .48s); }
+
+    .flower-top { --d:4.1s; }
+    .flower-main { --d:4.8s; }
+
+    .detail {
+      fill:none;
+      stroke:rgba(123,30,99,.35);
+      stroke-width:1.7;
+      stroke-linecap:round;
+      stroke-dasharray:260;
+      stroke-dashoffset:260;
+      animation:drawSmall 2s ease-out forwards;
+      animation-delay:5.8s;
+    }
+
+    .reflection {
+      fill:none;
+      stroke:rgba(78,159,179,.45);
+      stroke-width:3;
+      stroke-linecap:round;
+      stroke-dasharray:400;
+      stroke-dashoffset:400;
+      animation:drawSmall 2.8s ease-out forwards;
+      animation-delay:6.1s;
+    }
+
+    .caption {
+      font-family:"Brush Script MT","Segoe Script",cursive;
+      fill:var(--ink);
+      font-size:38px;
+      opacity:0;
+      animation:fadeIn 1s ease forwards;
+      animation-delay:7s;
+    }
+
+    .sun {
+      fill:none;
+      stroke:var(--sun);
+      stroke-width:4;
+      opacity:.8;
+      stroke-dasharray:220;
+      stroke-dashoffset:220;
+      animation:drawSmall 2s ease-out forwards;
+      animation-delay:6.4s;
+    }
+
+    @keyframes draw { to { stroke-dashoffset:0; } }
+    @keyframes drawSmall { to { stroke-dashoffset:0; } }
+    @keyframes bloom {
+      from { opacity:0; transform:scale(.15) rotate(-10deg); }
+      to { opacity:1; transform:scale(1) rotate(0deg); }
+    }
+    @keyframes fadeIn { to { opacity:1; } }
+
+    /*
+      MODO MANUAL:
+      Cambia el svg a <svg class="manual" style="--progress:50">
+      --progress acepta valores de 0 a 100.
+    */
+    svg.manual .draw {
+      animation:none;
+      stroke-dashoffset:calc(1000 - (1000 * var(--progress) / 100));
+    }
+    svg.manual .detail {
+      animation:none;
+      stroke-dashoffset:calc(260 - (260 * var(--progress) / 100));
+    }
+    svg.manual .reflection {
+      animation:none;
+      stroke-dashoffset:calc(400 - (400 * var(--progress) / 100));
+    }
+    svg.manual .sun {
+      animation:none;
+      stroke-dashoffset:calc(220 - (220 * var(--progress) / 100));
+    }
+    svg.manual .petal,
+    svg.manual .caption {
+      animation:none;
+      opacity:calc(var(--progress) / 100);
+      transform:scale(calc(.25 + (.75 * var(--progress) / 100)));
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .draw,.detail,.reflection,.sun,.petal,.caption {
+        animation:none;
+        stroke-dashoffset:0;
+        opacity:1;
+        transform:none;
+      }
+    }
+  </style>
+
+  <rect class="bg" width="900" height="620"/>
+
+  <!-- Lago creado por líneas -->
+  <path class="draw lake-main" d="M90 430 C170 380 260 382 346 410 C435 438 512 470 620 430 C705 398 790 398 840 434"/>
+  <path class="draw lake-main" d="M78 470 C180 520 305 492 406 470 C505 448 570 482 665 496 C744 508 808 490 852 462"/>
+  <path class="draw lake-soft" d="M135 453 C225 432 314 438 392 462"/>
+  <path class="draw lake-soft" d="M488 454 C568 430 660 428 746 456"/>
+  <path class="draw lake-soft" d="M185 508 C304 532 444 520 548 492"/>
+  <path class="draw lake-soft" d="M583 525 C676 544 758 532 823 502"/>
+
+  <!-- Reflejos -->
+  <path class="reflection" d="M393 480 C374 498 354 514 332 528"/>
+  <path class="reflection" d="M424 487 C404 512 385 536 369 558"/>
+  <path class="reflection" d="M462 492 C448 522 430 548 410 574"/>
+
+  <!-- Sol / luna suave -->
+  <path class="sun" d="M102 128 C120 96 160 84 194 104 C225 122 238 158 223 191"/>
+  <path class="sun" d="M118 160 C140 137 174 131 201 151"/>
+
+  <!-- Flor que nace del lago -->
+  <path class="draw stem" d="M430 485 C420 414 418 350 438 284 C454 232 490 184 535 116"/>
+  <path class="draw branch" d="M446 285 C496 270 542 244 584 202"/>
+  <path class="draw branch" d="M421 367 C374 352 334 328 298 294"/>
+
+  <!-- Hojas -->
+  <path class="draw leaf-line" d="M463 263 C492 244 520 247 544 266 C510 276 484 278 463 263Z"/>
+  <path class="draw leaf-line" d="M387 354 C357 334 329 339 304 360 C336 374 365 373 387 354Z"/>
+  <path class="draw leaf-line" d="M461 336 C489 317 518 320 542 340 C508 350 482 351 461 336Z"/>
+
+  <!-- Flor superior pequeña -->
+  <g class="flower-top">
+    <ellipse class="petal" cx="552" cy="112" rx="42" ry="24" fill="var(--petal-mid)" transform="rotate(-28 552 112)"/>
+    <ellipse class="petal" cx="594" cy="128" rx="42" ry="24" fill="var(--petal-dark)" transform="rotate(14 594 128)"/>
+    <ellipse class="petal" cx="520" cy="137" rx="39" ry="23" fill="var(--petal-light)" transform="rotate(-42 520 137)"/>
+    <ellipse class="petal" cx="563" cy="160" rx="46" ry="25" fill="var(--petal-mid)" transform="rotate(34 563 160)"/>
+    <ellipse class="petal" cx="615" cy="166" rx="36" ry="21" fill="var(--petal-dark)" transform="rotate(-18 615 166)"/>
+    <circle class="petal" cx="568" cy="141" r="15" fill="#d486ba"/>
+  </g>
+
+  <!-- Flor principal junto al lago -->
+  <g class="flower-main">
+    <ellipse class="petal" cx="420" cy="398" rx="68" ry="38" fill="var(--petal-light)" transform="rotate(-9 420 398)"/>
+    <ellipse class="petal" cx="367" cy="423" rx="55" ry="34" fill="var(--petal-mid)" transform="rotate(-31 367 423)"/>
+    <ellipse class="petal" cx="475" cy="426" rx="57" ry="35" fill="var(--petal-dark)" transform="rotate(28 475 426)"/>
+    <ellipse class="petal" cx="421" cy="446" rx="76" ry="42" fill="#c76aa6"/>
+    <ellipse class="petal" cx="332" cy="450" rx="38" ry="28" fill="var(--petal-dark)" transform="rotate(-40 332 450)"/>
+    <ellipse class="petal" cx="512" cy="454" rx="39" ry="28" fill="var(--petal-dark)" transform="rotate(42 512 454)"/>
+    <circle class="petal" cx="425" cy="427" r="18" fill="#e6a1cb"/>
+  </g>
+
+  <!-- Nervios de pétalos -->
+  <path class="detail" d="M382 400 C398 382 421 380 440 398"/>
+  <path class="detail" d="M447 402 C468 386 489 398 498 420"/>
+  <path class="detail" d="M357 438 C394 419 437 420 486 441"/>
+  <path class="detail" d="M388 465 C423 448 461 450 495 470"/>
+  <path class="detail" d="M535 137 C558 126 588 128 611 146"/>
+
+  <text class="caption" x="450" y="590" text-anchor="middle">respira bonito</text>
+</svg>

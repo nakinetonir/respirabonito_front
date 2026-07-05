@@ -1,7 +1,4 @@
-import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatIconModule } from '@angular/material/icon';
+import { Component } from '@angular/core'; import { NgFor } from '@angular/common'; import { MatTabsModule } from '@angular/material/tabs'; import { MatIconModule } from '@angular/material/icon';
 
 @Component({selector:'app-roadmap', standalone:true, imports:[NgFor, MatTabsModule, MatIconModule], templateUrl:'./roadmap.component.html', styleUrl: './journey-dynamics.component.css'})
 export class RoadmapComponent {

@@ -131,7 +131,7 @@
 
     /*
       MODO MANUAL:
-      Cambia el svg a &lt;svg class="manual" style="--progress:50"&gt;
+      Cambia el svg a <svg class="manual" style="--progress:50">
       --progress acepta valores de 0 a 100.
     */
     svg.manual .draw {

@@ -1,0 +1,12 @@
+<section class="section bg-rb-plum text-white">
+  <div class="shell">
+    <h2 class="font-display text-4xl md:text-6xl">Experiencia y autoridad</h2>
+    <p class="mt-5 max-w-3xl text-white/80 text-lg leading-8">Durante los últimos años he acompañado desde el Yoga, Pilates, meditación, educación alternativa y otras disciplinas holísticas.</p>
+    <div class="grid md:grid-cols-2 gap-6 mt-10">
+      <div class="flex gap-4" *ngFor="let a of achievements">
+        <mat-icon class="text-rb-rose">done</mat-icon>
+        <p>{{a}}</p>
+      </div>
+    </div>
+  </div>
+</section>

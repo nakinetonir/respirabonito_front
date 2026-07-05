@@ -1,0 +1,15 @@
+<section id="metodo" class="section bg-white/70">
+  <div class="shell">
+    <div class="max-w-3xl">
+      <p class="script text-3xl text-rb-plum">Método de salud integral</p>
+      <h2 class="title mt-2">RespiraBonito es un proceso online ordenado</h2>
+      <p class="mt-6 text-lg leading-8 text-rb-ink/75">La membresía combina un contenido central progresivo, contenidos dinámicos y prácticas para avanzar a tu ritmo. Recomendación: dedicar al menos 3 horas semanales para integrar los aprendizajes poco a poco.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 mt-12">
+      <mat-card class="!rounded-[2rem] !p-8 watercolor-card" *ngFor="let p of pillars">
+        <h3 class="script text-4xl text-rb-plum">{{p.title}}</h3>
+        <p class="mt-4 leading-7">{{p.text}}</p>
+      </mat-card>
+    </div>
+  </div>
+</section>

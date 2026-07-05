@@ -1,0 +1,12 @@
+<section class="section bg-white/55" id="bloqueos">
+  <div class="shell">
+    <h2 class="title text-center">Cuando necesitas un punto de recarga cercano</h2>
+    <p class="mx-auto mt-5 max-w-3xl text-center text-lg leading-8 text-rb-ink/70">A veces el ritmo diario nos hace perder energía, mientras las relaciones y las emociones dejan de sentirse nutritivas.</p>
+    <div class="grid md:grid-cols-2 gap-5 mt-12">
+      <div class="card flex gap-4" *ngFor="let item of points">
+        <mat-icon class="text-rb-plum">spa</mat-icon>
+        <p class="text-lg">{{item}}</p>
+      </div>
+    </div>
+  </div>
+</section>

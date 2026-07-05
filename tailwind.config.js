@@ -1,0 +1,1 @@
+module.exports = { content: ['./src/**/*.{html,ts}'], theme: { extend: { fontFamily: { display: ['Georgia','Times New Roman','serif'], script: ['Brush Script MT','Segoe Script','cursive'] }, colors: { rb: { cream:'#fbfbe1', rose:'#e7bdc8', roseSoft:'#f3dbe0', plum:'#8b2f68', ink:'#1f171b', green:'#6f8f6c', blue:'#9fb2cf' } } } }, plugins: [] };

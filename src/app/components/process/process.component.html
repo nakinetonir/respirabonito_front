@@ -1,13 +1,23 @@
-<section id="proceso" class="section bg-rb-cream">
+<section id="proceso" class="section bg-rb-cream" aria-labelledby="proceso-title">
   <div class="shell">
-    <h2 class="title text-center">Quiero inscribirme en la Escuela</h2>
+    <h2 id="proceso-title" class="title text-center">Cómo solicitar información</h2>
     <div class="grid md:grid-cols-3 gap-6 mt-12">
       <mat-card class="!rounded-[2rem] !p-8 text-center" *ngFor="let p of steps; index as i">
         <div class="mx-auto mb-5 grid h-16 w-16 place-items-center rounded-full bg-rb-rose text-2xl font-bold text-rb-plum">{{i+1}}</div>
         <h3 class="script text-4xl text-rb-plum">{{p.title}}</h3>
-        <p class="mt-3 leading-7">{{p.text}}</p>
+        <p class="mt-3 leading-7 text-rb-ink/80">{{p.text}}</p>
       </mat-card>
     </div>
-    <div class="text-center mt-10"><a class="rb-btn" href="https://forms.gle/KxsRE9NDdr3mrPTx6" target="_blank">Abrir formulario</a></div>
+    <div class="text-center mt-10">
+      <a
+        class="rb-btn"
+        href="https://forms.gle/KxsRE9NDdr3mrPTx6"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Abrir formulario externo para solicitar información sobre Respira Bonito"
+      >
+        Abrir formulario
+      </a>
+    </div>
   </div>
 </section>

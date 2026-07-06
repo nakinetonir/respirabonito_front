@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -7,13 +7,14 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   imports: [NgFor, MatIconModule],
   templateUrl: './pain-points.component.html',
-  styleUrl: './pain-points.component.scss'
+  styleUrl: './pain-points.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PainPointsComponent {
-  points = [
-    '¿La semana pasa rápido y enlazas tareas casi sin darte cuenta?',
-    '¿Percibes vínculos, pero echas en falta profundidad?',
-    '¿Sientes que cuerpo y mente van por distintos caminos?',
-    '¿Tienes molestias o incomodidad en el cuerpo que te gustaría cuidar?'
+  readonly points = [
+    'Sientes que la semana pasa rápido y apenas respiras.',
+    'Tu cuerpo te pide pausa, movimiento o más presencia.',
+    'Quieres meditar o practicar, pero te cuesta sostenerlo sola.',
+    'Buscas una comunidad cercana, sin exigencia y con profundidad.'
   ];
 }

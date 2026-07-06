@@ -1,12 +1,22 @@
-<section class="section bg-rb-plum text-white">
+<section class="rb-authority" aria-labelledby="experiencia-title">
   <div class="shell">
-    <h2 class="font-display text-4xl md:text-6xl">Experiencia y autoridad</h2>
-    <p class="mt-5 max-w-3xl text-white/80 text-lg leading-8">Durante los últimos años he acompañado desde el Yoga, Pilates, meditación, educación alternativa y otras disciplinas holísticas.</p>
-    <div class="grid md:grid-cols-2 gap-6 mt-10">
-      <div class="flex gap-4" *ngFor="let a of achievements">
-        <span class="rb-list-icon bg-white/20 text-rb-rose" aria-hidden="true">✓</span>
-        <p>{{a}}</p>
-      </div>
+    <div class="rb-authority__heading">
+      <p class="rb-kicker">Experiencia y autoridad</p>
+      <h2 id="experiencia-title">Una trayectoria que une cuerpo, educación, arte y comunidad</h2>
+      <p>
+        La propuesta nace de años de práctica y acompañamiento. Cada punto muestra una dimensión distinta del método,
+        con iconos que ayudan a leer la sección de forma más ligera y elegante.
+      </p>
+    </div>
+
+    <div class="rb-authority__grid">
+      <article class="rb-authority__card" *ngFor="let a of achievements">
+        <span class="rb-authority__icon"><mat-icon aria-hidden="true">{{ a.icon }}</mat-icon></span>
+        <div>
+          <h3>{{ a.title }}</h3>
+          <p>{{ a.text }}</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>

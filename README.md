@@ -1,16 +1,22 @@
 # RespiraBonito · Landing Angular
 
-Landing page basada en los flyers de Bienestar Integral y el texto de la Escuela Online RespiraBonito.
+Landing page de Respira Bonito basada en Angular 21, Angular Material, Tailwind CSS y componentes standalone.
 
-## Tecnologías
+## Cambios SEO, CSS y conversión aplicados
 
-- Angular 21
-- Angular Material
-- Tailwind CSS
-- Componentes standalone
-- HTML separado por componente
+- Head SEO completo en `src/index.html`: title, description, canonical, Open Graph, Twitter cards, theme color y JSON-LD Organization + FAQPage.
+- Nuevos archivos públicos: `public/robots.txt`, `public/sitemap.xml`, `public/assets/og-respirabonito.jpg` y `public/assets/apple-touch-icon.png`.
+- Hero reescrito con propuesta de valor más clara, CTA menos agresiva y enlaces accesibles.
+- Sección anterior de beneficios eliminada del render para mantener la landing más directa.
+- Copy reorganizado hacia conversión: método, qué incluye, para quién, Laurem, proceso, FAQ y CTA final.
+- CTA sticky móvil para facilitar contacto.
+- CSS global con tokens, focus visible, `prefers-reduced-motion`, fondos suaves y overrides de Angular Material sin depender de `!important` para los botones nuevos.
+- Imágenes principales convertidas a WebP: `laurem-respirabonito.webp` y `bienestar-integral.webp`.
+- Uso de `NgOptimizedImage` en imágenes principales.
+- `ChangeDetectionStrategy.OnPush` aplicado en componentes principales.
+- Configuración de app extraída a `src/app/app.config.ts`.
 
-## Ejecutar
+## Ejecutar en local
 
 ```bash
 npm install
@@ -19,36 +25,27 @@ npm start
 
 Abre `http://localhost:4200`.
 
-## Estructura
+## Build
 
-Cada bloque del scroll está separado en `src/app/components/*` con su `.ts`, `.html` y `.scss`.
+```bash
+npm run build
+```
 
-Los recursos están en:
+En Vercel, usa:
 
-- `public/assets/icons`: SVG de las disciplinas
-- `public/assets/flyers`: flyers de referencia usados en la landing
+```txt
+Framework Preset: Angular
+Install Command: npm ci
+Build Command: npm run build
+Output Directory: dist/lienzo-sol-angular/browser
+```
 
+## Pendiente recomendado
 
-## SVG dinámico flor y lago
+Para resolver el problema SEO de CSR puro al 100%, ejecutar en una máquina con internet:
 
-El SVG está integrado en `src/assets/flor_y_lago_lineas_animado.svg` y se muestra en la landing mediante `<img src="assets/flor_y_lago_lineas_animado.svg">`.
+```bash
+ng add @angular/ssr
+```
 
-## Cambios incluidos
-
-- Eliminado el link externo de Google Fonts Material Icons en `src/index.html`.
-- Añadido `@import 'material-icons/iconfont/material-icons.css';` en `src/styles.css`/`src/styles.scss`.
-- Añadida dependencia `material-icons` en `package.json`.
-- Cambiado el color naranja de la sección `Dinámicas del viaje` al morado del botón `Inscribirme`.
-
-
-## Cambios finales incluidos
-
-- `RoadmapComponent` importa `MatIconModule`.
-- Los iconos de `mat-icon` usan Material Icons local.
-- Eliminado el link externo a Google Fonts de Material Icons en `index.html`.
-- Añadido `@import 'material-icons/iconfont/material-icons.css';`.
-- Añadida dependencia `material-icons`.
-- Se sustituye el naranja del timeline por el morado de `Inscribirme`.
-- Se incluye `src/assets/flor-y-lago-lineas-animado.svg`.
-- Se incluye imagen de Laurem sin teléfono visible: `src/assets/laurem-respirabonito-sin-telefono.png`.
-- Se incluye imagen de experiencia/certificaciones: `src/assets/experiencia-certificaciones.png`.
+Después configurar prerender/SSG estático y confirmar que `dist/lienzo-sol-angular/browser/index.html` contiene el H1 y los textos de la landing sin depender de JavaScript.

@@ -1,0 +1,245 @@
+.laurem-story {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 4vw, 5rem);
+  background:
+    radial-gradient(circle at 8% 20%, rgba(231, 189, 200, .34), transparent 22rem),
+    radial-gradient(circle at 92% 78%, rgba(111, 143, 108, .16), transparent 24rem),
+    linear-gradient(180deg, #fbfbe1 0%, #fffdf4 100%);
+}
+
+.laurem-story__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, .92fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.laurem-story__copy {
+  position: relative;
+  z-index: 2;
+  border: 1px solid rgba(139, 47, 104, .14);
+  border-radius: 2.35rem;
+  background: rgba(255, 255, 255, .76);
+  box-shadow: 0 26px 70px rgba(139, 47, 104, .13);
+  padding: clamp(1.6rem, 4vw, 3rem);
+  backdrop-filter: blur(18px);
+  transition: transform .42s ease, box-shadow .42s ease, background .42s ease;
+}
+
+.laurem-story__copy::after {
+  content: '';
+  position: absolute;
+  inset: auto 2rem -1px 2rem;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--rb-plum), var(--rb-rose), transparent);
+  opacity: .55;
+}
+
+.laurem-story__grid:hover .laurem-story__copy,
+.laurem-story__copy:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 34px 90px rgba(139, 47, 104, .18);
+  background: rgba(255, 255, 255, .88);
+}
+
+.laurem-story__title {
+  max-width: 11ch;
+  margin: .15rem 0 0;
+  color: var(--rb-ink);
+  font-size: clamp(2.5rem, 5.8vw, 5rem);
+  font-weight: 500;
+  line-height: .98;
+  letter-spacing: -.035em;
+}
+
+.laurem-story__lead {
+  max-width: 62ch;
+  margin: 1.35rem 0 0;
+  color: rgba(31, 23, 27, .82);
+  font-size: clamp(1.05rem, 1.5vw, 1.22rem);
+  line-height: 1.85;
+}
+
+.laurem-story__chapters {
+  display: grid;
+  gap: .9rem;
+  margin-top: 1.7rem;
+}
+
+.laurem-story__chapter {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: .85rem 1rem;
+  border: 1px solid rgba(139, 47, 104, .10);
+  border-radius: 1.35rem;
+  background: linear-gradient(135deg, rgba(251, 251, 225, .72), rgba(243, 219, 224, .42));
+  padding: 1rem 1.05rem;
+  transition: transform .28s ease, border-color .28s ease, background .28s ease;
+}
+
+.laurem-story__chapter:hover {
+  transform: translateX(.35rem);
+  border-color: rgba(139, 47, 104, .24);
+  background: linear-gradient(135deg, rgba(255, 255, 255, .82), rgba(243, 219, 224, .65));
+}
+
+.laurem-story__chapter span {
+  grid-row: 1 / span 2;
+  display: grid;
+  place-items: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 999px;
+  background: var(--rb-plum);
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  box-shadow: 0 14px 24px rgba(139, 47, 104, .22);
+}
+
+.laurem-story__chapter h3 {
+  margin: .06rem 0 0;
+  color: var(--rb-plum);
+  font-size: clamp(1.08rem, 1.6vw, 1.35rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.laurem-story__chapter p {
+  margin: 0;
+  color: rgba(31, 23, 27, .76);
+  line-height: 1.6;
+}
+
+.laurem-story__signals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin: 1.45rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.laurem-story__signals li {
+  border: 1px solid rgba(139, 47, 104, .14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .7);
+  padding: .55rem .85rem;
+  color: rgba(31, 23, 27, .76);
+  font-size: .95rem;
+}
+
+.laurem-story__visual {
+  position: relative;
+  opacity: .18;
+  filter: blur(2px) saturate(.85);
+  transform: translateX(2rem) scale(.94) rotate(1.5deg);
+  transition: opacity .58s ease, filter .58s ease, transform .58s ease;
+}
+
+.laurem-story__grid:hover .laurem-story__visual,
+.laurem-story__copy:focus-within ~ .laurem-story__visual,
+.laurem-story__copy:focus-visible ~ .laurem-story__visual {
+  opacity: 1;
+  filter: blur(0) saturate(1.04);
+  transform: translateX(0) scale(1) rotate(0);
+}
+
+.laurem-story__image-shell {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(139, 47, 104, .14);
+  border-radius: 2.5rem;
+  background: rgba(255, 255, 255, .58);
+  box-shadow: 0 34px 90px rgba(139, 47, 104, .17);
+  padding: clamp(.8rem, 2vw, 1.15rem);
+}
+
+.laurem-story__image-shell::before {
+  content: '';
+  position: absolute;
+  inset: -25% auto auto -20%;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 999px;
+  background: rgba(231, 189, 200, .45);
+  filter: blur(18px);
+  animation: rbBreathOrb 7s ease-in-out infinite;
+}
+
+.laurem-story__image {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  max-height: 720px;
+  object-fit: contain;
+  border-radius: 2rem;
+}
+
+.laurem-story__image-note {
+  position: absolute;
+  z-index: 2;
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, .7);
+  border-radius: 1.35rem;
+  background: rgba(255, 255, 255, .74);
+  padding: .95rem 1rem;
+  box-shadow: 0 18px 46px rgba(31, 23, 27, .10);
+  backdrop-filter: blur(14px);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+.laurem-story__grid:hover .laurem-story__image-note {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.laurem-story__image-note span {
+  display: block;
+  color: var(--rb-plum);
+  font-family: var(--rb-font-script);
+  font-size: 1.85rem;
+  line-height: 1;
+}
+
+.laurem-story__image-note strong {
+  display: block;
+  margin-top: .35rem;
+  color: rgba(31, 23, 27, .78);
+  font-size: .92rem;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+@keyframes rbBreathOrb {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: .6; }
+  50% { transform: translate3d(2rem, 1.2rem, 0) scale(1.14); opacity: .95; }
+}
+
+@supports (animation-timeline: view()) {
+  .laurem-story__visual {
+    animation: rbStoryScrollReveal both linear;
+    animation-timeline: view();
+    animation-range: entry 10% cover 42%;
+  }
+}
+
+@keyframes rbStoryScrollReveal {
+  0% { opacity: .08; filter: blur(3px) saturate(.8); transform: translateX(2rem) scale(.93) rotate(2deg); }
+  100% { opacity: 1; filter: blur(0) saturate(1.04); transform: translateX(0) scale(1) rotate(0); }
+}
+
+@media (max-width: 900px) {
+  .laurem-story__grid { grid-template-columns: 1fr; }
+  .laurem-story__visual { opacity: 1; filter: none; transform: none; }
+  .laurem-story__title { max-width: 12ch; }
+}

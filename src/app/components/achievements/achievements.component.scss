@@ -1,0 +1,120 @@
+.rb-authority {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 4vw, 5rem);
+  background:
+    radial-gradient(circle at 8% 85%, rgba(255, 255, 255, .16), transparent 22rem),
+    radial-gradient(circle at 90% 12%, rgba(231, 189, 200, .18), transparent 22rem),
+    linear-gradient(135deg, #922d73 0%, #81265e 100%);
+  color: #fff;
+}
+
+.rb-authority::before {
+  content: '✦';
+  position: absolute;
+  right: 7vw;
+  top: 4rem;
+  color: rgba(255, 255, 255, .10);
+  font-size: clamp(7rem, 14vw, 14rem);
+  line-height: 1;
+  transform: rotate(18deg);
+}
+
+.rb-authority__heading {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+}
+
+.rb-authority__heading .rb-kicker {
+  color: #f3dbe0;
+}
+
+.rb-authority__heading h2 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2.35rem, 5.2vw, 4.8rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -.03em;
+}
+
+.rb-authority__heading p:not(.rb-kicker) {
+  max-width: 760px;
+  margin: 1.15rem 0 0;
+  color: rgba(255, 255, 255, .84);
+  font-size: clamp(1.04rem, 1.4vw, 1.22rem);
+  line-height: 1.8;
+}
+
+.rb-authority__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: clamp(2rem, 4vw, 3.2rem);
+}
+
+.rb-authority__card {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 1rem;
+  align-items: start;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 1.6rem;
+  background: rgba(255, 255, 255, .08);
+  padding: clamp(1rem, 2vw, 1.35rem);
+  box-shadow: 0 20px 45px rgba(31, 23, 27, .13);
+  backdrop-filter: blur(16px);
+  transition: transform .28s ease, background .28s ease, border-color .28s ease;
+}
+
+.rb-authority__card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, .32);
+  background: rgba(255, 255, 255, .13);
+}
+
+.rb-authority__icon {
+  display: grid;
+  place-items: center;
+  width: 3.35rem;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, .26);
+  border-radius: 1.15rem;
+  background: linear-gradient(135deg, rgba(243, 219, 224, .34), rgba(255, 255, 255, .12));
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .28), 0 14px 28px rgba(31, 23, 27, .16);
+}
+
+.rb-authority__icon mat-icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  font-size: 1.8rem;
+}
+
+.rb-authority__card h3 {
+  margin: .08rem 0 .35rem;
+  color: #fff;
+  font-size: clamp(1.18rem, 1.8vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.rb-authority__card p {
+  margin: 0;
+  color: rgba(255, 255, 255, .82);
+  font-size: clamp(.98rem, 1.1vw, 1.05rem);
+  line-height: 1.65;
+}
+
+.rb-authority__card:nth-child(7) {
+  grid-column: 1 / -1;
+  width: min(50%, 100%);
+}
+
+@media (max-width: 840px) {
+  .rb-authority__grid { grid-template-columns: 1fr; }
+  .rb-authority__card:nth-child(7) { width: 100%; }
+}

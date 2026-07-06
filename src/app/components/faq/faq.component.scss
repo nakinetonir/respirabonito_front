@@ -1,0 +1,112 @@
+.rb-faq {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 4vw, 5rem);
+  background:
+    radial-gradient(circle at 5% 18%, rgba(231, 189, 200, .32), transparent 20rem),
+    radial-gradient(circle at 92% 82%, rgba(111, 143, 108, .14), transparent 22rem),
+    #fbfbe1;
+}
+
+.rb-faq__heading {
+  max-width: 780px;
+  margin: 0 auto 2.2rem;
+  text-align: center;
+}
+
+.rb-faq__heading h2 {
+  margin: 0;
+  color: var(--rb-ink);
+  font-size: clamp(2.4rem, 5.6vw, 5rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.035em;
+}
+
+.rb-faq__heading p:not(.rb-kicker) {
+  max-width: 620px;
+  margin: 1rem auto 0;
+  color: rgba(31, 23, 27, .74);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.75;
+}
+
+.rb-faq__accordion {
+  display: block;
+  width: min(980px, 100%);
+  margin: 0 auto;
+  border: 1px solid rgba(139, 47, 104, .12);
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, .56);
+  box-shadow: 0 26px 70px rgba(139, 47, 104, .12);
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+}
+
+.rb-faq__panel {
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--rb-ink);
+}
+
+.rb-faq__panel + .rb-faq__panel {
+  border-top: 1px solid rgba(139, 47, 104, .10);
+}
+
+.rb-faq__panel ::ng-deep .mat-expansion-panel-body {
+  padding: 0 clamp(1rem, 3vw, 2rem) 1.25rem clamp(1rem, 3vw, 2rem);
+}
+
+.rb-faq__panel ::ng-deep .mat-expansion-panel-header {
+  min-height: 4.35rem;
+  padding: 0 clamp(1rem, 3vw, 2rem);
+}
+
+.rb-faq__panel ::ng-deep .mat-expansion-panel-header:hover {
+  background: rgba(243, 219, 224, .34) !important;
+}
+
+.rb-faq__panel ::ng-deep .mat-content {
+  align-items: center;
+}
+
+.rb-faq__panel mat-panel-title {
+  display: flex;
+  align-items: center;
+  gap: .95rem;
+  color: rgba(31, 23, 27, .9);
+  font-family: var(--rb-font-serif);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.35;
+}
+
+.rb-faq__icon {
+  display: grid;
+  place-items: center;
+  width: 2.55rem;
+  min-width: 2.55rem;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: rgba(231, 189, 200, .48);
+  color: var(--rb-plum);
+  box-shadow: 0 12px 26px rgba(139, 47, 104, .10);
+}
+
+.rb-faq__icon mat-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  font-size: 1.35rem;
+}
+
+.rb-faq__answer {
+  margin: 0 0 0 3.55rem;
+  color: rgba(31, 23, 27, .76);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+@media (max-width: 680px) {
+  .rb-faq__answer { margin-left: 0; }
+  .rb-faq__panel mat-panel-title { gap: .65rem; }
+}

@@ -1,10 +1,20 @@
-<section id="faq" class="section bg-rb-cream">
+<section id="faq" class="rb-faq" aria-labelledby="faq-title">
   <div class="shell">
-    <h2 class="title text-center">Preguntas frecuentes</h2>
-    <mat-accordion class="mt-12 block">
-      <mat-expansion-panel *ngFor="let f of faqs">
-        <mat-expansion-panel-header><mat-panel-title>{{f.q}}</mat-panel-title></mat-expansion-panel-header>
-        <p class="leading-7 text-rb-ink/75">{{f.a}}</p>
+    <div class="rb-faq__heading">
+      <p class="rb-kicker">Dudas frecuentes</p>
+      <h2 id="faq-title">Preguntas frecuentes</h2>
+      <p>Respuestas claras para que sepas si este es tu momento y qué puedes esperar de la Escuela.</p>
+    </div>
+
+    <mat-accordion class="rb-faq__accordion" multi>
+      <mat-expansion-panel *ngFor="let f of faqs" class="rb-faq__panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <span class="rb-faq__icon"><mat-icon aria-hidden="true">{{ f.icon }}</mat-icon></span>
+            <span>{{ f.q }}</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p class="rb-faq__answer">{{ f.a }}</p>
       </mat-expansion-panel>
     </mat-accordion>
   </div>

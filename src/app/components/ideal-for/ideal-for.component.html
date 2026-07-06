@@ -1,11 +1,38 @@
-<section id="para-ti" class="section bg-white/70">
-  <div class="shell">
-    <h2 class="title text-center">Esta Escuela es para ti si…</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12">
-      <div class="card" *ngFor="let item of items">
-        <span class="rb-list-icon" aria-hidden="true">❧</span>
-        <p class="mt-3 leading-7">{{item}}</p>
+<section id="para-ti" class="rb-yinyang" aria-labelledby="para-ti-title">
+  <div class="shell rb-yinyang__shell">
+    <div class="rb-yinyang__heading">
+      <p class="rb-kicker">Para ti · Beneficios</p>
+      <h2 id="para-ti-title">Una escuela para cuidarte con raíz y avanzar a tu ritmo</h2>
+      <p>
+        Unimos lo que antes ocupaba dos bloques: cuándo tiene sentido entrar y qué puedes llevarte.
+        Menos scroll, más claridad y una sensación visual de equilibrio entre necesidad y transformación.
+      </p>
+    </div>
+
+    <div class="rb-yinyang__panel" aria-label="Para quién es y qué aporta Respira Bonito">
+      <div class="rb-yinyang__orb" aria-hidden="true">
+        <span>Respira</span>
       </div>
+
+      <article class="rb-yinyang__side rb-yinyang__side--cream">
+        <p class="rb-yinyang__eyebrow">Esta Escuela es para ti si...</p>
+        <div class="rb-yinyang__items">
+          <div class="rb-yinyang__item" *ngFor="let item of idealItems">
+            <span class="rb-yinyang__icon"><mat-icon aria-hidden="true">{{ item.icon }}</mat-icon></span>
+            <p>{{ item.text }}</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="rb-yinyang__side rb-yinyang__side--rose">
+        <p class="rb-yinyang__eyebrow">¿Qué te aportará?</p>
+        <div class="rb-yinyang__items">
+          <div class="rb-yinyang__item" *ngFor="let item of benefitItems">
+            <span class="rb-yinyang__icon"><mat-icon aria-hidden="true">{{ item.icon }}</mat-icon></span>
+            <p>{{ item.text }}</p>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>

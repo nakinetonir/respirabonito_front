@@ -1,11 +1,32 @@
-<section id="disciplinas" class="section bg-rb-cream">
-  <div class="shell">
-    <h2 class="title text-center">Un viaje por cuerpo, mente y alma</h2>
-    <p class="mx-auto mt-5 max-w-3xl text-center text-lg leading-8 text-rb-ink/70">Exploraremos chakras, movimiento consciente, naturaleza, rituales, arte, alimentación de temporada y encuentros con colaboradoras expertas.</p>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 mt-12">
-      <div class="text-center" *ngFor="let icon of icons">
-        <img [src]="icon.src" [alt]="icon.title" class="mx-auto w-full max-w-[210px] rounded-full drop-shadow-md">
-      </div>
+<section id="disciplinas" class="rb-disciplines" aria-labelledby="disciplinas-title">
+  <div class="rb-nature-side rb-nature-side--left" aria-hidden="true">
+    <span class="tree tree--one"></span>
+    <span class="tree tree--two"></span>
+    <span class="walker walker--one"><i></i></span>
+  </div>
+  <div class="rb-nature-side rb-nature-side--right" aria-hidden="true">
+    <span class="tree tree--three"></span>
+    <span class="tree tree--four"></span>
+    <span class="walker walker--two"><i></i></span>
+  </div>
+
+  <div class="shell rb-disciplines__shell">
+    <p class="rb-kicker">Un viaje por cuerpo, mente y alma</p>
+    <h2 id="disciplinas-title">Prácticas que se mueven contigo</h2>
+    <p class="rb-disciplines__intro">
+      Yoga, voz, pilates, meditación, masaje, expresión corporal, hábitos y nutrición se presentan como círculos vivos:
+      suaves en reposo, expresivos al pasar el ratón y pensados para aportar movimiento sin cargar la página.
+    </p>
+
+    <div class="rb-disciplines__grid">
+      <article class="rb-discipline" *ngFor="let icon of icons; let i = index" [attr.style]='"--i:" + i'>
+        <span class="rb-discipline__halo" aria-hidden="true"></span>
+        <img [src]="icon.src" [alt]="icon.title" class="rb-discipline__image" loading="lazy" decoding="async">
+        <div class="rb-discipline__label">
+          <span>{{ icon.title }}</span>
+          <small>{{ icon.micro }}</small>
+        </div>
+      </article>
     </div>
   </div>
 </section>

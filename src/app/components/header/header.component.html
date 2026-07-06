@@ -1,12 +1,33 @@
-<header class="fixed top-0 z-50 w-full border-b border-rb-rose/50 bg-rb-cream/90 backdrop-blur">
-  <nav class="shell flex items-center justify-between gap-4 py-3">
-    <a href="#inicio" class="brand-font text-3xl md:text-4xl text-rb-ink">RespiraBonito</a>
+<header class="rb-header fixed top-0 z-50 w-full border-b border-rb-rose/50 bg-rb-cream/90 backdrop-blur">
+  <nav class="shell flex items-center justify-between gap-4 py-3" aria-label="Navegación principal">
+    <a href="#inicio" class="brand-font text-3xl md:text-4xl text-rb-ink" aria-label="Ir al inicio de Respira Bonito">RespiraBonito</a>
     <div class="hidden md:flex gap-6 text-sm text-rb-ink/75">
       <a href="#metodo">Método</a>
-      <a href="#beneficios">Beneficios</a>
+      <a href="#dinamicas-viaje">Qué incluye</a>
+      <a href="#disciplinas">Disciplinas</a>
       <a href="#para-ti">Para quién</a>
+      <a href="#historia">Laurem</a>
       <a href="#faq">FAQ</a>
     </div>
-    <a mat-flat-button href="https://forms.gle/KxsRE9NDdr3mrPTx6" target="_blank" class="!rounded-full !bg-rb-plum !text-white">Inscribirme</a>
+    <a
+      mat-flat-button
+      href="https://forms.gle/KxsRE9NDdr3mrPTx6"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="rb-mat-button rb-mat-button--primary rb-header__cta"
+      aria-label="Abrir formulario externo para solicitar información sobre Respira Bonito"
+    >
+      Quiero información
+    </a>
   </nav>
 </header>
+<div class="rb-mobile-cta" role="region" aria-label="Contacto rápido">
+  <a
+    href="https://forms.gle/KxsRE9NDdr3mrPTx6"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Abrir formulario externo para solicitar información sobre Respira Bonito"
+  >
+    Quiero información
+  </a>
+</div>

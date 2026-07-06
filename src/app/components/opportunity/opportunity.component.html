@@ -1,13 +1,24 @@
-<section id="formulario" class="section bg-white/70">
+<section id="formulario" class="section bg-white/70" aria-labelledby="formulario-title">
   <div class="shell grid lg:grid-cols-2 gap-10 items-center">
     <div>
-      <p class="script text-4xl text-rb-plum">Madrid · Online</p>
-      <h2 class="title mt-2">Método de salud integral con más de 10 años de experiencia</h2>
-      <p class="mt-6 text-lg leading-8 text-rb-ink/75">Clases y talleres, acompañamiento individual, adultos y niños. Contenidos semanales, sin publicidad y con flexibilidad para avanzar a tu ritmo.</p>
-      <a mat-flat-button href="https://forms.gle/KxsRE9NDdr3mrPTx6" target="_blank" class="!rounded-full !bg-rb-plum !text-white mt-8">Quiero inscribirme</a>
+      <p class="rb-kicker">Madrid · Online</p>
+      <h2 id="formulario-title" class="title mt-2">Un espacio flexible para cuidar tu bienestar semanal</h2>
+      <p class="mt-6 text-lg leading-8 text-rb-ink/80">
+        Clases, talleres, acompañamiento y contenidos semanales para avanzar a tu ritmo, sin exigencia y con una mirada integral.
+      </p>
+      <a
+        mat-flat-button
+        href="https://forms.gle/KxsRE9NDdr3mrPTx6"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="rb-mat-button rb-mat-button--primary mt-8"
+        aria-label="Abrir formulario externo para solicitar información sobre Respira Bonito"
+      >
+        Quiero información
+      </a>
     </div>
     <div class="card text-center">
-      <img src="/assets/flor-y-lago-lineas-animado.svg" alt="Flor y lago RespiraBonito" class="mx-auto mb-6 max-h-64 w-full object-contain">
+      <img src="/assets/flor-y-lago-lineas-animado.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" class="mx-auto mb-6 max-h-64 w-full object-contain">
       <p class="brand-font text-6xl text-rb-ink">Laurem</p>
       <p class="mt-4 text-rb-ink/70">www.respirabonito.org</p>
     </div>

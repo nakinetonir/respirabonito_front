@@ -20,7 +20,7 @@ export class AchievementsComponent {
     {
       icon: 'workspace_premium',
       title: 'Formaciones con mirada integral',
-      text: 'Realización de formaciones con mirada integral como el Master de IPP o el curso de Liderazgo y Direcc ión de organizaciones de la Comunidad de Madrid.'
+      text: 'Realización de formaciones con mirada integral como el Master de IPP o el curso de Liderazgo y Dirección de organizaciones de la Comunidad de Madrid.'
     },
     {
       icon: 'child_care',

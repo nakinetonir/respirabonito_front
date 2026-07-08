@@ -1,23 +1,25 @@
 <section id="proceso" class="section bg-rb-cream" aria-labelledby="proceso-title">
   <div class="shell">
-    <h2 id="proceso-title" class="title text-center">Cómo solicitar información</h2>
-    <div class="grid md:grid-cols-3 gap-6 mt-12">
-      <mat-card class="!rounded-[2rem] !p-8 text-center" *ngFor="let p of steps; index as i">
-        <div class="mx-auto mb-5 grid h-16 w-16 place-items-center rounded-full bg-rb-rose text-2xl font-bold text-rb-plum">{{i+1}}</div>
-        <h3 class="script text-4xl text-rb-plum">{{p.title}}</h3>
-        <p class="mt-3 leading-7 text-rb-ink/80">{{p.text}}</p>
-      </mat-card>
-    </div>
-    <div class="text-center mt-10">
+    <h2 id="proceso-title" class="title text-center">Proceso</h2>
+    <div class="mx-auto mt-12 max-w-4xl rounded-[2rem] bg-white/80 p-8 text-center shadow-sm">
       <a
         class="rb-btn"
         href="https://forms.gle/KxsRE9NDdr3mrPTx6"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Abrir formulario externo para solicitar información sobre Respira Bonito"
+        aria-label="Abrir formulario externo para inscribirse en la Escuela RespiraBonito"
       >
-        Abrir formulario
+        Quiero inscribirme en la Escuela
       </a>
+      <p class="mt-8 text-lg leading-8 text-rb-ink/80">
+        Solo tienes que enviar tus nombre y dirección de correo electrónico en el formulario que se despliega al darle al botón de Quiero Inscribirme.
+      </p>
+      <p class="mt-4 text-lg leading-8 text-rb-ink/80">
+        En los días posteriores, nos pondremos en contacto contigo a través del contacto que hayas facilitado, para conocernos mejor y ver si es tu momento para comenzar esta aventura. Las plazas son limitadas.
+      </p>
+      <p class="mt-6 text-rb-plum">
+        Formulario: <a href="https://forms.gle/KxsRE9NDdr3mrPTx6" target="_blank" rel="noopener noreferrer">https://forms.gle/KxsRE9NDdr3mrPTx6</a>
+      </p>
     </div>
   </div>
 </section>

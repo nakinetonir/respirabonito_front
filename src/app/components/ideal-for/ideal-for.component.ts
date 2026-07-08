@@ -11,17 +11,18 @@ import { MatIconModule } from '@angular/material/icon';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class IdealForComponent {
-  readonly idealItems = [
-    { icon: 'pause_circle', text: 'Sientes que la vida va demasiado deprisa y necesitas parar sin desconectarte de todo.' },
-    { icon: 'self_improvement', text: 'Quieres aprender a relajarte, respirar mejor y retomar el contacto con tu cuerpo.' },
-    { icon: 'diversity_3', text: 'Buscas práctica, conocimiento y comunidad en un espacio consciente y amoroso.' },
-    { icon: 'eco', text: 'Notas que algo dentro de ti necesita soltar, simplificar y fluir con más naturalidad.' }
+  readonly idealItemsLeft = [
+    { icon: 'pause_circle', text: 'Sientes que la vida va demasiado rápida y necesitas parar' },
+    { icon: 'sentiment_dissatisfied', text: 'Estás desencantada a pesar de tenerlo todo' },
+    { icon: 'self_improvement', text: 'Quieres aprender a relajarte y retomar el contacto con tu cuerpo' },
+    { icon: 'explore', text: 'Llevas un tiempo en el camino del crecimiento personal, pero echas en falta enfoque y claridad' },
+    { icon: 'spa', text: 'Buscas la unión de práctica y conocimientos sobre Salud y Bienestar Integral en un solo espacio' }
   ];
 
-  readonly benefitItems = [
-    { icon: 'event_available', text: 'Asentar una rutina de bienestar semanal que puedas sostener en la vida real.' },
-    { icon: 'spa', text: 'Aprender herramientas de relajación mental, corporal y emocional.' },
-    { icon: 'favorite', text: 'Fortalecer cuerpo, mente y confianza con prácticas progresivas.' },
-    { icon: 'local_florist', text: 'Descubrir belleza en lo sencillo: cuerpo, naturaleza, arte, rituales y presencia.' }
+  readonly idealItemsRight = [
+    { icon: 'public', text: 'Te sientes sola y poco identificada con su entorno (laboral, familiar, amistades…); a veces te sientes de otro planeta' },
+    { icon: 'eco', text: 'Algo dentro de ti sabe que necesitas soltar y fluir más' },
+    { icon: 'forum', text: 'Quieres relacionarte más asertivamente con los demás' },
+    { icon: 'favorite', text: 'Conoces la importancia de desarrollarte acompañada, en un entorno consciente y amoroso' }
   ];
 }

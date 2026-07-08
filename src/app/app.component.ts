@@ -7,13 +7,11 @@ import { MethodComponent } from './components/method/method.component';
 import { IdealForComponent } from './components/ideal-for/ideal-for.component';
 import { AchievementsComponent } from './components/achievements/achievements.component';
 import { RoadmapComponent } from './components/roadmap/roadmap.component';
-import { DeliverablesComponent } from './components/deliverables/deliverables.component';
-import { WellnessBreakComponent } from './components/wellness-break/wellness-break.component';
 import { ProcessComponent } from './components/process/process.component';
-import { OpportunityComponent } from './components/opportunity/opportunity.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { FinalCtaComponent } from './components/final-cta/final-cta.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 
 @Component({
   selector: 'app-root',
@@ -22,15 +20,13 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderComponent,
     HeroComponent,
     PainPointsComponent,
-    MethodComponent,
-    WellnessBreakComponent,
-    RoadmapComponent,
-    DeliverablesComponent,
-    IdealForComponent,
     PurposeComponent,
+    TestimonialsComponent,
+    MethodComponent,
+    RoadmapComponent,
+    IdealForComponent,
     AchievementsComponent,
     ProcessComponent,
-    OpportunityComponent,
     FaqComponent,
     FinalCtaComponent,
     FooterComponent

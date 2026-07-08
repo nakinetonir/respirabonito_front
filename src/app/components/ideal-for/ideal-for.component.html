@@ -1,23 +1,19 @@
 <section id="para-ti" class="rb-yinyang" aria-labelledby="para-ti-title">
   <div class="shell rb-yinyang__shell">
     <div class="rb-yinyang__heading">
-      <p class="rb-kicker">Para ti · Beneficios</p>
-      <h2 id="para-ti-title">Una escuela para cuidarte con raíz y avanzar a tu ritmo</h2>
-      <p>
-        Unimos lo que antes ocupaba dos bloques: cuándo tiene sentido entrar y qué puedes llevarte.
-        Menos scroll, más claridad y una sensación visual de equilibrio entre necesidad y transformación.
-      </p>
+      <p class="rb-kicker">Para quién</p>
+      <h2 id="para-ti-title">Esta Escuela es para ti si…:</h2>
     </div>
 
-    <div class="rb-yinyang__panel" aria-label="Para quién es y qué aporta Respira Bonito">
+    <div class="rb-yinyang__panel" aria-label="Para quién es Respira Bonito">
       <div class="rb-yinyang__orb" aria-hidden="true">
         <span>Respira</span>
       </div>
 
       <article class="rb-yinyang__side rb-yinyang__side--cream">
-        <p class="rb-yinyang__eyebrow">Esta Escuela es para ti si...</p>
+        <p class="rb-yinyang__eyebrow">Necesitas parar</p>
         <div class="rb-yinyang__items">
-          <div class="rb-yinyang__item" *ngFor="let item of idealItems">
+          <div class="rb-yinyang__item" *ngFor="let item of idealItemsLeft">
             <span class="rb-yinyang__icon"><mat-icon aria-hidden="true">{{ item.icon }}</mat-icon></span>
             <p>{{ item.text }}</p>
           </div>
@@ -25,9 +21,9 @@
       </article>
 
       <article class="rb-yinyang__side rb-yinyang__side--rose">
-        <p class="rb-yinyang__eyebrow">¿Qué te aportará?</p>
+        <p class="rb-yinyang__eyebrow">Quieres crecer acompañada</p>
         <div class="rb-yinyang__items">
-          <div class="rb-yinyang__item" *ngFor="let item of benefitItems">
+          <div class="rb-yinyang__item" *ngFor="let item of idealItemsRight">
             <span class="rb-yinyang__icon"><mat-icon aria-hidden="true">{{ item.icon }}</mat-icon></span>
             <p>{{ item.text }}</p>
           </div>

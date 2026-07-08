@@ -14,7 +14,7 @@ export class AchievementsComponent {
   readonly achievements = [
     {
       icon: 'self_improvement',
-      title: 'Enseñanza del Yoga y el Pilates',
+      title: 'Yoga, Pilates y acompañamiento personal',
       text: 'Enseñanza del Yoga y el Pilates, y acompañamiento personal desde un enfoque sano, cercano y divertido. Reconocimiento por Yoga Alliance y la Clínica Mayuben.'
     },
     {
@@ -25,12 +25,12 @@ export class AchievementsComponent {
     {
       icon: 'child_care',
       title: 'Métodos respetuosos y alternativos',
-      text: 'Experiencia como acompañante y educadora en métodos respetuosos y alternativos con niños entre los 3 y los 15 años:'
+      text: 'Experiencia como acompañante y educadora en métodos respetuosos y alternativos con niños entre los 3 y los 15 años.'
     },
     {
       icon: 'local_florist',
       title: 'Método Integral RespiraBonito',
-      text: 'Creadora del Método Integral propio de enseñanza RespiraBonito'
+      text: 'Creadora del Método Integral propio de enseñanza RespiraBonito.'
     },
     {
       icon: 'volunteer_activism',

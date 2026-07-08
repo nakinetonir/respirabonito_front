@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class PainPointsComponent {
   readonly points = [
-    '¿Sientes que la semana pasa rápido y enlazas tareas y actividades casi sin darte cuenta?,',
+    '¿Sientes que la semana pasa rápido y enlazas tareas y actividades casi sin darte cuenta?',
     '¿Percibes vínculos con las personas de tu entorno, pero echas en falta profundidad?',
     '¿Sientes que tu cuerpo y tu mente van por distintos caminos?',
     '¿Tienes molestias o incomodidad en el cuerpo que te gustaría atender y cuidar?'

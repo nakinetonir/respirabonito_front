@@ -1,19 +1,22 @@
 <section id="para-ti" class="rb-yinyang" aria-labelledby="para-ti-title">
   <div class="shell rb-yinyang__shell">
     <div class="rb-yinyang__heading">
-      <p class="rb-kicker">Para quién</p>
-      <h2 id="para-ti-title">Esta Escuela es para ti si…:</h2>
+      <p class="rb-kicker">Para quién · Beneficios</p>
+      <h2 id="para-ti-title">Esta Escuela es para ti si quieres cuidar tu bienestar integral en un solo espacio</h2>
+      <p>
+        Reunimos en este bloque los beneficios de inscribirte en la Escuela RespiraBonito y las señales que indican que este espacio puede acompañarte en tu momento actual.
+      </p>
     </div>
 
-    <div class="rb-yinyang__panel" aria-label="Para quién es Respira Bonito">
+    <div class="rb-yinyang__panel" aria-label="Para quién es y qué aporta Respira Bonito">
       <div class="rb-yinyang__orb" aria-hidden="true">
         <span>Respira</span>
       </div>
 
       <article class="rb-yinyang__side rb-yinyang__side--cream">
-        <p class="rb-yinyang__eyebrow">Necesitas parar</p>
+        <p class="rb-yinyang__eyebrow">Esta Escuela es para ti si...</p>
         <div class="rb-yinyang__items">
-          <div class="rb-yinyang__item" *ngFor="let item of idealItemsLeft">
+          <div class="rb-yinyang__item" *ngFor="let item of idealItems">
             <span class="rb-yinyang__icon"><mat-icon aria-hidden="true">{{ item.icon }}</mat-icon></span>
             <p>{{ item.text }}</p>
           </div>
@@ -21,9 +24,9 @@
       </article>
 
       <article class="rb-yinyang__side rb-yinyang__side--rose">
-        <p class="rb-yinyang__eyebrow">Quieres crecer acompañada</p>
+        <p class="rb-yinyang__eyebrow">¿Qué te aportará inscribirte en la Escuela RespiraBonito?</p>
         <div class="rb-yinyang__items">
-          <div class="rb-yinyang__item" *ngFor="let item of idealItemsRight">
+          <div class="rb-yinyang__item" *ngFor="let item of benefitItems">
             <span class="rb-yinyang__icon"><mat-icon aria-hidden="true">{{ item.icon }}</mat-icon></span>
             <p>{{ item.text }}</p>
           </div>

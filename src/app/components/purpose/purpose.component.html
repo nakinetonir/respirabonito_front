@@ -2,7 +2,7 @@
   <div class="shell laurem-story__grid">
     <article class="laurem-story__copy" tabindex="0">
       <p class="rb-kicker">Historia</p>
-      <h2 id="historia-title" class="laurem-story__title">De la actividad constante a una salud más enraizada</h2>
+      <h2 id="historia-title" class="laurem-story__title rb-section-title">De la actividad constante a una salud más enraizada</h2>
       <p class="laurem-story__lead">
         Comencé en 2014 en el sector financiero internacional, trabajando años más tarde en pymes, disfrutando de experiencias en el extranjero y varios idiomas en el currículum. Tuve la oportunidad de conocer diferentes formas de trabajo. Paralelamente formaba parte de agrupaciones musicales en las que cantaba y tocaba la guitarra, y me formé en distintas disciplinas en torno al Yoga, el Pilates, la expresión corporal y la meditación.
       </p>
@@ -32,16 +32,29 @@
       </ul>
     </article>
 
-    <aside class="laurem-story__visual" aria-label="Imagen de bienestar integral de Respira Bonito">
-      <div class="laurem-story__image-shell">
-        <img
-          ngSrc="assets/flyers/bienestar-integral.webp"
-          width="768"
-          height="1024"
-          sizes="(max-width: 768px) 86vw, 38vw"
-          alt="Mapa visual de bienestar integral de Respira Bonito con yoga, pilates, meditación, voz, hábitos y nutrición"
-          class="laurem-story__image"
-        >
+    <aside class="laurem-story__authority" aria-labelledby="experiencia-title">
+      <div class="laurem-story__authority-visual" aria-hidden="true">
+        <span class="laurem-story__authority-glow laurem-story__authority-glow--one"></span>
+        <span class="laurem-story__authority-glow laurem-story__authority-glow--two"></span>
+        <span class="laurem-story__authority-ring"></span>
+      </div>
+
+      <div class="laurem-story__authority-head">
+        <p class="rb-kicker">Autoridad</p>
+        <h3 id="experiencia-title" class="rb-section-title">Durante 6 años he trabajado como profesora de Yoga, Pilates, Meditación, educación alternativa y otras disciplinas holísticas</h3>
+        <p>
+          Estos son algunos de los éxitos y reconocimientos que sostienen la propuesta de la Escuela RespiraBonito.
+        </p>
+      </div>
+
+      <div class="laurem-story__authority-grid">
+        <article class="laurem-story__authority-card" *ngFor="let a of achievements">
+          <span class="laurem-story__authority-icon"><mat-icon aria-hidden="true">{{ a.icon }}</mat-icon></span>
+          <div>
+            <h4>{{ a.title }}</h4>
+            <p>{{ a.text }}</p>
+          </div>
+        </article>
       </div>
     </aside>
   </div>

@@ -1,18 +1,19 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-roadmap',
   standalone: true,
   encapsulation: ViewEncapsulation.None,
-  imports: [NgFor, MatTabsModule, MatIconModule],
+  imports: [NgFor, MatIconModule],
   templateUrl: './roadmap.component.html',
   styleUrl: './journey-dynamics.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RoadmapComponent {
+  selectedIndex = 0;
+
   readonly cuerpoItems = [
     { icon: 'self_improvement', title: 'Ejercicios corporales', description: 'Ejercicios de Yoga, Pilates, QiGong (Chikung) y otras técnicas corporales para sentir y tonificar esa parte del cuerpo y despertar esos chakras en una misma.' },
     { icon: 'restaurant', title: 'Alimentación adecuada', description: 'Alimentación adecuada a cada estación.' },
@@ -31,4 +32,8 @@ export class RoadmapComponent {
     { icon: 'palette', title: 'Planes artísticos', description: 'Propuestas de planes artísticos: cocina, dibujo, manualidad.' },
     { icon: 'handshake', title: 'Sesiones con colaboradoras', description: 'Sesiones con colaboradoras expertas.' }
   ];
+
+  selectTab(index: number): void {
+    this.selectedIndex = index;
+  }
 }

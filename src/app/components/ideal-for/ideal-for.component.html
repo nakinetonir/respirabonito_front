@@ -1,35 +1,75 @@
 <section id="para-ti" class="rb-yinyang" aria-labelledby="para-ti-title">
+  <div class="rb-yinyang__nature rb-yinyang__nature--left" aria-hidden="true">
+    <span class="rb-yinyang__tree rb-yinyang__tree--one"></span>
+    <span class="rb-yinyang__tree rb-yinyang__tree--two"></span>
+    <span class="rb-yinyang__walker rb-yinyang__walker--one"><i></i></span>
+    <span class="rb-yinyang__walker rb-yinyang__walker--two"><i></i></span>
+  </div>
+  <div class="rb-yinyang__nature rb-yinyang__nature--right" aria-hidden="true">
+    <span class="rb-yinyang__tree rb-yinyang__tree--three"></span>
+    <span class="rb-yinyang__tree rb-yinyang__tree--four"></span>
+    <span class="rb-yinyang__walker rb-yinyang__walker--three"><i></i></span>
+    <span class="rb-yinyang__walker rb-yinyang__walker--four"><i></i></span>
+  </div>
+
   <div class="shell rb-yinyang__shell">
     <div class="rb-yinyang__heading">
       <p class="rb-kicker">Para quién · Beneficios</p>
-      <h2 id="para-ti-title">Esta Escuela es para ti si quieres cuidar tu bienestar integral en un solo espacio</h2>
+      <h2 id="para-ti-title" class="rb-section-title">Esta Escuela es para ti si quieres cuidar tu bienestar integral en un solo espacio</h2>
       <p>
         Reunimos en este bloque los beneficios de inscribirte en la Escuela RespiraBonito y las señales que indican que este espacio puede acompañarte en tu momento actual.
       </p>
     </div>
 
     <div class="rb-yinyang__panel" aria-label="Para quién es y qué aporta Respira Bonito">
-      <div class="rb-yinyang__orb" aria-hidden="true">
-        <span>Respira</span>
+      <div class="rb-yinyang__bubbles" aria-hidden="true">
+        <span class="rb-yinyang__bubble rb-yinyang__bubble--one">Respita</span>
+        <span class="rb-yinyang__bubble rb-yinyang__bubble--two">Respita</span>
+        <span class="rb-yinyang__bubble rb-yinyang__bubble--three">Respita</span>
+        <span class="rb-yinyang__bubble rb-yinyang__bubble--four">Respita</span>
       </div>
 
-      <article class="rb-yinyang__side rb-yinyang__side--cream">
-        <p class="rb-yinyang__eyebrow">Esta Escuela es para ti si...</p>
-        <div class="rb-yinyang__items">
-          <div class="rb-yinyang__item" *ngFor="let item of idealItems">
-            <span class="rb-yinyang__icon"><mat-icon aria-hidden="true">{{ item.icon }}</mat-icon></span>
-            <p>{{ item.text }}</p>
+      <article class="rb-yinyang__side rb-yinyang__side--moon">
+        <div class="rb-yinyang__side-head rb-yinyang__side-head--moon">
+          <span class="rb-yinyang__side-emblem rb-yinyang__side-emblem--moon" aria-hidden="true"></span>
+          <div>
+            <p class="rb-yinyang__eyebrow">Esta Escuela es para ti si...</p>
+            <h3>Un recorrido más introspectivo, pausado y enraizado</h3>
           </div>
+        </div>
+
+        <div class="rb-yinyang__groups">
+          <section class="rb-yinyang__group" *ngFor="let group of idealGroups">
+            <h4 class="rb-yinyang__group-title">{{ group.title }}</h4>
+            <div class="rb-yinyang__items rb-yinyang__items--uniform">
+              <div class="rb-yinyang__item" *ngFor="let item of group.items">
+                <span class="rb-yinyang__icon"><mat-icon aria-hidden="true">{{ item.icon }}</mat-icon></span>
+                <p>{{ item.text }}</p>
+              </div>
+            </div>
+          </section>
         </div>
       </article>
 
-      <article class="rb-yinyang__side rb-yinyang__side--rose">
-        <p class="rb-yinyang__eyebrow">¿Qué te aportará inscribirte en la Escuela RespiraBonito?</p>
-        <div class="rb-yinyang__items">
-          <div class="rb-yinyang__item" *ngFor="let item of benefitItems">
-            <span class="rb-yinyang__icon"><mat-icon aria-hidden="true">{{ item.icon }}</mat-icon></span>
-            <p>{{ item.text }}</p>
+      <article class="rb-yinyang__side rb-yinyang__side--sun">
+        <div class="rb-yinyang__side-head rb-yinyang__side-head--sun">
+          <span class="rb-yinyang__side-emblem rb-yinyang__side-emblem--sun" aria-hidden="true"></span>
+          <div>
+            <p class="rb-yinyang__eyebrow">¿Qué te aportará inscribirte en la Escuela RespiraBonito?</p>
+            <h3>Un recorrido más luminoso, expansivo y nutritivo</h3>
           </div>
+        </div>
+
+        <div class="rb-yinyang__groups rb-yinyang__groups--benefits">
+          <section class="rb-yinyang__group rb-yinyang__group--benefit" *ngFor="let group of benefitGroups">
+            <h4 class="rb-yinyang__group-title rb-yinyang__group-title--benefit">{{ group.title }}</h4>
+            <div class="rb-yinyang__items rb-yinyang__items--uniform rb-yinyang__items--right">
+              <div class="rb-yinyang__item rb-yinyang__item--right" *ngFor="let item of group.items">
+                <span class="rb-yinyang__icon"><mat-icon aria-hidden="true">{{ item.icon }}</mat-icon></span>
+                <p>{{ item.text }}</p>
+              </div>
+            </div>
+          </section>
         </div>
       </article>
     </div>

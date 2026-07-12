@@ -1,16 +1,32 @@
-<section id="metodo" class="section bg-white/70" aria-labelledby="metodo-title">
-  <div class="shell">
-    <div class="max-w-3xl">
+<section #methodSection id="metodo" class="section rb-method bg-white/70" aria-labelledby="metodo-title">
+  <span class="rb-method__aura rb-method__aura--one" aria-hidden="true"></span>
+  <span class="rb-method__aura rb-method__aura--two" aria-hidden="true"></span>
+
+  <div class="shell rb-method__shell">
+    <div class="max-w-3xl rb-method__intro">
       <p class="rb-kicker">Método RespiraBonito</p>
-      <h2 id="metodo-title" class="title mt-2">Un proceso online ordenado, lleno de prácticas y herramientas inspiradoras</h2>
+      <h2 id="metodo-title" class="title mt-2 rb-section-title">Un proceso online ordenado, lleno de prácticas y herramientas inspiradoras</h2>
       <p class="mt-6 text-lg leading-8 text-rb-ink/80">
         El método RespiraBonito es un proceso online ordenado, lleno de prácticas y herramientas inspiradoras, tras 10 años de experiencia y aprendizajes en el ámbito de la Salud, la meditación, el Yoga y el movimiento consciente. La Membresía en la Escuela consta de un contenido central, en el que avanzarás de manera progresiva, a tu ritmo, y Contenidos Dinámicos, entre los cuales podrás elegir entre varias opciones el tema que más te interese.
       </p>
+      <div class="rb-method__progress" aria-hidden="true">
+        <span class="rb-method__progress-bar" [style.width.%]="progress * 100"></span>
+        <span class="rb-method__progress-glow" [style.left.%]="progress * 100"></span>
+      </div>
     </div>
-    <div class="grid md:grid-cols-3 gap-6 mt-12">
-      <mat-card class="!rounded-[2rem] !p-8 watercolor-card" *ngFor="let p of pillars">
+
+    <div class="rb-method__grid grid md:grid-cols-3 gap-6 mt-12">
+      <mat-card
+        class="rb-method__card !rounded-[2rem] !p-8 watercolor-card"
+        *ngFor="let p of pillars"
+        [attr.data-tone]="p.tone"
+      >
+        <span class="rb-method__number" aria-hidden="true">{{ p.number }}</span>
+        <span class="rb-method__icon" aria-hidden="true"><mat-icon>{{ p.icon }}</mat-icon></span>
+        <span class="rb-method__watermark" aria-hidden="true"><mat-icon>{{ p.icon }}</mat-icon></span>
         <h3 class="script text-4xl text-rb-plum">{{p.title}}</h3>
         <p class="mt-4 leading-7 text-rb-ink/80">{{p.text}}</p>
+        <span class="rb-method__underline" aria-hidden="true"></span>
       </mat-card>
     </div>
   </div>

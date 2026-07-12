@@ -110,3 +110,49 @@
   .rb-faq__answer { margin-left: 0; }
   .rb-faq__panel mat-panel-title { gap: .65rem; }
 }
+
+/* Estado abierto más claro y transición más cuidada */
+.rb-faq__panel {
+  transition: background .26s ease, box-shadow .26s ease;
+}
+
+.rb-faq__panel.mat-expanded {
+  background: rgba(255,255,255,.72) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.7) !important;
+}
+
+.rb-faq__panel.mat-expanded .rb-faq__icon {
+  background: var(--rb-plum);
+  color: #fff;
+  transform: rotate(6deg) scale(1.04);
+}
+
+.rb-faq__icon {
+  transition: transform .28s ease, background .28s ease, color .28s ease;
+}
+
+.rb-faq__panel ::ng-deep .mat-expansion-indicator {
+  border-radius: 999px;
+  padding: .25rem;
+  transition: background .25s ease;
+}
+
+.rb-faq__panel ::ng-deep .mat-expansion-panel-header:hover .mat-expansion-indicator {
+  background: rgba(139,47,104,.08);
+}
+
+.rb-faq__answer {
+  padding-right: clamp(0rem, 3vw, 2rem);
+}
+
+@media (max-width: 680px) {
+  .rb-faq__accordion { border-radius: 1.35rem; }
+  .rb-faq__panel ::ng-deep .mat-expansion-panel-header {
+    min-height: 4.6rem;
+    padding-inline: .8rem;
+  }
+  .rb-faq__icon {
+    width: 2.25rem;
+    min-width: 2.25rem;
+  }
+}

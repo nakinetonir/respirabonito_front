@@ -66,3 +66,28 @@
   .rb-wellness-break__card { grid-template-columns: 1fr; }
   .rb-wellness-break__copy h2 { max-width: 100%; }
 }
+
+.rb-wellness-break__card {
+  transition: transform .4s ease, box-shadow .4s ease, border-color .4s ease;
+}
+
+.rb-wellness-break__card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(139,47,104,.22);
+  box-shadow: 0 38px 96px rgba(139,47,104,.17);
+}
+
+.rb-wellness-break__image {
+  animation: rbWellnessFloat 7s ease-in-out infinite;
+}
+
+@keyframes rbWellnessFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+@media (max-width: 820px) {
+  .rb-wellness-break__card { text-align: center; }
+  .rb-wellness-break__copy p:not(.rb-kicker) { margin-inline: auto; }
+  .rb-wellness-break__image { min-height: 200px; }
+}

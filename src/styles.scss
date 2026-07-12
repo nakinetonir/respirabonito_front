@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 @import 'material-icons/iconfont/material-icons.css';
 @import '@angular/material/prebuilt-themes/rose-red.css';
 @tailwind base;
@@ -21,6 +22,8 @@
   --rb-radius-lg: 2rem;
   --rb-font-serif: Georgia, 'Times New Roman', serif;
   --rb-font-script: 'Brush Script MT', 'Segoe Script', cursive;
+  --rb-font-reference: 'Segoe Script', 'Snell Roundhand', 'Apple Chancery', 'Brush Script MT', 'Lucida Handwriting', cursive;
+  --rb-font-section-title: 'Italianno', 'Brush Script MT', 'Segoe Script', cursive;
   --rb-container: 72rem;
   --rb-section-y: clamp(4rem, 8vw, 7rem);
 }
@@ -81,6 +84,12 @@ a:hover {
 .brand-font { font-family: var(--rb-font-script); }
 .script { font-family: var(--rb-font-script); }
 .title { @apply text-4xl md:text-6xl leading-tight text-rb-ink; font-weight: 500; letter-spacing: -.025em; }
+
+.rb-section-title {
+  font-family: var(--rb-font-reference) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+}
 .subtitle { @apply text-xl md:text-2xl text-rb-ink/80; }
 .card { @apply rounded-[2rem] bg-white/70 shadow-xl shadow-rb-plum/10 backdrop-blur p-6 border border-white/60; }
 .watercolor-card { background: linear-gradient(135deg, rgba(239,211,218,.95), rgba(247,228,233,.8)); }
@@ -248,4 +257,510 @@ a:hover {
     scroll-behavior: auto !important;
     transition-duration: .01ms !important;
   }
+}
+
+/* --------------------------------------------------------------------------
+   RespiraBonito · capa visual unificada
+   Solo presentación/interacción: no altera el contenido textual.
+   -------------------------------------------------------------------------- */
+
+:root {
+  --rb-green-soft: #dfe9dc;
+  --rb-rose-mist: #f8eaed;
+  --rb-warm-white: #fffdf7;
+  --rb-shadow-hover: 0 32px 82px rgba(139, 47, 104, .16);
+  --rb-ease-out: cubic-bezier(.2, .7, .2, 1);
+}
+
+body {
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at 10% 8%, rgba(231,189,200,.18), transparent 28rem),
+    linear-gradient(180deg, var(--rb-cream), var(--rb-warm-white));
+}
+
+::selection {
+  background: rgba(139, 47, 104, .20);
+  color: var(--rb-ink);
+}
+
+main > * {
+  display: block;
+  position: relative;
+}
+
+main > * > section {
+  scroll-margin-top: 6rem;
+}
+
+main > * > section:not(#inicio)::before {
+  pointer-events: none;
+}
+
+.title,
+h1,
+h2 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+.card {
+  transition:
+    transform .3s var(--rb-ease-out),
+    box-shadow .3s var(--rb-ease-out),
+    border-color .3s var(--rb-ease-out),
+    background .3s var(--rb-ease-out);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(139, 47, 104, .18);
+  box-shadow: var(--rb-shadow-hover);
+}
+
+.rb-mat-button,
+.rb-btn,
+.rb-btn-light {
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+}
+
+.rb-mat-button::after,
+.rb-btn::after,
+.rb-btn-light::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(110deg, transparent 25%, rgba(255,255,255,.24) 45%, transparent 65%);
+  transform: translateX(-130%);
+  transition: transform .55s var(--rb-ease-out);
+}
+
+.rb-mat-button:hover::after,
+.rb-btn:hover::after,
+.rb-btn-light:hover::after {
+  transform: translateX(130%);
+}
+
+.rb-mat-button--primary,
+.rb-btn {
+  box-shadow: 0 16px 38px rgba(139, 47, 104, .20);
+}
+
+.rb-mat-button--primary:hover,
+.rb-btn:hover {
+  color: #fff;
+  box-shadow: 0 22px 52px rgba(139, 47, 104, .28);
+}
+
+.dynamic-flower-lake-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.dynamic-flower-lake-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(139, 47, 104, .11);
+  background: linear-gradient(145deg, rgba(255,255,255,.78), rgba(251,251,225,.62));
+  transition: transform .4s var(--rb-ease-out), box-shadow .4s var(--rb-ease-out);
+}
+
+.dynamic-flower-lake-card::before {
+  content: '';
+  position: absolute;
+  inset: -30% auto auto -12%;
+  width: 16rem;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: rgba(231,189,200,.24);
+  filter: blur(20px);
+}
+
+.dynamic-flower-lake-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 34px 86px rgba(139,47,104,.16);
+}
+
+.dynamic-flower-lake-svg {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 18px 30px rgba(139,47,104,.08));
+}
+
+.rb-mobile-cta {
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.25);
+  box-shadow: 0 18px 46px rgba(139, 47, 104, .34);
+  backdrop-filter: blur(12px);
+}
+
+.rb-mobile-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,.18) 46%, transparent 72%);
+  transform: translateX(-120%);
+  animation: rbMobileCtaShine 5s ease-in-out infinite;
+}
+
+.rb-mobile-cta a {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes rbMobileCtaShine {
+  0%, 72%, 100% { transform: translateX(-120%); }
+  84% { transform: translateX(120%); }
+}
+
+@supports (animation-timeline: view()) {
+  main > * > section:not(#inicio) {
+    animation: rbSectionReveal both linear;
+    animation-timeline: view();
+    animation-range: entry 4% cover 24%;
+  }
+}
+
+@keyframes rbSectionReveal {
+  from { opacity: .58; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 760px) {
+  :root { --rb-section-y: clamp(3.4rem, 12vw, 5rem); }
+  .section { padding-inline: 1rem; padding-block: clamp(3.5rem, 12vw, 5rem); }
+  .title { font-size: clamp(2.35rem, 11vw, 3.7rem); }
+  .card { border-radius: 1.45rem !important; }
+  .rb-kicker { font-size: clamp(1.9rem, 9vw, 2.7rem); }
+}
+
+@media (max-width: 420px) {
+  .section { padding-inline: .85rem; }
+  .rb-mat-button,
+  .rb-btn,
+  .rb-btn-light { width: 100%; }
+  .dynamic-flower-lake-card { padding: .7rem; border-radius: 1.4rem; }
+}
+
+/* --------------------------------------------------------------------------
+   Sistema tipográfico RespiraBonito
+   Titulares inspirados en la caligrafía fina del flyer de referencia.
+   Se conserva una jerarquía equilibrada entre display, títulos, cuerpos y UI.
+   -------------------------------------------------------------------------- */
+:root {
+  --rb-type-display: clamp(3.25rem, 6.4vw, 6.35rem);
+  --rb-type-section: clamp(2.8rem, 5vw, 4.9rem);
+  --rb-type-section-long: clamp(2.5rem, 4.35vw, 4.35rem);
+  --rb-type-subsection: clamp(1.65rem, 2.5vw, 2.5rem);
+  --rb-type-card-title: clamp(1.2rem, 1.55vw, 1.5rem);
+  --rb-type-lead: clamp(1.06rem, 1.28vw, 1.18rem);
+  --rb-type-body: clamp(.98rem, 1vw, 1.06rem);
+  --rb-type-small: clamp(.82rem, .88vw, .92rem);
+}
+
+body {
+  font-size: clamp(1rem, .22vw + .96rem, 1.08rem);
+  line-height: 1.68;
+}
+
+/* Títulos principales de cada bloque */
+#hero-title,
+#bloqueos-title,
+#metodo-title,
+#dinamicas-title,
+#disciplinas-title,
+#para-ti-title,
+#historia-title,
+#experiencia-title,
+#proceso-title,
+#formulario-title,
+#faq-title,
+#final-cta-title,
+.rb-wellness-break__copy h2,
+.rb-authority__heading h2 {
+  font-family: var(--rb-font-reference) !important;
+  font-weight: 400 !important;
+  font-style: normal;
+  letter-spacing: .005em !important;
+  line-height: 1.08 !important;
+  text-wrap: balance;
+  font-synthesis: none;
+}
+
+#hero-title {
+  font-size: var(--rb-type-display) !important;
+  max-width: 14ch;
+}
+
+#bloqueos-title,
+#metodo-title,
+#disciplinas-title,
+#para-ti-title,
+#historia-title,
+#proceso-title,
+#formulario-title,
+#faq-title,
+#final-cta-title,
+.rb-wellness-break__copy h2,
+.rb-authority__heading h2 {
+  font-size: var(--rb-type-section) !important;
+}
+
+/* Titulares especialmente largos: algo más contenidos para evitar líneas excesivas */
+#dinamicas-title,
+#experiencia-title {
+  font-size: var(--rb-type-section-long) !important;
+  max-width: 22ch;
+  margin-inline: auto;
+}
+
+/* Antetítulos que abren cada componente: Italianno */
+.rb-kicker,
+.journey-kicker {
+  font-family: var(--rb-font-section-title) !important;
+  font-weight: 400 !important;
+  letter-spacing: .01em !important;
+  line-height: 1.05 !important;
+  font-size: clamp(2.15rem, 3.8vw, 3.2rem) !important;
+}
+
+/* Otros rótulos caligráficos internos conservan la tipografía de referencia. */
+.rb-hero__eyebrow,
+.rb-yinyang__eyebrow,
+.journey-group__eyebrow {
+  font-family: var(--rb-font-reference) !important;
+  font-weight: 400 !important;
+  letter-spacing: .01em !important;
+  line-height: 1.05 !important;
+}
+
+.rb-hero__eyebrow {
+  font-size: clamp(1.8rem, 3.2vw, 2.7rem) !important;
+}
+
+.rb-yinyang__eyebrow,
+.journey-group__eyebrow {
+  font-size: clamp(1.65rem, 2.35vw, 2.25rem) !important;
+}
+
+/* Subtítulos y títulos interiores */
+.rb-method__card h3,
+.rb-process__card h3 {
+  font-family: var(--rb-font-reference) !important;
+  font-size: clamp(2.05rem, 3vw, 3rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.05 !important;
+}
+
+.laurem-story__chapter h3,
+.journey-group__head h3,
+.rb-yinyang__side-head h3,
+.rb-authority__card h3,
+.laurem-story__authority-card h4,
+.journey-card h4,
+.journey-mobile-card h4 {
+  font-size: var(--rb-type-card-title) !important;
+  line-height: 1.28 !important;
+}
+
+/* Textos introductorios: más aire y mejor lectura */
+.rb-hero-lead,
+.rb-pain__lead,
+.rb-method__intro > p:not(.rb-kicker),
+.journey-intro,
+.rb-disciplines__intro,
+.rb-yinyang__heading > p:not(.rb-kicker),
+.laurem-story__lead,
+.laurem-story__authority-head > p:not(.rb-kicker),
+.rb-opportunity__copy > p,
+.rb-faq__heading > p:not(.rb-kicker),
+.rb-wellness-break__copy > p:not(.rb-kicker),
+.rb-authority__heading > p:not(.rb-kicker) {
+  font-size: var(--rb-type-lead) !important;
+  line-height: 1.82 !important;
+}
+
+/* Cuerpo de cards y contenidos repetitivos */
+.rb-pain__card p,
+.rb-method__card p,
+.rb-process__card p,
+.journey-card p:last-child,
+.journey-mobile-card p:last-child,
+.rb-yinyang__item p,
+.laurem-story__chapter p,
+.laurem-story__authority-card p,
+.rb-authority__card p,
+.rb-faq__answer {
+  font-size: var(--rb-type-body) !important;
+  line-height: 1.67 !important;
+}
+
+/* En la columna derecha de beneficios se mantiene una ligera prioridad visual */
+.rb-yinyang__item--right p {
+  font-size: clamp(1.04rem, 1.08vw, 1.12rem) !important;
+  line-height: 1.62 !important;
+}
+
+/* Etiquetas y microtexto */
+.rb-process__step-label,
+.journey-card__tag,
+.rb-yinyang__group-title,
+.rb-hero-trust li,
+.rb-discipline__label small {
+  font-size: var(--rb-type-small) !important;
+}
+
+/* FAQ: preguntas algo mayores para escaneado rápido */
+.rb-faq__panel mat-panel-title {
+  font-size: clamp(1.05rem, 1.24vw, 1.18rem) !important;
+  line-height: 1.42 !important;
+}
+
+/* Botones: tamaño consistente y legible */
+.rb-mat-button,
+.rb-btn,
+.rb-btn-light,
+.rb-mobile-cta a {
+  font-size: clamp(.96rem, 1vw, 1.04rem) !important;
+  line-height: 1.2;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --rb-type-display: clamp(3rem, 13vw, 4.75rem);
+    --rb-type-section: clamp(2.45rem, 10vw, 3.65rem);
+    --rb-type-section-long: clamp(2.25rem, 8.7vw, 3.35rem);
+    --rb-type-card-title: clamp(1.15rem, 4.8vw, 1.35rem);
+    --rb-type-lead: clamp(1rem, 4vw, 1.08rem);
+    --rb-type-body: clamp(.96rem, 3.8vw, 1.03rem);
+  }
+
+  #dinamicas-title,
+  #experiencia-title {
+    max-width: 100%;
+  }
+
+  .rb-kicker,
+  .journey-kicker {
+    font-size: clamp(2rem, 9vw, 2.8rem) !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Botones: tono vino + brillo orgánico + pulso suave + interacción más viva
+   -------------------------------------------------------------------------- */
+:root {
+  --rb-wine: #7c1f43;
+  --rb-wine-light: #a83f68;
+}
+
+.rb-mat-button--primary {
+  --mdc-filled-button-container-color: var(--rb-wine);
+  --mdc-filled-button-label-text-color: #fff;
+}
+
+.rb-mat-button--secondary {
+  --mdc-outlined-button-outline-color: var(--rb-wine);
+  --mdc-outlined-button-label-text-color: var(--rb-wine);
+}
+
+.rb-btn,
+.rb-mobile-cta {
+  background: var(--rb-wine);
+}
+
+.rb-mat-button,
+.rb-btn,
+.rb-btn-light,
+.rb-mobile-cta a {
+  transform-origin: center;
+  transition:
+    transform .28s cubic-bezier(.2,.75,.2,1),
+    box-shadow .28s ease,
+    filter .28s ease;
+}
+
+.rb-mat-button::after,
+.rb-btn::after,
+.rb-btn-light::after,
+.rb-mobile-cta a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    110deg,
+    transparent 22%,
+    rgba(255,255,255,.06) 34%,
+    rgba(255,255,255,.34) 48%,
+    rgba(255,255,255,.08) 62%,
+    transparent 76%
+  );
+  transform: translateX(-145%) skewX(-12deg);
+  animation: rbButtonSweep 4.8s ease-in-out infinite;
+}
+
+.rb-mat-button::before,
+.rb-btn::before,
+.rb-btn-light::before,
+.rb-mobile-cta a::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  border: 1px solid rgba(255,255,255,.18);
+  opacity: .42;
+  animation: rbButtonInnerPulse 3.2s ease-in-out infinite;
+}
+
+.rb-mat-button > *,
+.rb-btn > *,
+.rb-btn-light > *,
+.rb-mobile-cta a > * {
+  position: relative;
+  z-index: 2;
+}
+
+.rb-mat-button:hover,
+.rb-btn:hover,
+.rb-btn-light:hover,
+.rb-mobile-cta a:hover {
+  transform: translateY(-4px) scale(1.025);
+  filter: saturate(1.07);
+}
+
+.rb-mat-button--primary:hover,
+.rb-btn:hover,
+.rb-mobile-cta a:hover {
+  box-shadow:
+    0 22px 48px rgba(124,31,67,.28),
+    0 0 0 6px rgba(124,31,67,.06);
+}
+
+.rb-mat-button:active,
+.rb-btn:active,
+.rb-btn-light:active,
+.rb-mobile-cta a:active {
+  transform: translateY(-1px) scale(.985);
+}
+
+@keyframes rbButtonSweep {
+  0%, 58% { transform: translateX(-145%) skewX(-12deg); }
+  76%, 100% { transform: translateX(145%) skewX(-12deg); }
+}
+
+@keyframes rbButtonInnerPulse {
+  0%, 100% { opacity: .28; transform: scale(.99); }
+  50% { opacity: .58; transform: scale(1); }
 }

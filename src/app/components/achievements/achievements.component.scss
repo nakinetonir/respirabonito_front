@@ -118,3 +118,37 @@
   .rb-authority__grid { grid-template-columns: 1fr; }
   .rb-authority__card:nth-child(7) { width: 100%; }
 }
+
+.rb-authority__card:nth-child(3n + 2) .rb-authority__icon {
+  background: linear-gradient(135deg, rgba(111,143,108,.30), rgba(255,255,255,.12));
+}
+
+.rb-authority__card:nth-child(3n) .rb-authority__icon {
+  background: linear-gradient(135deg, rgba(159,178,207,.28), rgba(255,255,255,.12));
+}
+
+.rb-authority__card:hover .rb-authority__icon {
+  transform: rotate(6deg) scale(1.05);
+}
+
+.rb-authority__icon {
+  transition: transform .3s ease, background .3s ease;
+}
+
+@media (max-width: 520px) {
+  .rb-authority { padding-inline: .85rem; }
+  .rb-authority__card {
+    grid-template-columns: 3rem 1fr;
+    gap: .75rem;
+    border-radius: 1.25rem;
+  }
+  .rb-authority__icon {
+    width: 2.75rem;
+    border-radius: .9rem;
+  }
+  .rb-authority__icon mat-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.5rem;
+  }
+}

@@ -1,11 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-process',
   standalone: true,
-  imports: [NgFor, MatCardModule],
+  imports: [NgFor],
   templateUrl: './process.component.html',
   styleUrl: './process.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

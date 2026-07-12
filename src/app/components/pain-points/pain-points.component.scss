@@ -1,0 +1,384 @@
+.rb-pain {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 8% 16%, rgba(231,189,200,.28), transparent 22rem),
+    radial-gradient(circle at 90% 84%, rgba(111,143,108,.16), transparent 24rem),
+    rgba(255,255,255,.58);
+}
+
+.rb-pain__shell {
+  position: relative;
+  z-index: 2;
+}
+
+.rb-pain__lead {
+  text-wrap: pretty;
+}
+
+.rb-pain__grid {
+  align-items: stretch;
+}
+
+.rb-pain__card {
+  position: relative;
+  align-items: flex-start;
+  min-height: 100%;
+  overflow: hidden;
+  border-color: rgba(139,47,104,.11) !important;
+  background: linear-gradient(145deg, rgba(255,255,255,.86), rgba(255,255,255,.66)) !important;
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+
+.rb-pain__card::after {
+  content: '';
+  position: absolute;
+  right: -2.5rem;
+  bottom: -3.2rem;
+  width: 7rem;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(231,189,200,.38), transparent 72%);
+}
+
+.rb-pain__card:nth-child(2n)::after { background: radial-gradient(circle, rgba(111,143,108,.22), transparent 72%); }
+
+.rb-pain__card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(139,47,104,.22) !important;
+  box-shadow: 0 28px 65px rgba(139,47,104,.14) !important;
+}
+
+.rb-pain__card .rb-list-icon {
+  position: relative;
+  z-index: 2;
+  margin-top: .08rem;
+  transition: transform .3s ease, background .3s ease;
+}
+
+.rb-pain__card:hover .rb-list-icon {
+  transform: rotate(12deg) scale(1.08);
+  background: rgba(229,187,199,.68);
+}
+
+.rb-pain__orb {
+  position: absolute;
+  z-index: 0;
+  border-radius: 999px;
+  pointer-events: none;
+  filter: blur(2px);
+  animation: rbPainOrb 8s ease-in-out infinite;
+}
+
+.rb-pain__orb--one {
+  width: 12rem;
+  aspect-ratio: 1;
+  left: -5rem;
+  top: 28%;
+  background: rgba(231,189,200,.20);
+}
+
+.rb-pain__orb--two {
+  width: 9rem;
+  aspect-ratio: 1;
+  right: -3rem;
+  bottom: 12%;
+  background: rgba(111,143,108,.12);
+  animation-delay: -3s;
+}
+
+@keyframes rbPainOrb {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-18px) scale(1.08); }
+}
+
+.rb-visual-bridge {
+  position: relative;
+  overflow: hidden;
+}
+
+.rb-visual-bridge::before,
+.rb-visual-bridge::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: min(42rem, 90vw);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139,47,104,.24), transparent);
+  transform: translateX(-50%);
+}
+
+.rb-visual-bridge::before { top: 0; }
+.rb-visual-bridge::after { bottom: 0; }
+
+@media (max-width: 640px) {
+  .rb-pain__grid { gap: .9rem !important; }
+  .rb-pain__card { padding: 1.2rem !important; }
+  .rb-pain__orb { display: none; }
+}
+
+/* Iconografía específica de cada punto de dolor */
+.rb-pain__personal-icon {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 3.15rem;
+  min-width: 3.15rem;
+  aspect-ratio: 1;
+  border-radius: 1.05rem;
+  background: linear-gradient(145deg, rgba(255,255,255,.92), rgba(243,219,224,.78));
+  color: var(--rb-plum);
+  box-shadow: 0 14px 28px rgba(139,47,104,.12), inset 0 1px 0 rgba(255,255,255,.8);
+  transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+}
+
+.rb-pain__personal-icon mat-icon {
+  width: 1.7rem;
+  height: 1.7rem;
+  font-size: 1.7rem;
+}
+
+.rb-pain__card:nth-child(2) .rb-pain__personal-icon {
+  color: #6f8f6c;
+  background: linear-gradient(145deg, rgba(255,255,255,.92), rgba(223,233,220,.86));
+}
+
+.rb-pain__card:nth-child(3) .rb-pain__personal-icon {
+  color: #738baa;
+  background: linear-gradient(145deg, rgba(255,255,255,.92), rgba(223,233,246,.88));
+}
+
+.rb-pain__card:nth-child(4) .rb-pain__personal-icon {
+  color: #7c1f43;
+  background: linear-gradient(145deg, rgba(255,255,255,.92), rgba(246,220,227,.88));
+}
+
+.rb-pain__card:hover .rb-pain__personal-icon {
+  transform: translateY(-3px) rotate(5deg) scale(1.08);
+  box-shadow: 0 20px 36px rgba(139,47,104,.18), inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+
+.dynamic-mandala-section {
+  position: relative;
+  padding: clamp(1.25rem, 2vw, 2rem) 0 clamp(2rem, 4vw, 3rem);
+}
+
+.dynamic-mandala-card {
+  width: min(56rem, calc(100vw - 2rem));
+  margin: 0 auto;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border-radius: 2.2rem;
+  background: linear-gradient(180deg, rgba(255,255,255,.62), rgba(252,248,245,.82));
+  border: 1px solid rgba(139,47,104,.10);
+  box-shadow:
+    0 24px 70px rgba(139,47,104,.10),
+    inset 0 1px 0 rgba(255,255,255,.75);
+}
+
+.dynamic-mandala {
+  position: relative;
+  min-height: clamp(18rem, 36vw, 27rem);
+  display: grid;
+  place-items: center;
+  border-radius: 1.8rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255,255,255,.88), rgba(248,244,233,.93) 55%, rgba(237,232,221,.98)),
+    linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,.08));
+}
+
+.dynamic-mandala::before,
+.dynamic-mandala::after {
+  content: '';
+  position: absolute;
+  inset: auto;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.dynamic-mandala::before {
+  width: 74%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(231,189,200,.20), rgba(152,190,208,.06) 54%, transparent 72%);
+  filter: blur(20px);
+  animation: rbMandalaAura 3.8s ease-in-out infinite;
+}
+
+.dynamic-mandala::after {
+  width: min(30rem, 72vw);
+  aspect-ratio: 1;
+  border: 1px solid rgba(152,190,208,.16);
+  opacity: .45;
+  transform: scale(.88);
+  animation: rbMandalaRing 5s ease-in-out infinite;
+}
+
+.dynamic-mandala__halo {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: min(26rem, 62vw);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border: 1px solid rgba(139,47,104,.10);
+  opacity: .34;
+}
+
+.dynamic-mandala__halo--one {
+  animation: rbMandalaHalo 4.8s ease-out infinite;
+}
+
+.dynamic-mandala__halo--two {
+  width: min(20rem, 50vw);
+  border-color: rgba(111,143,108,.12);
+  animation: rbMandalaHalo 4.8s ease-out infinite .75s;
+}
+
+.dynamic-mandala__svg {
+  width: min(92%, 34rem);
+  max-width: 100%;
+  aspect-ratio: 700 / 420;
+  overflow: visible;
+  filter: drop-shadow(0 10px 26px rgba(139,47,104,.08));
+}
+
+.dynamic-mandala__art {
+  transform-origin: 350px 210px;
+}
+
+.dynamic-mandala__layer {
+  transform-origin: 350px 210px;
+}
+
+.dynamic-mandala__layer--lotus-outer {
+  animation: rbMandalaRotate 24s linear infinite;
+}
+
+.dynamic-mandala__layer--lotus-inner {
+  animation: rbMandalaRotateReverse 16s linear infinite;
+}
+
+.dynamic-mandala__layer--crescent,
+.dynamic-mandala__layer--drops {
+  animation: rbMandalaFloat 7s ease-in-out infinite;
+}
+
+.dynamic-mandala__sparkles {
+  animation: rbMandalaRotate 20s linear infinite reverse;
+  transform-origin: 350px 210px;
+}
+
+.dynamic-mandala__stroke {
+  fill: none;
+  stroke-width: 2.4;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: rbMandalaDraw 2.25s cubic-bezier(.55, .05, .35, 1) infinite;
+}
+
+.dynamic-mandala__stroke--plum { stroke: rgba(139,47,104,.92); }
+.dynamic-mandala__stroke--plum-soft { stroke: rgba(174,95,146,.74); }
+.dynamic-mandala__stroke--rose { stroke: rgba(231,189,200,.96); }
+.dynamic-mandala__stroke--sage { stroke: rgba(111,143,108,.88); }
+.dynamic-mandala__stroke--sky { stroke: rgba(152,190,208,.92); }
+.dynamic-mandala__stroke--gold { stroke: rgba(226,184,108,.76); }
+.dynamic-mandala__stroke--gold-soft { stroke: rgba(234,209,160,.72); }
+
+.dynamic-mandala__layer--lotus-outer .dynamic-mandala__stroke:nth-child(2n) { animation-delay: .08s; }
+.dynamic-mandala__layer--lotus-outer .dynamic-mandala__stroke:nth-child(3n) { animation-delay: .16s; }
+.dynamic-mandala__layer--lotus-inner .dynamic-mandala__stroke:nth-child(2n) { animation-delay: .12s; }
+.dynamic-mandala__layer--crescent .dynamic-mandala__stroke:last-child { animation-delay: .22s; }
+.dynamic-mandala__layer--drops .dynamic-mandala__stroke:nth-child(2) { animation-delay: .10s; }
+.dynamic-mandala__layer--drops .dynamic-mandala__stroke:nth-child(3) { animation-delay: .20s; }
+.dynamic-mandala__layer--drops .dynamic-mandala__stroke:nth-child(4) { animation-delay: .30s; }
+
+.dynamic-mandala__spark {
+  fill: rgba(139,47,104,.72);
+  animation: rbMandalaSpark 1.8s ease-in-out infinite;
+}
+
+.dynamic-mandala__spark:nth-child(2) { fill: rgba(231,189,200,.92); animation-delay: -.3s; }
+.dynamic-mandala__spark:nth-child(3) { fill: rgba(111,143,108,.86); animation-delay: -.6s; }
+.dynamic-mandala__spark:nth-child(4) { fill: rgba(152,190,208,.9); animation-delay: -.9s; }
+.dynamic-mandala__spark:nth-child(5) { fill: rgba(226,184,108,.82); animation-delay: -1.2s; }
+
+@keyframes rbMandalaDraw {
+  0% { stroke-dashoffset: 1; opacity: 0; }
+  10% { opacity: .9; }
+  58%, 72% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: .94; }
+}
+
+@keyframes rbMandalaRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rbMandalaRotateReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes rbMandalaFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes rbMandalaSpark {
+  0%, 100% { transform: scale(.72); opacity: .55; }
+  50% { transform: scale(1.22); opacity: 1; }
+}
+
+@keyframes rbMandalaAura {
+  0%, 100% { transform: scale(.94); opacity: .72; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+@keyframes rbMandalaRing {
+  0%, 100% { transform: scale(.86); opacity: .30; }
+  50% { transform: scale(1.02); opacity: .60; }
+}
+
+@keyframes rbMandalaHalo {
+  0% { transform: translate(-50%, -50%) scale(.78); opacity: 0; }
+  30% { opacity: .38; }
+  100% { transform: translate(-50%, -50%) scale(1.18); opacity: 0; }
+}
+
+@media (max-width: 640px) {
+  .dynamic-mandala-card {
+    width: min(100%, calc(100vw - 1rem));
+    padding: .8rem;
+    border-radius: 1.6rem;
+  }
+
+  .dynamic-mandala {
+    min-height: 14rem;
+    border-radius: 1.25rem;
+  }
+
+  .dynamic-mandala__svg {
+    width: 96%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dynamic-mandala::before,
+  .dynamic-mandala::after,
+  .dynamic-mandala__halo,
+  .dynamic-mandala__layer,
+  .dynamic-mandala__sparkles,
+  .dynamic-mandala__stroke,
+  .dynamic-mandala__spark {
+    animation: none !important;
+  }
+
+  .dynamic-mandala__stroke {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}

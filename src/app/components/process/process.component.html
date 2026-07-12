@@ -1,14 +1,73 @@
-<section id="proceso" class="section bg-rb-cream" aria-labelledby="proceso-title">
-  <div class="shell">
-    <h2 id="proceso-title" class="title text-center">Proceso</h2>
-    <div class="grid md:grid-cols-3 gap-6 mt-12">
-      <mat-card class="!rounded-[2rem] !p-8 text-center" *ngFor="let p of steps; index as i">
-        <div class="mx-auto mb-5 grid h-16 w-16 place-items-center rounded-full bg-rb-rose text-2xl font-bold text-rb-plum">{{i+1}}</div>
-        <h3 class="script text-4xl text-rb-plum">{{p.title}}</h3>
-        <p class="mt-3 leading-7 text-rb-ink/80">{{p.text}}</p>
-      </mat-card>
+<section id="proceso" class="section rb-process" aria-labelledby="proceso-title">
+  <span class="rb-process__aura rb-process__aura--rose" aria-hidden="true"></span>
+  <span class="rb-process__aura rb-process__aura--green" aria-hidden="true"></span>
+  <span class="rb-process__aura rb-process__aura--blue" aria-hidden="true"></span>
+
+  <div class="shell rb-process__shell">
+    <header class="rb-process__heading">
+      <h2 id="proceso-title" class="rb-kicker rb-process__title">Proceso</h2>
+      <span class="rb-process__heading-line" aria-hidden="true"></span>
+    </header>
+
+    <div class="rb-process__journey">
+      <div class="rb-process__route" aria-hidden="true">
+        <svg viewBox="0 0 1200 300" preserveAspectRatio="none" focusable="false">
+          <defs>
+            <linearGradient id="rbProcessGradient" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#a83f68" />
+              <stop offset="50%" stop-color="#6f8f6c" />
+              <stop offset="100%" stop-color="#738baa" />
+            </linearGradient>
+            <filter id="rbProcessGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="7" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <path
+            class="rb-process__route-shadow"
+            d="M 70 170 C 250 20, 360 280, 550 150 S 900 20, 1130 150"
+            pathLength="1"
+          />
+          <path
+            class="rb-process__route-line"
+            d="M 70 170 C 250 20, 360 280, 550 150 S 900 20, 1130 150"
+            pathLength="1"
+          />
+          <path
+            class="rb-process__route-light"
+            d="M 70 170 C 250 20, 360 280, 550 150 S 900 20, 1130 150"
+            pathLength="1"
+          />
+        </svg>
+        <span class="rb-process__traveller" aria-hidden="true">
+          <span></span>
+        </span>
+      </div>
+
+      <div class="rb-process__steps">
+        <article
+          class="rb-process__step"
+          *ngFor="let p of steps; index as i"
+          [style.--step-index]="i"
+        >
+          <div class="rb-process__node" aria-hidden="true">
+            <span class="rb-process__node-orbit"></span>
+            <span class="rb-process__node-core">{{ i + 1 }}</span>
+          </div>
+
+          <div class="rb-process__card">
+            <span class="rb-process__step-label">Paso {{ i + 1 }}</span>
+            <h3>{{ p.title }}</h3>
+            <p>{{ p.text }}</p>
+          </div>
+        </article>
+      </div>
     </div>
-    <div class="text-center mt-10">
+
+    <div class="rb-process__cta">
       <a
         class="rb-btn"
         href="https://forms.gle/KxsRE9NDdr3mrPTx6"

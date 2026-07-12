@@ -1,0 +1,237 @@
+.rb-hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: clamp(42rem, 92svh, 58rem);
+  overflow: hidden;
+  background: #1f171b;
+}
+
+.rb-hero__background {
+  position: absolute;
+  inset: 0;
+  z-index: -4;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transform: scale(1.015);
+  filter: saturate(1.02) contrast(1.02);
+}
+
+.rb-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background:
+    linear-gradient(180deg, rgba(21, 17, 34, .22) 0%, rgba(31, 23, 27, .08) 35%, rgba(31, 23, 27, .30) 100%),
+    radial-gradient(circle at 50% 42%, rgba(255, 255, 255, .18), transparent 42%),
+    linear-gradient(90deg, rgba(36, 38, 82, .16), rgba(139, 47, 104, .08), rgba(36, 38, 82, .18));
+}
+
+.rb-hero__glow {
+  position: absolute;
+  z-index: -2;
+  border-radius: 999px;
+  pointer-events: none;
+  filter: blur(20px);
+  opacity: .46;
+}
+
+.rb-hero__glow--one {
+  width: clamp(12rem, 24vw, 22rem);
+  aspect-ratio: 1;
+  left: 6%;
+  top: 10%;
+  background: rgba(231, 189, 200, .20);
+  animation: rbHeroGlowOne 9s ease-in-out infinite;
+}
+
+.rb-hero__glow--two {
+  width: clamp(10rem, 20vw, 18rem);
+  aspect-ratio: 1;
+  right: 8%;
+  bottom: 8%;
+  background: rgba(159, 178, 207, .18);
+  animation: rbHeroGlowTwo 8s ease-in-out infinite;
+}
+
+.rb-hero__shell {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: min(78rem, 100%);
+  padding: clamp(6rem, 12vw, 9rem) 1rem clamp(5rem, 10vw, 7rem);
+}
+
+.rb-hero__copy {
+  display: grid;
+  justify-items: center;
+  width: min(58rem, 100%);
+  text-align: center;
+  padding: clamp(1.25rem, 3vw, 2.2rem);
+  animation: rbHeroContentIn .9s cubic-bezier(.2, .7, .2, 1) both;
+}
+
+.rb-hero__eyebrow {
+  margin: 0 0 .7rem;
+  color: rgba(255, 255, 255, .92);
+  font-family: var(--rb-font-script);
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1;
+  text-shadow: 0 2px 18px rgba(31, 23, 27, .28);
+}
+
+.rb-hero-title {
+  max-width: 12ch;
+  margin: 0 auto;
+  color: #fff;
+  font-family: var(--rb-font-serif);
+  font-size: clamp(3rem, 7vw, 6.8rem);
+  font-weight: 500;
+  line-height: .94;
+  letter-spacing: -.045em;
+  text-wrap: balance;
+  text-shadow:
+    0 2px 0 rgba(31, 23, 27, .12),
+    0 14px 42px rgba(31, 23, 27, .32);
+}
+
+.rb-hero-lead {
+  max-width: 38rem;
+  margin: 1.35rem auto 0;
+  color: rgba(255, 255, 255, .92);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.65;
+  text-shadow: 0 6px 20px rgba(31, 23, 27, .38);
+}
+
+.rb-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .9rem;
+  margin-top: 2rem;
+}
+
+.rb-hero__actions .rb-mat-button {
+  min-height: 3.2rem;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+.rb-hero__actions .rb-mat-button:hover {
+  transform: translateY(-3px);
+}
+
+.rb-hero__secondary-button {
+  --mdc-outlined-button-outline-color: rgba(255, 255, 255, .72);
+  --mdc-outlined-button-label-text-color: #fff;
+  background: rgba(255, 255, 255, .10);
+  backdrop-filter: blur(8px);
+}
+
+.rb-hero__secondary-button:hover {
+  background: rgba(255, 255, 255, .18);
+}
+
+.rb-hero__scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 1.4rem;
+  width: 1.65rem;
+  height: 2.8rem;
+  border: 1px solid rgba(255, 255, 255, .58);
+  border-radius: 999px;
+  translate: -50% 0;
+  opacity: .78;
+}
+
+.rb-hero__scroll-cue::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: .5rem;
+  width: .28rem;
+  height: .55rem;
+  border-radius: 999px;
+  background: #fff;
+  translate: -50% 0;
+  animation: rbScrollCue 1.7s ease-in-out infinite;
+}
+
+@keyframes rbHeroContentIn {
+  from { opacity: 0; transform: translateY(24px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes rbHeroGlowOne {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(18px, -14px, 0) scale(1.08); }
+}
+
+@keyframes rbHeroGlowTwo {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-14px, 12px, 0) scale(1.06); }
+}
+
+@keyframes rbScrollCue {
+  0% { opacity: 0; transform: translateY(0); }
+  25% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(1rem); }
+}
+
+@media (max-width: 1023px) {
+  .rb-hero {
+    min-height: clamp(40rem, 88svh, 52rem);
+  }
+
+  .rb-hero__background {
+    object-position: 62% center;
+  }
+
+  .rb-hero__copy {
+    width: min(44rem, 100%);
+  }
+}
+
+@media (max-width: 640px) {
+  .rb-hero {
+    min-height: 46rem;
+  }
+
+  .rb-hero__background {
+    object-position: 66% center;
+  }
+
+  .rb-hero__overlay {
+    background:
+      linear-gradient(180deg, rgba(21, 17, 34, .34) 0%, rgba(31, 23, 27, .20) 42%, rgba(31, 23, 27, .48) 100%),
+      radial-gradient(circle at 50% 38%, rgba(255, 255, 255, .12), transparent 44%);
+  }
+
+  .rb-hero__shell {
+    padding: 5.8rem .6rem 4.8rem;
+  }
+
+  .rb-hero__copy {
+    padding-inline: .2rem;
+  }
+
+  .rb-hero-title {
+    max-width: 10ch;
+    font-size: clamp(3rem, 13vw, 4.7rem);
+  }
+
+  .rb-hero__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: min(22rem, 100%);
+  }
+
+  .rb-hero__actions .rb-mat-button {
+    width: 100%;
+  }
+}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
 @import 'material-icons/iconfont/material-icons.css';
 @import '@angular/material/prebuilt-themes/rose-red.css';
 @tailwind base;
@@ -21,9 +21,10 @@
   --rb-shadow-card: 0 18px 50px rgba(139, 47, 104, .10);
   --rb-radius-lg: 2rem;
   --rb-font-serif: Georgia, 'Times New Roman', serif;
-  --rb-font-script: 'Brush Script MT', 'Segoe Script', cursive;
-  --rb-font-reference: 'Segoe Script', 'Snell Roundhand', 'Apple Chancery', 'Brush Script MT', 'Lucida Handwriting', cursive;
-  --rb-font-section-title: 'Italianno', 'Brush Script MT', 'Segoe Script', cursive;
+  --rb-font-script: 'Allura', 'Segoe Script', 'Brush Script MT', cursive;
+  --rb-font-seasons: 'Cormorant Garamond', 'Bodoni Moda', Didot, Georgia, serif;
+  --rb-font-reference: var(--rb-font-seasons);
+  --rb-font-section-title: var(--rb-font-seasons);
   --rb-container: 72rem;
   --rb-section-y: clamp(4rem, 8vw, 7rem);
 }
@@ -85,11 +86,10 @@ a:hover {
 .script { font-family: var(--rb-font-script); }
 .title { @apply text-4xl md:text-6xl leading-tight text-rb-ink; font-weight: 500; letter-spacing: -.025em; }
 
-.rb-section-title {
-  font-family: var(--rb-font-reference) !important;
-  font-weight: 400 !important;
-  letter-spacing: 0 !important;
-}
+
+
+/* Los títulos que todavía conservan rb-kicker deben seguir usando The Seasons. */
+
 .subtitle { @apply text-xl md:text-2xl text-rb-ink/80; }
 .card { @apply rounded-[2rem] bg-white/70 shadow-xl shadow-rb-plum/10 backdrop-blur p-6 border border-white/60; }
 .watercolor-card { background: linear-gradient(135deg, rgba(239,211,218,.95), rgba(247,228,233,.8)); }
@@ -485,11 +485,10 @@ body {
 #final-cta-title,
 .rb-wellness-break__copy h2,
 .rb-authority__heading h2 {
-  font-family: var(--rb-font-reference) !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   font-style: normal;
-  letter-spacing: .005em !important;
-  line-height: 1.08 !important;
+  letter-spacing: -.025em !important;
+  line-height: .98 !important;
   text-wrap: balance;
   font-synthesis: none;
 }
@@ -521,14 +520,20 @@ body {
   margin-inline: auto;
 }
 
-/* Antetítulos que abren cada componente: Italianno */
-.rb-kicker,
+/* Textos decorativos breves: caligrafía inspirada en Allura.
+   Los h1/h2 con rb-section-title quedan excluidos para mantener The Seasons. */
+.rb-kicker:not(.rb-section-title),
 .journey-kicker {
-  font-family: var(--rb-font-section-title) !important;
+  font-family: var(--rb-font-script) !important;
   font-weight: 400 !important;
   letter-spacing: .01em !important;
-  line-height: 1.05 !important;
+  line-height: 1.02 !important;
   font-size: clamp(2.15rem, 3.8vw, 3.2rem) !important;
+}
+
+.rb-section-title.rb-kicker {
+  font-weight: 500 !important;
+  letter-spacing: -.025em !important;
 }
 
 /* Otros rótulos caligráficos internos conservan la tipografía de referencia. */
@@ -571,7 +576,6 @@ body {
 }
 
 /* Textos introductorios: más aire y mejor lectura */
-.rb-hero-lead,
 .rb-pain__lead,
 .rb-method__intro > p:not(.rb-kicker),
 .journey-intro,
@@ -585,6 +589,17 @@ body {
 .rb-authority__heading > p:not(.rb-kicker) {
   font-size: var(--rb-type-lead) !important;
   line-height: 1.82 !important;
+}
+
+/* Texto inicial de la página: subtítulo manuscrito inspirado en Allura. */
+.rb-hero-lead {
+  max-width: 42rem;
+  font-family: var(--rb-font-script) !important;
+  font-size: clamp(2rem, 3.8vw, 3.55rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.03 !important;
+  letter-spacing: .01em !important;
+  text-wrap: balance;
 }
 
 /* Cuerpo de cards y contenidos repetitivos */
@@ -764,3 +779,24 @@ body {
   0%, 100% { opacity: .28; transform: scale(.99); }
   50% { opacity: .58; transform: scale(1); }
 }
+
+/* Primer texto visible de cada componente de contenido.
+   La clase se aplica de forma explícita para no alterar títulos internos,
+   cards, acordeones ni elementos repetidos. */
+.rb-component-first-text {
+  font-family: var(--rb-font-script) !important;
+  color: var(--rb-plum) !important;
+}
+
+/* El CTA final usa fondo ciruela: se añade una superficie clara para que
+   el color solicitado conserve un contraste legible. */
+.rb-final-cta .rb-component-first-text {
+  display: inline-block;
+  max-width: 18ch;
+  margin-inline: auto;
+  padding: .18em .42em .24em;
+  border-radius: .55em;
+  background: rgba(255, 254, 250, .9);
+  box-shadow: 0 18px 42px rgba(31, 23, 27, .16);
+}
+

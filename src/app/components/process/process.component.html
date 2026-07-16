@@ -1,69 +1,80 @@
-<section id="proceso" class="section rb-process" aria-labelledby="proceso-title">
-  <span class="rb-process__aura rb-process__aura--rose" aria-hidden="true"></span>
-  <span class="rb-process__aura rb-process__aura--green" aria-hidden="true"></span>
-  <span class="rb-process__aura rb-process__aura--blue" aria-hidden="true"></span>
+<section id="proceso" class="section rb-journey-merged" aria-labelledby="journey-title">
+  <span class="rb-journey-merged__aura rb-journey-merged__aura--rose" aria-hidden="true"></span>
+  <span class="rb-journey-merged__aura rb-journey-merged__aura--green" aria-hidden="true"></span>
+  <span class="rb-journey-merged__aura rb-journey-merged__aura--blue" aria-hidden="true"></span>
 
-  <div class="shell rb-process__shell">
-    <header class="rb-process__heading">
-      <h2 id="proceso-title" class="rb-kicker rb-process__title">Proceso</h2>
-      <span class="rb-process__heading-line" aria-hidden="true"></span>
+  <div class="shell rb-journey-merged__shell">
+    <header class="rb-journey-merged__heading">
+      <p class="rb-journey-merged__kicker">Tu entrada a la Escuela RespiraBonito</p>
+      <h2 id="journey-title" class="rb-section-title rb-component-first-text">Proceso</h2>
+      <p class="rb-journey-merged__intro">
+        Tres pasos sencillos para conocernos y valorar juntas si este es tu momento.
+      </p>
+      <span class="rb-journey-merged__heading-line" aria-hidden="true"></span>
     </header>
 
-    <div class="rb-process__journey">
-      <div class="rb-process__route" aria-hidden="true">
-        <svg viewBox="0 0 1200 300" preserveAspectRatio="none" focusable="false">
+    <div class="rb-journey-merged__map">
+      <div class="rb-journey-merged__route" aria-hidden="true">
+        <svg viewBox="0 0 1200 260" preserveAspectRatio="none" focusable="false">
           <defs>
-            <linearGradient id="rbProcessGradient" x1="0" y1="0" x2="1" y2="0">
+            <linearGradient id="rbJourneyMergedGradient" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stop-color="#a83f68" />
               <stop offset="50%" stop-color="#6f8f6c" />
               <stop offset="100%" stop-color="#738baa" />
             </linearGradient>
-            <filter id="rbProcessGlow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="7" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
           </defs>
-          <path
-            class="rb-process__route-shadow"
-            d="M 70 170 C 250 20, 360 280, 550 150 S 900 20, 1130 150"
-            pathLength="1"
-          />
-          <path
-            class="rb-process__route-line"
-            d="M 70 170 C 250 20, 360 280, 550 150 S 900 20, 1130 150"
-            pathLength="1"
-          />
-          <path
-            class="rb-process__route-light"
-            d="M 70 170 C 250 20, 360 280, 550 150 S 900 20, 1130 150"
-            pathLength="1"
-          />
+          <path class="rb-journey-merged__route-shadow" d="M 80 150 C 260 30, 350 230, 560 120 S 910 25, 1120 135" pathLength="1" />
+          <path class="rb-journey-merged__route-line" d="M 80 150 C 260 30, 350 230, 560 120 S 910 25, 1120 135" pathLength="1" />
+          <path class="rb-journey-merged__route-light" d="M 80 150 C 260 30, 350 230, 560 120 S 910 25, 1120 135" pathLength="1" />
         </svg>
-        <span class="rb-process__traveller" aria-hidden="true">
-          <span></span>
-        </span>
       </div>
 
-      <div class="rb-process__steps">
+      <div class="rb-journey-merged__grid">
         <article
-          class="rb-process__step"
-          *ngFor="let p of steps; index as i"
-          [style.--step-index]="i"
+          class="rb-journey-column"
+          *ngFor="let step of steps; index as i"
+          [style.--pair-index]="i"
         >
-          <div class="rb-process__node" aria-hidden="true">
-            <span class="rb-process__node-orbit"></span>
-            <span class="rb-process__node-core">{{ i + 1 }}</span>
-          </div>
+          <span class="rb-journey-column__step-node" aria-hidden="true">{{ i + 1 }}</span>
 
-          <div class="rb-process__card">
-            <span class="rb-process__step-label">Paso {{ i + 1 }}</span>
-            <h3>{{ p.title }}</h3>
-            <p>{{ p.text }}</p>
+          <div class="rb-journey-column__card rb-journey-column__card--process">
+            <div class="rb-journey-column__card-glow" aria-hidden="true"></div>
+            <span class="rb-journey-column__badge">Paso {{ i + 1 }}</span>
+            <p class="rb-journey-column__eyebrow">Cómo empezamos</p>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.text }}</p>
           </div>
         </article>
+      </div>
+    </div>
+
+    <div class="rb-process__group-message" aria-label="Información sobre las tutorías grupales">
+      <div class="rb-process__group-message-inner">
+        <p class="rb-process__group-message-text">
+          En la Escuela RespiraBonito las tutorías grupales contarán con un máximo de alumnas que garanticen la atención personal adecuada y a la vez aprovechar la riqueza del grupo.
+        </p>
+        <div class="rb-process__group-message-illustration" aria-hidden="true">
+          <svg viewBox="0 0 560 200" focusable="false">
+            <defs>
+              <linearGradient id="rbWineIllustrationGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#b04a7a" />
+                <stop offset="55%" stop-color="#8b2f68" />
+                <stop offset="100%" stop-color="#cf8cab" />
+              </linearGradient>
+            </defs>
+            <path class="rb-process__illus-arc" d="M60 126 C 140 76, 220 74, 280 108 S 418 144, 500 92" />
+            <path class="rb-process__illus-arc rb-process__illus-arc--soft" d="M86 138 C 156 98, 226 94, 282 116 S 408 148, 474 108" />
+            <g class="rb-process__illus-figures">
+              <circle cx="178" cy="90" r="11" />
+              <path d="M160 126c4-18 15-28 28-28s24 10 28 28" />
+              <circle cx="280" cy="78" r="12" />
+              <path d="M259 120c5-20 17-32 33-32s29 12 34 32" />
+              <circle cx="382" cy="92" r="11" />
+              <path d="M364 128c4-17 14-27 28-27s24 10 28 27" />
+            </g>
+            <path class="rb-process__illus-lotus" d="M280 168c10-20 24-33 42-41-5 21-15 36-31 47 17-2 33 2 47 12-21 4-39 1-58-11-19 12-37 15-58 11 14-10 30-14 47-12-16-11-26-26-31-47 18 8 32 21 42 41Z" />
+          </svg>
+        </div>
       </div>
     </div>
 

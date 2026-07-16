@@ -1,0 +1,7 @@
+LOGOS EN SVG
+
+Contenido:
+- svg_vectorizados/: SVG formados por trazados vectoriales. Son escalables, pero al partir de capturas pequeñas puede haber ligeras variaciones en letras y bordes.
+- svg_exactos/: SVG que incrustan el PNG original. Se ven exactamente igual que la imagen recibida, aunque internamente conservan el mapa de bits.
+
+Se incluyen siete archivos en cada carpeta.

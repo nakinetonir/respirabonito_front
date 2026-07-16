@@ -1,0 +1,80 @@
+<section id="encontraras" class="section rb-school-content" aria-labelledby="encontraras-title">
+  <span class="rb-school-content__aura rb-school-content__aura--rose" aria-hidden="true"></span>
+  <span class="rb-school-content__aura rb-school-content__aura--green" aria-hidden="true"></span>
+  <span class="rb-school-content__aura rb-school-content__aura--blue" aria-hidden="true"></span>
+
+  <div class="shell rb-school-content__shell">
+    <header class="rb-school-content__heading">
+      <p class="rb-school-content__kicker">Dentro de la Escuela RespiraBonito</p>
+      <h2 id="encontraras-title" class="rb-section-title rb-component-first-text">Encontrarás</h2>
+      <p class="rb-school-content__intro">
+        Un espacio cuidado que se adapta a tu momento y evoluciona contigo.
+      </p>
+      <span class="rb-school-content__heading-line" aria-hidden="true"></span>
+    </header>
+
+    <div class="rb-school-content__journey">
+      <div class="rb-school-content__route" aria-hidden="true">
+        <svg viewBox="0 0 1200 250" preserveAspectRatio="none" focusable="false">
+          <defs>
+            <linearGradient id="rbSchoolContentGradient" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#a83f68" />
+              <stop offset="50%" stop-color="#6f8f6c" />
+              <stop offset="100%" stop-color="#738baa" />
+            </linearGradient>
+          </defs>
+          <path
+            class="rb-school-content__route-shadow"
+            d="M 70 145 C 265 10, 360 230, 575 120 S 920 20, 1130 130"
+            pathLength="1"
+          />
+          <path
+            class="rb-school-content__route-line"
+            d="M 70 145 C 265 10, 360 230, 575 120 S 920 20, 1130 130"
+            pathLength="1"
+          />
+          <path
+            class="rb-school-content__route-light"
+            d="M 70 145 C 265 10, 360 230, 575 120 S 920 20, 1130 130"
+            pathLength="1"
+          />
+        </svg>
+      </div>
+
+      <div class="rb-school-content__grid">
+        <article
+          class="rb-school-content__item"
+          *ngFor="let item of items; index as i"
+          [style.--item-index]="i"
+        >
+          <div class="rb-school-content__icon" aria-hidden="true">
+            <svg *ngIf="item.icon === 'people'" viewBox="0 0 64 64" focusable="false">
+              <circle cx="24" cy="22" r="8"></circle>
+              <circle cx="43" cy="25" r="6"></circle>
+              <path d="M10 49c1-10 7-15 14-15s14 5 15 15"></path>
+              <path d="M35 47c1-7 5-11 10-11s9 4 10 11"></path>
+            </svg>
+            <svg *ngIf="item.icon === 'movement'" viewBox="0 0 64 64" focusable="false">
+              <circle cx="32" cy="13" r="6"></circle>
+              <path d="M31 20c-4 9-8 14-15 19"></path>
+              <path d="M33 21c5 8 10 12 18 15"></path>
+              <path d="M28 30c2 8 1 14-3 21"></path>
+              <path d="M37 31c4 7 8 13 14 18"></path>
+            </svg>
+            <svg *ngIf="item.icon === 'sparkles'" viewBox="0 0 64 64" focusable="false">
+              <path d="M31 7c2 12 8 18 20 20-12 2-18 8-20 20-2-12-8-18-20-20 12-2 18-8 20-20Z"></path>
+              <path d="M50 39c1 6 4 9 10 10-6 1-9 4-10 10-1-6-4-9-10-10 6-1 9-4 10-10Z"></path>
+            </svg>
+          </div>
+
+          <div class="rb-school-content__card">
+            <span class="rb-school-content__number">0{{ i + 1 }}</span>
+            <p class="rb-school-content__eyebrow">{{ item.eyebrow }}</p>
+            <h3>{{ item.title }}</h3>
+            <p class="rb-school-content__text">{{ item.text }}</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

@@ -2,6 +2,19 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 
+interface IdealForText {
+  icon: string;
+  before: string;
+  emphasis: string;
+  after: string;
+}
+
+interface IdealForPair {
+  id: string;
+  benefit: IdealForText;
+  feeling: IdealForText;
+}
+
 @Component({
   selector: 'app-ideal-for',
   standalone: true,
@@ -11,66 +24,126 @@ import { MatIconModule } from '@angular/material/icon';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class IdealForComponent {
-  readonly idealGroups = [
+  readonly pairs: readonly IdealForPair[] = [
     {
-      title: 'Pausa y reconexión',
-      items: [
-        { icon: 'pause_circle', text: 'Sientes que la vida va demasiado rápida y necesitas parar.' },
-        { icon: 'sentiment_dissatisfied', text: 'Estás desencantada a pesar de tenerlo todo.' },
-        { icon: 'self_improvement', text: 'Quieres aprender a relajarte y retomar el contacto con tu cuerpo.' },
-        { icon: 'psychology_alt', text: 'Llevas un tiempo en el camino del crecimiento personal, pero echas en falta enfoque y claridad.' }
-      ]
+      id: 'rutina',
+      benefit: {
+        icon: 'event_available',
+        before: 'Asentar una rutina de bienestar que te dé ',
+        emphasis: 'confianza en los retos diarios',
+        after: '.'
+      },
+      feeling: {
+        icon: 'pace',
+        before: 'Sientes que la vida va ',
+        emphasis: 'demasiado rápida',
+        after: ' y necesitas parar.'
+      }
     },
     {
-      title: 'Bienestar integral',
-      items: [
-        { icon: 'spa', text: 'Buscas la unión de práctica y conocimientos sobre Salud y Bienestar Integral en un solo espacio.' },
-        { icon: 'eco', text: 'Algo dentro de ti sabe que necesitas soltar y fluir más.' }
-      ]
+      id: 'autocuidado',
+      benefit: {
+        icon: 'self_improvement',
+        before: 'Aumentar tus momentos semanales de práctica de ',
+        emphasis: 'meditación y autocuidado',
+        after: '.'
+      },
+      feeling: {
+        icon: 'spa',
+        before: 'Buscas la unión de práctica y conocimientos sobre ',
+        emphasis: 'Salud y Bienestar Integral',
+        after: ' en un solo espacio.'
+      }
     },
     {
-      title: 'Comunidad y relaciones',
-      items: [
-        { icon: 'public', text: 'Te sientes sola y poco identificada con su entorno (laboral, familiar, amistades…); a veces te sientes de otro planeta.' },
-        { icon: 'forum', text: 'Quieres relacionarte más asertivamente con los demás.' },
-        { icon: 'diversity_3', text: 'Conoces la importancia de desarrollarte acompañada, en un entorno consciente y amoroso.' }
-      ]
-    }
-  ];
-
-  readonly benefitGroups = [
-    {
-      title: 'Rutina y autocuidado',
-      items: [
-        { icon: 'event_available', text: 'Asentar una rutina de bienestar que te dé confianza en los retos diarios.' },
-        { icon: 'self_improvement', text: 'Aumentar los momentos semanales de práctica de meditación y autocuidado.' },
-        { icon: 'spa', text: 'Aprender herramientas de relajación mental y corporal.' }
-      ]
+      id: 'relajacion',
+      benefit: {
+        icon: 'accessibility_new',
+        before: 'Aprender herramientas de ',
+        emphasis: 'relajación',
+        after: ' y fortalecimiento corporal y mental.'
+      },
+      feeling: {
+        icon: 'favorite',
+        before: 'Quieres aprender a ',
+        emphasis: 'relajarte',
+        after: ' y retomar el contacto con tu cuerpo.'
+      }
     },
     {
-      title: 'Fortaleza y enfoque',
-      items: [
-        { icon: 'fitness_center', text: 'Fortalecer cuerpo y mente.' },
-        { icon: 'speed', text: 'Posibilidad de avanzar a tu ritmo.' },
-        { icon: 'center_focus_strong', text: 'Sentirte más en el mundo y enfocar tu dispersión.' }
-      ]
+      id: 'sencillez',
+      benefit: {
+        icon: 'local_florist',
+        before: '',
+        emphasis: 'Descubrir la vida en la sencillez del día a día',
+        after: ' valorando más los pequeños detalles.'
+      },
+      feeling: {
+        icon: 'sentiment_dissatisfied',
+        before: 'Estás ',
+        emphasis: 'desencantada',
+        after: ' a pesar de tenerlo todo.'
+      }
     },
     {
-      title: 'Flexibilidad y estilo de vida',
-      items: [
-        { icon: 'travel_explore', text: 'Tener la posibilidad de organizarte a tu manera (viajar, flexibilidad horaria) y disfrutar más tiempo de calidad manteniendo tu rutina de bienestar todo el año.' },
-        { icon: 'local_florist', text: 'Descubrir la vida en la sencillez del día a día valorando más los pequeños detalles.' }
-      ]
+      id: 'ritmo',
+      benefit: {
+        icon: 'travel_explore',
+        before: 'Tener la posibilidad de ',
+        emphasis: 'organizarte a tu ritmo y manera, y disfrutar más tiempo de calidad',
+        after: ' manteniendo tu rutina de bienestar todo el año.'
+      },
+      feeling: {
+        icon: 'schedule',
+        before: 'Te sientes un poco perdida y te ',
+        emphasis: 'agobian los horarios estrictos o tantos desplazamientos',
+        after: '.'
+      }
     },
     {
-      title: 'Comunidad y contenidos',
-      items: [
-        { icon: 'groups', text: 'Sentirte acompañada y parte de una Comunidad que comparte valores.' },
-        { icon: 'forum', text: 'Relacionarte más asertivamente con los demás.' },
-        { icon: 'language', text: 'Contenido con profesionales de España y América Latina.' },
-        { icon: 'class', text: 'Clases de distintos estilos, intensidades y duraciones.' },
-        { icon: 'new_releases', text: 'Nuevos contenidos semanales sin publicidad.' }
-      ]
+      id: 'enfoque',
+      benefit: {
+        icon: 'center_focus_strong',
+        before: 'Sentirte ',
+        emphasis: 'más en el mundo y enfocar tu dispersión',
+        after: '.'
+      },
+      feeling: {
+        icon: 'psychology_alt',
+        before: 'Llevas un tiempo en el camino del crecimiento personal, pero echas en falta ',
+        emphasis: 'enfoque y claridad',
+        after: '.'
+      }
+    },
+    {
+      id: 'comunidad',
+      benefit: {
+        icon: 'diversity_3',
+        before: '',
+        emphasis: 'Sentirte acompañada',
+        after: ' y parte de una Comunidad que comparte valores, en un entorno más consciente y amoroso.'
+      },
+      feeling: {
+        icon: 'person_outline',
+        before: 'Te sientes ',
+        emphasis: 'sola y poco identificada con tu entorno',
+        after: ' (laboral, familiar, amistades…); a veces te sientes de otro planeta.'
+      }
+    },
+    {
+      id: 'relaciones',
+      benefit: {
+        icon: 'forum',
+        before: '',
+        emphasis: 'Relacionarte más asertivamente',
+        after: ' con los demás.'
+      },
+      feeling: {
+        icon: 'air',
+        before: 'Algo dentro de ti sabe que necesitas ',
+        emphasis: 'soltar y fluir más',
+        after: '.'
+      }
     }
   ];
 }

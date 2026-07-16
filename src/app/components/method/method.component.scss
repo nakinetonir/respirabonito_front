@@ -2,17 +2,47 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  background:
-    radial-gradient(circle at 88% 12%, rgba(231,189,200,.30), transparent 22rem),
-    radial-gradient(circle at 10% 92%, rgba(111,143,108,.14), transparent 24rem),
-    linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,254,247,.96));
+  background: #fffdf7;
 }
 
-.rb-method__shell { position: relative; z-index: 2; }
+/*
+ * El SVG ocupa toda la sección como una capa independiente para poder
+ * controlar su intensidad sin reducir la opacidad del contenido.
+ */
+.rb-method::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  inset: -2%;
+  pointer-events: none;
+  background-image: url('/assets/wellness-nature-respirabonito.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: .42;
+  transform: scale(1.025);
+  transform-origin: center;
+  animation: rbMethodBackgroundBreath 18s ease-in-out infinite alternate;
+}
+
+/* Velo de lectura: conserva el paisaje, pero evita que compita con el texto. */
+.rb-method::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 32%, rgba(255,255,255,.42), transparent 44%),
+    linear-gradient(180deg, rgba(255,255,255,.74) 0%, rgba(255,253,247,.46) 42%, rgba(255,253,247,.80) 100%);
+}
+
+.rb-method__shell { position: relative; z-index: 3; }
 .rb-method__intro { position: relative; }
 
 .rb-method__aura {
   position: absolute;
+  z-index: 2;
   border-radius: 999px;
   pointer-events: none;
   filter: blur(10px);
@@ -59,17 +89,19 @@
   overflow: hidden;
   min-height: 22rem;
   border: 1px solid rgba(124,31,67,.11) !important;
-  background: linear-gradient(155deg, rgba(255,255,255,.96), rgba(243,219,224,.72)) !important;
+  background: linear-gradient(155deg, rgba(255,255,255,.91), rgba(243,219,224,.72)) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(1.04);
+  backdrop-filter: blur(10px) saturate(1.04);
   box-shadow: 0 24px 64px rgba(124,31,67,.11) !important;
   transition: transform .38s cubic-bezier(.2,.7,.2,1), box-shadow .38s ease, border-color .38s ease;
 }
 
 .rb-method__card[data-tone='green'] {
-  background: linear-gradient(155deg, rgba(255,255,255,.96), rgba(223,233,220,.82)) !important;
+  background: linear-gradient(155deg, rgba(255,255,255,.91), rgba(223,233,220,.78)) !important;
 }
 
 .rb-method__card[data-tone='blue'] {
-  background: linear-gradient(155deg, rgba(255,255,255,.96), rgba(223,233,246,.86)) !important;
+  background: linear-gradient(155deg, rgba(255,255,255,.91), rgba(223,233,246,.80)) !important;
 }
 
 .rb-method__card::before {
@@ -247,12 +279,30 @@
   transition: left .22s ease-out;
 }
 
+@keyframes rbMethodBackgroundBreath {
+  0% { transform: scale(1.025) translate3d(-.35%, 0, 0); }
+  100% { transform: scale(1.07) translate3d(.35%, -.45%, 0); }
+}
+
 @keyframes rbMethodAura {
   0%, 100% { transform: translate3d(0,0,0) scale(1); }
   50% { transform: translate3d(1rem,-1rem,0) scale(1.06); }
 }
 
 @media (max-width: 767px) {
+  .rb-method::before {
+    inset: -1.5rem -42%;
+    background-position: 58% center;
+    background-size: auto 112%;
+    opacity: .36;
+    animation-duration: 15s;
+  }
+
+  .rb-method::after {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.82) 0%, rgba(255,253,247,.53) 38%, rgba(255,253,247,.84) 100%);
+  }
+
   .rb-method__grid {
     gap: 1rem !important;
   }
@@ -262,4 +312,12 @@
     padding: 1.45rem !important;
   }
   .rb-method__progress { width: min(18rem, 72vw); }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .rb-method::before {
+    animation: none;
+    transform: scale(1.025);
+  }
 }

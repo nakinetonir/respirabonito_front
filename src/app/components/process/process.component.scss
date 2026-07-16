@@ -1,4 +1,4 @@
-.rb-process {
+.rb-journey-merged {
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -7,350 +7,303 @@
     radial-gradient(circle at 12% 18%, rgba(231, 189, 200, .28), transparent 24rem),
     radial-gradient(circle at 86% 22%, rgba(111, 143, 108, .15), transparent 22rem),
     radial-gradient(circle at 70% 88%, rgba(159, 178, 207, .18), transparent 25rem),
-    linear-gradient(180deg, #fffdf4 0%, #fbfbe1 48%, #fffdf4 100%);
+    linear-gradient(180deg, #fffdf4 0%, #fbfbe7 48%, #fffdf4 100%);
 }
 
-.rb-process::before {
+.rb-journey-merged::before {
   content: '';
   position: absolute;
   z-index: -1;
   inset: 8% -12% auto;
   height: 58%;
-  background:
-    radial-gradient(ellipse at center, rgba(255, 255, 255, .68), rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, .72), transparent 70%);
   filter: blur(14px);
   pointer-events: none;
 }
 
-.rb-process__shell {
+.rb-journey-merged__shell {
   position: relative;
   z-index: 2;
 }
 
-.rb-process__heading {
-  position: relative;
+.rb-journey-merged__heading {
   width: min(100%, 58rem);
   margin-inline: auto;
   text-align: center;
 }
 
-.rb-process__heading h2 {
-  margin: 0;
-  color: #922d73;
-  font-family: var(--rb-font-section-title, 'Italianno', 'Brush Script MT', cursive) !important;
-  font-size: clamp(3.1rem, 7vw, 5.8rem);
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0;
+.rb-journey-merged__kicker {
+  margin: 0 0 .55rem;
+  color: #6f8f6c;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
 }
 
-.rb-process__heading-line {
+.rb-journey-merged__heading h2 {
+  margin: 0;
+  color: #922d73;
+  font-family: var(--rb-font-seasons, 'Cormorant Garamond', Georgia, serif) !important;
+  font-size: clamp(3.1rem, 7vw, 5.8rem);
+  font-weight: 500;
+  line-height: .98;
+  letter-spacing: -.025em;
+}
+
+.rb-journey-merged__intro {
+  max-width: 42rem;
+  margin: 1.05rem auto 0;
+  color: rgba(31, 23, 27, .75);
+  font-size: clamp(1rem, 1.45vw, 1.14rem);
+  line-height: 1.75;
+  text-wrap: balance;
+}
+
+.rb-journey-merged__heading-line {
   display: block;
   width: clamp(7rem, 18vw, 12rem);
   height: 3px;
-  margin: 1.15rem auto 0;
+  margin: 1.2rem auto 0;
   border-radius: 999px;
   background: linear-gradient(90deg, transparent, #a83f68 26%, #6f8f6c 64%, transparent);
   transform-origin: center;
-  animation: rbProcessBreath 2.4s ease-in-out infinite;
+  animation: rbJourneyMergedBreath 2.4s ease-in-out infinite;
 }
 
-.rb-process__journey {
+.rb-journey-merged__map {
   position: relative;
   width: min(100%, 1180px);
-  min-height: clamp(35rem, 55vw, 43rem);
-  margin: clamp(2.6rem, 6vw, 5rem) auto 0;
+  margin: clamp(2.8rem, 6vw, 5rem) auto 0;
 }
 
-.rb-process__route {
+.rb-journey-merged__route {
   position: absolute;
   z-index: 0;
-  inset: 1.5rem 1rem auto;
-  height: clamp(14rem, 26vw, 19rem);
+  inset: .8rem 1rem auto;
+  height: clamp(12rem, 23vw, 17rem);
   pointer-events: none;
 }
 
-.rb-process__route svg {
+.rb-journey-merged__route svg {
   width: 100%;
   height: 100%;
   overflow: visible;
 }
 
-.rb-process__route-shadow,
-.rb-process__route-line,
-.rb-process__route-light {
+.rb-journey-merged__route-shadow,
+.rb-journey-merged__route-line,
+.rb-journey-merged__route-light {
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-.rb-process__route-shadow {
-  stroke: rgba(124, 31, 67, .08);
+.rb-journey-merged__route-shadow {
+  stroke: rgba(124, 31, 67, .075);
   stroke-width: 24;
 }
 
-.rb-process__route-line {
-  stroke: url(#rbProcessGradient);
+.rb-journey-merged__route-line {
+  stroke: url(#rbJourneyMergedGradient);
   stroke-width: 7;
-  opacity: .38;
+  opacity: .36;
 }
 
-.rb-process__route-light {
-  stroke: url(#rbProcessGradient);
+.rb-journey-merged__route-light {
+  stroke: url(#rbJourneyMergedGradient);
   stroke-width: 4;
   stroke-dasharray: .12 .88;
   stroke-dashoffset: 1;
-  filter: url(#rbProcessGlow);
-  animation: rbProcessFlow 2.1s linear infinite;
+  opacity: .85;
+  animation: rbJourneyMergedFlow 2.1s linear infinite;
 }
 
-.rb-process__traveller {
-  position: absolute;
-  left: 6%;
-  top: 56%;
-  width: 1.7rem;
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%);
-  border: 2px solid rgba(255, 255, 255, .94);
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #fff 0 12%, #f0c86d 16% 34%, #a83f68 36% 68%, #7c1f43 72% 100%);
-  box-shadow:
-    0 0 0 .55rem rgba(168, 63, 104, .10),
-    0 0 2rem rgba(124, 31, 67, .42);
-  animation: rbProcessTraveller 5.4s cubic-bezier(.45, .05, .55, .95) infinite;
-}
-
-.rb-process__traveller span {
-  position: absolute;
-  inset: -.55rem;
-  border: 1px solid rgba(168, 63, 104, .25);
-  border-radius: 50%;
-  animation: rbProcessTravellerPulse 1.35s ease-out infinite;
-}
-
-.rb-process__steps {
+.rb-journey-merged__grid {
   position: relative;
   z-index: 2;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1rem, 2.2vw, 1.7rem);
-  padding-top: clamp(9.2rem, 17vw, 13.5rem);
+  gap: clamp(1rem, 2.2vw, 1.8rem);
+  padding-top: clamp(8.5rem, 15vw, 12rem);
 }
 
-.rb-process__step {
-  --step-accent: #a83f68;
-  --step-soft: rgba(231, 189, 200, .38);
+.rb-journey-column {
+  --pair-accent: #a83f68;
+  --pair-soft: rgba(231, 189, 200, .38);
+  --pair-soft-strong: rgba(231, 189, 200, .54);
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   min-width: 0;
 }
 
-.rb-process__step:nth-child(2) {
-  --step-accent: #6f8f6c;
-  --step-soft: rgba(205, 223, 199, .44);
-  transform: translateY(clamp(4.5rem, 8vw, 7rem));
+.rb-journey-column:nth-child(2) {
+  --pair-accent: #6f8f6c;
+  --pair-soft: rgba(205, 223, 199, .45);
+  --pair-soft-strong: rgba(205, 223, 199, .62);
+  transform: translateY(clamp(3rem, 6vw, 4.4rem));
 }
 
-.rb-process__step:nth-child(3) {
-  --step-accent: #738baa;
-  --step-soft: rgba(207, 220, 239, .48);
-  transform: translateY(.6rem);
+.rb-journey-column:nth-child(3) {
+  --pair-accent: #738baa;
+  --pair-soft: rgba(207, 220, 239, .48);
+  --pair-soft-strong: rgba(207, 220, 239, .62);
+  transform: translateY(.5rem);
 }
 
-.rb-process__node {
+.rb-journey-column__step-node {
   position: relative;
   z-index: 3;
   display: grid;
   place-items: center;
-  width: 5.4rem;
+  width: 4.4rem;
   aspect-ratio: 1;
-  margin-bottom: -1.5rem;
-}
-
-.rb-process__node-orbit {
-  position: absolute;
-  inset: 0;
-  border: 1px solid color-mix(in srgb, var(--step-accent) 42%, transparent);
+  margin: 0 auto -1.35rem;
+  border: 1px solid color-mix(in srgb, var(--pair-accent) 22%, transparent);
   border-radius: 50%;
-  box-shadow: 0 0 0 .55rem color-mix(in srgb, var(--step-accent) 8%, transparent);
-  animation: rbProcessOrbit 3.2s ease-in-out infinite;
-  animation-delay: calc(var(--step-index) * -.55s);
-}
-
-.rb-process__node-orbit::before,
-.rb-process__node-orbit::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-}
-
-.rb-process__node-orbit::before {
-  width: .7rem;
-  aspect-ratio: 1;
-  top: .2rem;
-  left: 50%;
-  background: var(--step-accent);
-  box-shadow: 0 0 1rem color-mix(in srgb, var(--step-accent) 50%, transparent);
-  transform: translateX(-50%);
-}
-
-.rb-process__node-orbit::after {
-  inset: .55rem;
-  border: 1px dashed color-mix(in srgb, var(--step-accent) 34%, transparent);
-  animation: rbProcessSpin 7s linear infinite;
-}
-
-.rb-process__node-core {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  place-items: center;
-  width: 3.65rem;
-  aspect-ratio: 1;
-  border: 1px solid rgba(255, 255, 255, .85);
-  border-radius: 50%;
-  background: linear-gradient(145deg, rgba(255, 255, 255, .98), var(--step-soft));
-  color: var(--step-accent);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.55rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, .98), var(--pair-soft));
+  color: var(--pair-accent);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.35rem;
   font-weight: 700;
   box-shadow:
     inset 0 1px 0 #fff,
-    0 16px 34px color-mix(in srgb, var(--step-accent) 18%, transparent);
+    0 16px 34px color-mix(in srgb, var(--pair-accent) 18%, transparent);
 }
 
-.rb-process__card {
+.rb-journey-column__card {
   position: relative;
-  flex: 1;
-  width: 100%;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--step-accent) 16%, transparent);
+  min-height: 100%;
+  border: 1px solid color-mix(in srgb, var(--pair-accent) 16%, transparent);
   border-radius: 2rem;
   background:
-    radial-gradient(circle at 50% 0%, var(--step-soft), transparent 12rem),
-    rgba(255, 255, 255, .82);
-  padding: 3.35rem clamp(1.2rem, 2.4vw, 2rem) clamp(1.5rem, 3vw, 2.25rem);
+    radial-gradient(circle at 50% 0%, var(--pair-soft), transparent 12rem),
+    rgba(255, 255, 255, .84);
+  padding: 3.3rem clamp(1.25rem, 2.4vw, 1.8rem) clamp(1.45rem, 3vw, 2rem);
   text-align: center;
   box-shadow:
-    0 28px 65px color-mix(in srgb, var(--step-accent) 11%, transparent),
-    inset 0 1px 0 rgba(255, 255, 255, .9);
+    0 28px 65px color-mix(in srgb, var(--pair-accent) 11%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, .92);
   backdrop-filter: blur(16px);
   transition: transform .36s ease, box-shadow .36s ease, border-color .36s ease;
 }
 
-.rb-process__card::before {
+.rb-journey-column__card::before {
   content: '';
   position: absolute;
-  inset: auto -18% -44% -18%;
+  inset: auto -18% -44%;
   height: 68%;
   border-radius: 50% 50% 0 0;
-  background: var(--step-soft);
-  opacity: .42;
+  background: var(--pair-soft);
+  opacity: .38;
   transform: rotate(-4deg);
   transition: transform .5s ease, opacity .5s ease;
 }
 
-.rb-process__card::after {
+.rb-journey-column__card::after {
   content: '';
   position: absolute;
   top: 0;
   left: 15%;
   right: 15%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--step-accent), transparent);
-  opacity: .7;
+  background: linear-gradient(90deg, transparent, var(--pair-accent), transparent);
+  opacity: .72;
 }
 
-.rb-process__step:hover .rb-process__card {
+.rb-journey-column__card-glow {
+  position: absolute;
+  inset: -1.5rem auto auto -1.5rem;
+  width: 5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.95), var(--pair-soft-strong) 50%, transparent 72%);
+  opacity: .65;
+  pointer-events: none;
+}
+
+.rb-journey-column__card:hover {
   transform: translateY(-9px);
-  border-color: color-mix(in srgb, var(--step-accent) 32%, transparent);
+  border-color: color-mix(in srgb, var(--pair-accent) 32%, transparent);
   box-shadow:
-    0 36px 82px color-mix(in srgb, var(--step-accent) 17%, transparent),
-    inset 0 1px 0 rgba(255, 255, 255, .95);
+    0 36px 82px color-mix(in srgb, var(--pair-accent) 17%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, .96);
 }
 
-.rb-process__step:hover .rb-process__card::before {
-  opacity: .7;
+.rb-journey-column__card:hover::before {
+  opacity: .66;
   transform: translateY(-8%) rotate(2deg);
 }
 
-.rb-process__step:hover .rb-process__node-orbit {
-  animation-duration: 1.4s;
-}
-
-.rb-process__step-label,
-.rb-process__card h3,
-.rb-process__card p {
+.rb-journey-column__badge,
+.rb-journey-column__eyebrow,
+.rb-journey-column__card h3,
+.rb-journey-column__card p {
   position: relative;
   z-index: 2;
 }
 
-.rb-process__step-label {
+.rb-journey-column__badge {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   min-height: 1.8rem;
-  margin-bottom: .85rem;
-  border: 1px solid color-mix(in srgb, var(--step-accent) 20%, transparent);
+  width: fit-content;
+  margin-bottom: .7rem;
+  border: 1px solid color-mix(in srgb, var(--pair-accent) 20%, transparent);
   border-radius: 999px;
   background: rgba(255, 255, 255, .72);
   padding: .25rem .7rem;
-  color: var(--step-accent);
+  color: var(--pair-accent);
   font-size: .74rem;
   font-weight: 800;
   letter-spacing: .11em;
   text-transform: uppercase;
 }
 
-.rb-process__card h3 {
+.rb-journey-column__eyebrow {
+  margin: 0 0 .5rem;
+  color: color-mix(in srgb, var(--pair-accent) 92%, #77515d 8%);
+  font-size: .74rem;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.rb-journey-column__card h3 {
   margin: 0;
   color: #4f241b;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.45rem, 2.2vw, 1.95rem);
   font-weight: 600;
   line-height: 1.08;
   letter-spacing: -.02em;
+  text-wrap: balance;
 }
 
-.rb-process__card p {
-  margin: .95rem 0 0;
+.rb-journey-column__card p {
+  margin: .9rem 0 0;
   color: rgba(31, 23, 27, .78);
-  font-size: clamp(.98rem, 1.2vw, 1.08rem);
+  font-size: clamp(.98rem, 1.15vw, 1.06rem);
   line-height: 1.72;
 }
 
-.rb-process__cta {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  justify-content: center;
-  margin-top: clamp(7rem, 12vw, 10rem);
-}
-
-.rb-process__cta .rb-btn {
-  min-width: min(100%, 20rem);
-}
-
-.rb-process__aura {
+.rb-journey-merged__aura {
   position: absolute;
   z-index: 0;
   border-radius: 50%;
   pointer-events: none;
-  filter: blur(1px);
-  animation: rbProcessAura 8s ease-in-out infinite;
+  animation: rbJourneyMergedAura 8s ease-in-out infinite;
 }
 
-.rb-process__aura--rose {
+.rb-journey-merged__aura--rose {
   width: 7rem;
   aspect-ratio: 1;
   left: 3%;
-  top: 24%;
-  background: rgba(231, 189, 200, .20);
+  top: 26%;
+  background: rgba(231, 189, 200, .2);
 }
 
-.rb-process__aura--green {
+.rb-journey-merged__aura--green {
   width: 5rem;
   aspect-ratio: 1;
   right: 6%;
@@ -359,7 +312,7 @@
   animation-delay: -2.6s;
 }
 
-.rb-process__aura--blue {
+.rb-journey-merged__aura--blue {
   width: 6rem;
   aspect-ratio: 1;
   right: 15%;
@@ -368,176 +321,206 @@
   animation-delay: -5s;
 }
 
-@keyframes rbProcessFlow {
-  to { stroke-dashoffset: 0; }
-}
-
-@keyframes rbProcessTraveller {
-  0%, 4% { left: 6%; top: 56%; opacity: 0; }
-  8% { opacity: 1; }
-  24% { left: 27%; top: 17%; }
-  47% { left: 48%; top: 51%; }
-  70% { left: 71%; top: 18%; }
-  92% { left: 92%; top: 50%; opacity: 1; }
-  96%, 100% { left: 94%; top: 52%; opacity: 0; }
-}
-
-@keyframes rbProcessTravellerPulse {
-  0% { transform: scale(.75); opacity: .75; }
-  100% { transform: scale(1.65); opacity: 0; }
-}
-
-@keyframes rbProcessOrbit {
-  0%, 100% { transform: scale(.92) rotate(0deg); opacity: .55; }
-  50% { transform: scale(1.08) rotate(180deg); opacity: 1; }
-}
-
-@keyframes rbProcessSpin {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes rbProcessBreath {
+@keyframes rbJourneyMergedFlow { to { stroke-dashoffset: 0; } }
+@keyframes rbJourneyMergedBreath {
   0%, 100% { transform: scaleX(.82); opacity: .55; }
   50% { transform: scaleX(1.05); opacity: 1; }
 }
-
-@keyframes rbProcessAura {
+@keyframes rbJourneyMergedAura {
   0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
   50% { transform: translate3d(0, -1.3rem, 0) scale(1.08); }
 }
 
-@media (max-width: 900px) {
-  .rb-process__journey {
-    min-height: auto;
-  }
+.rb-process__group-message {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 1040px);
+  margin: clamp(6.8rem, 12vw, 9.2rem) auto 0;
+  padding-inline: clamp(.5rem, 2vw, 1rem);
+}
 
-  .rb-process__route {
-    display: none;
-  }
+.rb-process__group-message::before {
+  content: '';
+  position: absolute;
+  inset: 6% 6% auto;
+  height: 76%;
+  border-radius: 999px;
+  background: radial-gradient(ellipse at center, rgba(139, 47, 104, .11), rgba(139, 47, 104, 0) 72%);
+  filter: blur(26px);
+  pointer-events: none;
+}
 
-  .rb-process__steps {
+.rb-process__group-message-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rb-process__group-message-text {
+  max-width: 49rem;
+  margin: 0 auto;
+  padding-top: clamp(1.5rem, 3vw, 2.25rem);
+  color: rgba(31, 23, 27, .84);
+  font-family: var(--rb-font-seasons, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(1.34rem, 2vw, 1.76rem);
+  line-height: 1.72;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.rb-process__group-message-illustration {
+  width: min(100%, 36rem);
+  margin: clamp(1.15rem, 3vw, 1.75rem) auto 0;
+  opacity: .94;
+}
+
+.rb-process__group-message-illustration svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.rb-process__illus-arc,
+.rb-process__illus-figures circle,
+.rb-process__illus-figures path,
+.rb-process__illus-lotus {
+  fill: none;
+  stroke: url(#rbWineIllustrationGradient);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.rb-process__illus-arc--soft {
+  opacity: .24;
+  stroke-width: 7;
+}
+
+.rb-process__illus-figures circle {
+  fill: rgba(139, 47, 104, .05);
+}
+
+.rb-process__illus-lotus {
+  stroke-width: 3.5;
+}
+
+.rb-process__cta {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(2.2rem, 4vw, 3.3rem);
+}
+
+.rb-process__cta .rb-btn { min-width: min(100%, 20rem); }
+
+@media (max-width: 980px) {
+  .rb-journey-merged__route { display: none; }
+
+  .rb-journey-merged__grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.6rem;
     width: min(100%, 42rem);
     margin-inline: auto;
     padding-top: 0;
   }
 
-  .rb-process__step,
-  .rb-process__step:nth-child(2),
-  .rb-process__step:nth-child(3) {
+  .rb-journey-column,
+  .rb-journey-column:nth-child(2),
+  .rb-journey-column:nth-child(3) {
     display: grid;
-    grid-template-columns: 5rem minmax(0, 1fr);
+    grid-template-columns: 4.7rem minmax(0, 1fr);
     align-items: center;
     transform: none;
   }
 
-  .rb-process__step:not(:last-child)::after {
+  .rb-journey-column:not(:last-child)::after {
     content: '';
     position: absolute;
     z-index: -1;
-    left: 2.45rem;
-    top: 4.65rem;
+    left: 2.33rem;
+    top: 4.3rem;
     bottom: -2rem;
     width: 3px;
     border-radius: 999px;
-    background: linear-gradient(180deg, var(--step-accent), rgba(124, 31, 67, .10));
-    opacity: .45;
+    background: linear-gradient(180deg, var(--pair-accent), rgba(124, 31, 67, .1));
+    opacity: .4;
   }
 
-  .rb-process__node {
+  .rb-journey-column__step-node {
     grid-column: 1;
     grid-row: 1;
-    width: 4.8rem;
-    margin: 0 -1rem 0 0;
+    width: 4.6rem;
+    margin: 0 -.8rem 0 0;
   }
 
-  .rb-process__node-core {
-    width: 3.3rem;
-  }
-
-  .rb-process__card {
+  .rb-journey-column__card {
     grid-column: 2;
     grid-row: 1;
+    min-height: auto;
     padding: 1.5rem 1.25rem;
     text-align: left;
   }
 
-  .rb-process__step-label {
-    margin-bottom: .5rem;
+  .rb-process__group-message { margin-top: 4rem; }
+}
+
+@media (max-width: 620px) {
+  .rb-process__group-message {
+    margin-top: 3.6rem;
+    padding-inline: 0;
   }
 
-  .rb-process__cta {
-    margin-top: 2.7rem;
+  .rb-process__group-message-text {
+    max-width: 26rem;
+    padding-top: 1.25rem;
+    font-size: clamp(1.12rem, 5vw, 1.38rem);
+    line-height: 1.68;
+  }
+
+  .rb-process__group-message-illustration {
+    width: min(100%, 22rem);
+    margin-top: .95rem;
   }
 }
 
 @media (max-width: 560px) {
-  .rb-process {
-    padding-inline: .75rem;
+  .rb-journey-merged { padding-inline: .75rem; }
+  .rb-journey-merged__heading h2 { font-size: clamp(3rem, 17vw, 4.6rem); }
+
+  .rb-journey-column,
+  .rb-journey-column:nth-child(2),
+  .rb-journey-column:nth-child(3) {
+    grid-template-columns: 3.35rem minmax(0, 1fr);
   }
 
-  .rb-process__heading h2 {
-    font-size: clamp(3rem, 17vw, 4.6rem);
-  }
-
-  .rb-process__steps {
-    gap: 2rem;
-  }
-
-  .rb-process__step,
-  .rb-process__step:nth-child(2),
-  .rb-process__step:nth-child(3) {
-    grid-template-columns: 3.4rem minmax(0, 1fr);
-  }
-
-  .rb-process__step:not(:last-child)::after {
-    left: 1.68rem;
-    top: 4.2rem;
-    bottom: -2.45rem;
-  }
-
-  .rb-process__node {
-    width: 3.35rem;
+  .rb-journey-column__step-node {
+    width: 3.3rem;
     margin-right: -.3rem;
+    font-size: 1.05rem;
   }
 
-  .rb-process__node-core {
-    width: 2.55rem;
-    font-size: 1.15rem;
+  .rb-journey-column:not(:last-child)::after {
+    left: 1.65rem;
+    top: 3.5rem;
+    bottom: -2.2rem;
   }
 
-  .rb-process__node-orbit::after {
-    inset: .38rem;
-  }
-
-  .rb-process__node-orbit::before {
-    width: .52rem;
-    top: .05rem;
-  }
-
-  .rb-process__card {
-    border-radius: 1.4rem;
+  .rb-journey-column__card {
+    border-radius: 1.45rem;
     padding: 1.25rem 1rem;
   }
 
-  .rb-process__card h3 {
-    font-size: 1.45rem;
-  }
+  .rb-journey-column__card h3 { font-size: 1.42rem; }
+  .rb-journey-column__badge { font-size: .68rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .rb-process__route-light,
-  .rb-process__traveller,
-  .rb-process__traveller span,
-  .rb-process__node-orbit,
-  .rb-process__node-orbit::after,
-  .rb-process__heading-line,
-  .rb-process__aura {
-    animation: none !important;
-  }
-
-  .rb-process__route-light {
-    stroke-dasharray: none;
-  }
+  .rb-journey-merged__route-light,
+  .rb-journey-merged__heading-line,
+  .rb-journey-merged__aura { animation: none !important; }
+  .rb-journey-merged__route-light { stroke-dasharray: none; }
 }

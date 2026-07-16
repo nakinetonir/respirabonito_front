@@ -17,16 +17,20 @@ export class PainPointsComponent {
       text: '¿Sientes que la semana pasa rápido y enlazas tareas y actividades casi sin darte cuenta?'
     },
     {
-      icon: 'diversity_3',
-      text: '¿Percibes vínculos con las personas de tu entorno, pero echas en falta profundidad?'
-    },
-    {
       icon: 'sync_problem',
       text: '¿Sientes que tu cuerpo y tu mente van por distintos caminos?'
     },
     {
       icon: 'health_and_safety',
       text: '¿Tienes molestias o incomodidad en el cuerpo que te gustaría atender y cuidar?'
+    },
+    {
+      icon: 'event_available',
+      text: '¿Necesitas un método que te ayude a priorizar y organizarte mejor?'
+    },
+    {
+      icon: 'diversity_3',
+      text: '¿Percibes vínculos con las personas de tu entorno, pero echas en falta profundidad?'
     }
   ];
 }

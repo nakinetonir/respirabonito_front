@@ -55,11 +55,15 @@
 }
 
 .laurem-story__lead {
-  max-width: 62ch;
+  display: block;
+  width: 100%;
+  max-width: none;
   margin: 1.35rem 0 0;
   color: rgba(31, 23, 27, .82);
   font-size: clamp(1.05rem, 1.5vw, 1.22rem);
   line-height: 1.85;
+  column-count: 1;
+  column-width: auto;
 }
 
 .laurem-story__chapters {
@@ -200,10 +204,11 @@
 .laurem-story__authority-head h3 {
   margin: 0;
   color: #fff;
+  font-family: var(--rb-font-script) !important;
   font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 500;
-  line-height: 1.04;
-  letter-spacing: -.03em;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: 0;
 }
 
 .laurem-story__authority-head p:not(.rb-kicker) {
@@ -365,8 +370,11 @@
 
 .laurem-story__authority-head h3 {
   max-width: none;
+  font-family: var(--rb-font-script) !important;
   font-size: clamp(2.15rem, 4vw, 3.65rem);
-  line-height: 1.06;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: 0;
   text-wrap: balance;
 }
 
@@ -377,12 +385,211 @@
 
 @media (min-width: 900px) {
   .laurem-story__lead {
-    column-count: 2;
-    column-gap: clamp(2rem, 4vw, 4rem);
-    column-rule: 1px solid rgba(139, 47, 104, .10);
+    width: 100%;
+    max-width: none;
+    column-count: 1;
+    column-width: auto;
+    column-gap: normal;
+    column-rule: none;
   }
 
   .laurem-story__authority-head p:not(.rb-kicker) {
     width: min(100%, 62rem);
+  }
+}
+
+/* Integración de acreditaciones y entidades en las tarjetas de autoridad */
+.laurem-story__authority-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.35rem);
+}
+
+.laurem-story__authority-card {
+  grid-template-columns: 3.25rem minmax(0, 1fr);
+  min-height: 100%;
+  padding: clamp(1rem, 1.7vw, 1.35rem);
+}
+
+.laurem-story__authority-content {
+  min-width: 0;
+}
+
+.laurem-story__authority-card--with-logos {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.15), rgba(255,255,255,.08)),
+    rgba(255,255,255,.07);
+}
+
+.laurem-story__authority-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .7rem;
+  margin-top: 1rem;
+  padding-top: .9rem;
+  border-top: 1px solid rgba(255,255,255,.15);
+}
+
+.laurem-story__authority-logo {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  margin: 0;
+  min-width: 5.25rem;
+  min-height: 4.8rem;
+  border: 1px solid rgba(139,47,104,.18);
+  border-radius: 1rem;
+  padding: .55rem;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255,255,255,.98), transparent 70%),
+    linear-gradient(145deg, #fffdf8, #f8edf2);
+  box-shadow:
+    0 14px 28px rgba(31,23,27,.15),
+    inset 0 1px 0 rgba(255,255,255,1);
+  overflow: hidden;
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+
+.laurem-story__authority-logo::after {
+  content: '';
+  position: absolute;
+  inset: auto 12% .28rem;
+  height: .12rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(139,47,104,.24), transparent);
+}
+
+.laurem-story__authority-logo:hover {
+  transform: translateY(-3px) scale(1.025);
+  border-color: rgba(139,47,104,.42);
+  box-shadow:
+    0 18px 34px rgba(31,23,27,.2),
+    0 0 0 3px rgba(139,47,104,.10);
+}
+
+.laurem-story__authority-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 5.4rem;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 .25rem .35rem rgba(139,47,104,.10));
+}
+
+.laurem-story__authority-logo--seal,
+.laurem-story__authority-logo--square {
+  width: clamp(5.5rem, 7vw, 6.6rem);
+  aspect-ratio: 1;
+}
+
+.laurem-story__authority-logo--landscape {
+  width: clamp(8.5rem, 13vw, 11.5rem);
+  min-height: 4.8rem;
+  padding: .6rem .8rem;
+}
+
+.laurem-story__authority-logo--landscape img {
+  max-height: 3.9rem;
+}
+
+.laurem-story__authority-logo--wide {
+  width: min(100%, 19rem);
+  min-height: 5.25rem;
+  padding: .65rem .8rem;
+}
+
+.laurem-story__authority-logo--wide img {
+  max-height: 4.4rem;
+}
+
+/* La tarjeta de educación necesita espacio para tres acreditaciones sin comprimirlas. */
+.laurem-story__authority-card:nth-child(3),
+.laurem-story__authority-card:nth-child(6) {
+  grid-column: span 2;
+}
+
+.laurem-story__authority-card:nth-child(3) .laurem-story__authority-logos {
+  justify-content: flex-start;
+}
+
+@media (max-width: 900px) {
+  .laurem-story__authority-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .laurem-story__authority-card:nth-child(3),
+  .laurem-story__authority-card:nth-child(6) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .laurem-story__authority-card {
+    grid-template-columns: 2.85rem minmax(0, 1fr);
+    padding: .95rem;
+  }
+
+  .laurem-story__authority-logos {
+    gap: .55rem;
+    margin-left: -3.7rem;
+    justify-content: center;
+  }
+
+  .laurem-story__authority-logo--seal,
+  .laurem-story__authority-logo--square {
+    width: clamp(4.9rem, 25vw, 5.8rem);
+  }
+
+  .laurem-story__authority-logo--landscape {
+    width: min(100%, 10.5rem);
+  }
+
+  .laurem-story__authority-logo--wide {
+    width: 100%;
+    min-height: 4.7rem;
+  }
+}
+
+/* Titular principal de experiencia: alineado a la izquierda y abierto casi a todo el bloque. */
+.laurem-story__authority-head {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: .15rem clamp(.1rem, .7vw, .55rem) 0;
+  text-align: left;
+}
+
+.laurem-story__authority-head #experiencia-title {
+  width: min(94%, 72rem);
+  max-width: none !important;
+  margin: 0 !important;
+  color: #fff;
+  font-family: var(--rb-font-section-title);
+  font-size: clamp(2.4rem, 4.8vw, 4.85rem) !important;
+  font-weight: 500 !important;
+  line-height: .99;
+  letter-spacing: -.035em !important;
+  text-align: left;
+  text-wrap: balance;
+}
+
+.laurem-story__authority-head p:not(.rb-kicker) {
+  width: min(82%, 62rem);
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+}
+
+@media (max-width: 700px) {
+  .laurem-story__authority-head #experiencia-title,
+  .laurem-story__authority-head p:not(.rb-kicker) {
+    width: 100%;
+  }
+
+  .laurem-story__authority-head #experiencia-title {
+    font-size: clamp(2.25rem, 10vw, 3.45rem) !important;
+    line-height: 1.01;
   }
 }

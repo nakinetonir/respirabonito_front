@@ -163,69 +163,58 @@
 
 .dynamic-mandala-section {
   position: relative;
-  padding: clamp(1.25rem, 2vw, 2rem) 0 clamp(2rem, 4vw, 3rem);
-}
-
-.dynamic-mandala-card {
-  width: min(56rem, calc(100vw - 2rem));
-  margin: 0 auto;
-  padding: clamp(1rem, 2vw, 1.5rem);
-  border-radius: 2.2rem;
-  background: linear-gradient(180deg, rgba(255,255,255,.62), rgba(252,248,245,.82));
-  border: 1px solid rgba(139,47,104,.10);
-  box-shadow:
-    0 24px 70px rgba(139,47,104,.10),
-    inset 0 1px 0 rgba(255,255,255,.75);
+  display: grid;
+  place-items: center;
+  min-height: clamp(24rem, 48vw, 42rem);
+  padding: clamp(1rem, 2vw, 2rem) 0 clamp(1.5rem, 3vw, 2.5rem);
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,.92) 0 10%, rgba(243,219,224,.18) 34%, rgba(111,143,108,.08) 56%, transparent 76%),
+    linear-gradient(180deg, rgba(255,253,246,.42), rgba(251,251,225,.28));
 }
 
 .dynamic-mandala {
   position: relative;
-  min-height: clamp(18rem, 36vw, 27rem);
   display: grid;
   place-items: center;
-  border-radius: 1.8rem;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 45%, rgba(255,255,255,.88), rgba(248,244,233,.93) 55%, rgba(237,232,221,.98)),
-    linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,.08));
-}
-
-.dynamic-mandala::before,
-.dynamic-mandala::after {
-  content: '';
-  position: absolute;
-  inset: auto;
-  border-radius: 999px;
-  pointer-events: none;
+  width: 100%;
+  min-height: clamp(24rem, 48vw, 42rem);
+  overflow: visible;
+  background: transparent;
 }
 
 .dynamic-mandala::before {
-  width: 74%;
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: clamp(34rem, 84vw, 68rem);
   aspect-ratio: 1;
-  background: radial-gradient(circle, rgba(231,189,200,.20), rgba(152,190,208,.06) 54%, transparent 72%);
-  filter: blur(20px);
+  border-radius: 999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(231,189,200,.22), rgba(152,190,208,.07) 54%, transparent 72%);
+  filter: blur(24px);
+  transform: translate(-50%, -50%) scale(.94);
   animation: rbMandalaAura 3.8s ease-in-out infinite;
 }
 
 .dynamic-mandala::after {
-  width: min(30rem, 72vw);
-  aspect-ratio: 1;
-  border: 1px solid rgba(152,190,208,.16);
-  opacity: .45;
-  transform: scale(.88);
-  animation: rbMandalaRing 5s ease-in-out infinite;
+  display: none;
 }
 
 .dynamic-mandala__halo {
   position: absolute;
+  z-index: 1;
   inset: 50% auto auto 50%;
-  width: min(26rem, 62vw);
+  width: clamp(30rem, 72vw, 58rem);
   aspect-ratio: 1;
   border-radius: 999px;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  border: 1px solid rgba(139,47,104,.10);
-  opacity: .34;
+  border: 1px solid rgba(139,47,104,.08);
+  opacity: .30;
 }
 
 .dynamic-mandala__halo--one {
@@ -233,23 +222,23 @@
 }
 
 .dynamic-mandala__halo--two {
-  width: min(20rem, 50vw);
-  border-color: rgba(111,143,108,.12);
+  width: clamp(24rem, 58vw, 46rem);
+  border-color: rgba(111,143,108,.11);
   animation: rbMandalaHalo 4.8s ease-out infinite .75s;
 }
 
 .dynamic-mandala__svg {
-  width: min(92%, 34rem);
-  max-width: 100%;
+  position: relative;
+  z-index: 2;
+  width: clamp(48rem, 112vw, 86rem);
+  max-width: none;
+  height: auto;
   aspect-ratio: 700 / 420;
   overflow: visible;
-  filter: drop-shadow(0 10px 26px rgba(139,47,104,.08));
+  filter: drop-shadow(0 18px 38px rgba(139,47,104,.10));
 }
 
-.dynamic-mandala__art {
-  transform-origin: 350px 210px;
-}
-
+.dynamic-mandala__art,
 .dynamic-mandala__layer {
   transform-origin: 350px 210px;
 }
@@ -334,13 +323,8 @@
 }
 
 @keyframes rbMandalaAura {
-  0%, 100% { transform: scale(.94); opacity: .72; }
-  50% { transform: scale(1.05); opacity: 1; }
-}
-
-@keyframes rbMandalaRing {
-  0%, 100% { transform: scale(.86); opacity: .30; }
-  50% { transform: scale(1.02); opacity: .60; }
+  0%, 100% { transform: translate(-50%, -50%) scale(.94); opacity: .72; }
+  50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
 }
 
 @keyframes rbMandalaHalo {
@@ -350,19 +334,26 @@
 }
 
 @media (max-width: 640px) {
-  .dynamic-mandala-card {
-    width: min(100%, calc(100vw - 1rem));
-    padding: .8rem;
-    border-radius: 1.6rem;
+  .dynamic-mandala-section,
+  .dynamic-mandala {
+    min-height: 20rem;
   }
 
-  .dynamic-mandala {
-    min-height: 14rem;
-    border-radius: 1.25rem;
+  .dynamic-mandala-section {
+    padding-block: .75rem 1.25rem;
   }
 
   .dynamic-mandala__svg {
-    width: 96%;
+    width: min(158vw, 48rem);
+    max-width: none;
+  }
+
+  .dynamic-mandala__halo {
+    width: min(135vw, 38rem);
+  }
+
+  .dynamic-mandala__halo--two {
+    width: min(108vw, 31rem);
   }
 }
 
@@ -381,4 +372,18 @@
     stroke-dashoffset: 0;
     opacity: 1;
   }
+}
+
+/* La quinta pregunta cierra el bloque centrada en escritorio. */
+@media (min-width: 768px) {
+  .rb-pain__card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: min(100%, calc(50% - .625rem));
+    justify-self: center;
+  }
+}
+
+.rb-pain__card:nth-child(5) .rb-pain__personal-icon {
+  color: #8a5f78;
+  background: linear-gradient(145deg, rgba(255,255,255,.92), rgba(237,224,232,.88));
 }

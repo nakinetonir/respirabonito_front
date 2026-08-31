@@ -3,7 +3,7 @@
   isolation: isolate;
   display: grid;
   place-items: center;
-  min-height: clamp(42rem, 92svh, 58rem);
+  min-height: clamp(44rem, 100svh, 60rem);
   overflow: hidden;
   background: #1f171b;
 }
@@ -87,16 +87,25 @@
 .rb-hero-title {
   max-width: 12ch;
   margin: 0 auto;
-  color: #fff;
   font-family: var(--rb-font-seasons);
   font-size: clamp(3rem, 7vw, 6.8rem);
   font-weight: 500;
   line-height: .92;
   letter-spacing: -.035em;
   text-wrap: balance;
+}
+
+/* .rb-component-first-text (regla global) fuerza color plum en el primer
+   titulo de cada seccion, pensado para fondos claros. Sobre la foto del
+   hero ese rosa se funde con el cielo del atardecer y el titulo pierde
+   legibilidad; aqui se restaura blanco con sombra, con especificidad
+   suficiente para ganar a esa regla global. */
+.rb-hero .rb-hero-title {
+  color: #fff !important;
   text-shadow:
-    0 2px 0 rgba(31, 23, 27, .12),
-    0 14px 42px rgba(31, 23, 27, .32);
+    0 2px 0 rgba(31, 23, 27, .16),
+    0 4px 16px rgba(31, 23, 27, .38),
+    0 18px 48px rgba(31, 23, 27, .38);
 }
 
 .rb-hero-lead {
@@ -188,7 +197,7 @@
 
 @media (max-width: 1023px) {
   .rb-hero {
-    min-height: clamp(40rem, 88svh, 52rem);
+    min-height: clamp(42rem, 100svh, 54rem);
   }
 
   .rb-hero__background {
@@ -202,7 +211,7 @@
 
 @media (max-width: 640px) {
   .rb-hero {
-    min-height: 46rem;
+    min-height: clamp(38rem, 100svh, 50rem);
   }
 
   .rb-hero__background {

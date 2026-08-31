@@ -1,0 +1,573 @@
+.journey-section {
+  position: relative;
+  overflow: hidden;
+  padding-inline: .8rem;
+  padding-block: clamp(4.5rem, 8vw, 7rem) clamp(3.6rem, 12vw, 5rem);
+  background:
+    radial-gradient(circle at 12% 14%, rgba(231, 189, 200, .31), transparent 23rem),
+    radial-gradient(circle at 88% 18%, rgba(159, 178, 207, .24), transparent 22rem),
+    radial-gradient(circle at 50% 80%, rgba(111, 143, 108, .11), transparent 30rem),
+    linear-gradient(180deg, #fbfbe1 0%, #fffdf6 52%, #f4f0e7 100%);
+}
+
+.journey-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .45;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(139, 47, 104, .16) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 73% 22%, rgba(111, 143, 108, .16) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 58% 70%, rgba(115, 139, 170, .14) 0 1px, transparent 1.5px);
+  background-size: 5rem 5rem, 6.5rem 6.5rem, 7.5rem 7.5rem;
+}
+
+.journey-section__glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(2px);
+}
+
+.journey-section__glow--one {
+  width: 15rem;
+  aspect-ratio: 1;
+  left: -5rem;
+  bottom: 8%;
+  background: radial-gradient(circle, rgba(139, 47, 104, .12), transparent 70%);
+}
+
+.journey-section__glow--two {
+  width: 18rem;
+  aspect-ratio: 1;
+  right: -7rem;
+  top: 24%;
+  background: radial-gradient(circle, rgba(111, 143, 108, .13), transparent 70%);
+}
+
+.journey-shell {
+  position: relative;
+  z-index: 2;
+  width: min(76rem, 100%);
+  margin-inline: auto;
+}
+
+.journey-header {
+  max-width: 67rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.journey-header h2 {
+  max-width: 1060px;
+  margin: 0 auto;
+  color: #1f171b;
+  font-size: clamp(2.35rem, 11vw, 3.45rem);
+  line-height: .98;
+  text-wrap: balance;
+}
+
+/* Misma correccion que en desktop: la frase es larga, se trata como un lead
+   contenido en vez de un titular de display para no acumular demasiadas
+   lineas antes del mandala. */
+.journey-header #dinamicas-title {
+  max-width: 26rem;
+  margin-inline: auto;
+  font-size: clamp(2.05rem, 8vw, 2.7rem) !important;
+  line-height: 1.16 !important;
+}
+
+.journey-mobile-stage {
+  --journey-mobile-duration: 26s;
+  --journey-mobile-diameter: clamp(36rem, 180vw, 54rem);
+  --journey-mobile-center-x: clamp(2.15rem, 11vw, 3.15rem);
+  --journey-mobile-radius: calc(var(--journey-mobile-diameter) * .5 - 4.75rem);
+  position: relative;
+  display: block;
+  width: calc(100% + 1.6rem);
+  min-height: clamp(40rem, 186vw, 56rem);
+  margin: 2.75rem 0 0 -.8rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.journey-mobile-stage::before,
+.journey-mobile-stage::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.journey-mobile-stage::before {
+  width: 22rem;
+  aspect-ratio: 1;
+  right: -12rem;
+  top: 9%;
+  background: radial-gradient(circle, rgba(159,178,207,.18), transparent 70%);
+}
+
+.journey-mobile-stage::after {
+  width: 17rem;
+  aspect-ratio: 1;
+  right: -9rem;
+  bottom: 7%;
+  background: radial-gradient(circle, rgba(139,47,104,.13), transparent 72%);
+}
+
+.journey-mobile-giant {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: var(--journey-mobile-center-x);
+  width: var(--journey-mobile-diameter);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.journey-mobile-giant__bloom {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(.03) rotate(-18deg);
+  transform-origin: center;
+  clip-path: circle(0% at 50% 50%);
+  background:
+    radial-gradient(circle, rgba(255,255,255,.74) 0 12%, rgba(243,219,224,.20) 34%, rgba(111,143,108,.08) 58%, transparent 73%),
+    repeating-conic-gradient(
+      from 0deg,
+      rgba(139,47,104,.055) 0deg 8deg,
+      transparent 8deg 18deg,
+      rgba(111,143,108,.045) 18deg 25deg,
+      transparent 25deg 36deg
+    );
+  box-shadow:
+    0 0 0 1.1rem rgba(255,255,255,.28),
+    0 0 0 1.55rem rgba(139,47,104,.035),
+    0 25px 90px rgba(139,47,104,.12);
+}
+
+.journey-mobile-stage.is-mobile-ready .journey-mobile-giant__bloom {
+  animation: journeyMobileMandalaBloom 2.35s cubic-bezier(.16,.8,.22,1) forwards;
+}
+
+.journey-mobile-giant__glow {
+  position: absolute;
+  inset: 14%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(255,255,255,.8) 0 10%, rgba(231,189,200,.22) 31%, rgba(159,178,207,.12) 51%, transparent 72%);
+  filter: blur(10px);
+  opacity: .78;
+  animation: journeyMandalaBreathe 5.2s ease-in-out infinite;
+}
+
+.journey-mobile-giant__svg {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 18px 30px rgba(124,31,67,.09));
+}
+
+.journey-mobile-giant__rotor {
+  stroke: rgba(139,47,104,.42);
+  stroke-width: 2.2;
+  stroke-dasharray: 2200;
+  stroke-dashoffset: 2200;
+  transform-origin: 350px 350px;
+}
+
+.journey-mobile-stage.is-mobile-ready .journey-mobile-giant__rotor {
+  animation:
+    journeyMobileMandalaDraw 2.2s cubic-bezier(.2,.7,.2,1) .18s forwards,
+    journeyMandalaTurn 31s linear 2.25s infinite;
+}
+
+.journey-mobile-giant__rotor circle:nth-child(2),
+.journey-mobile-giant__rotor circle:nth-child(5),
+.journey-mobile-giant__petals--outer {
+  stroke: rgba(111,143,108,.38);
+}
+
+.journey-mobile-giant__rotor circle:nth-child(3),
+.journey-mobile-giant__petals--inner {
+  stroke: rgba(115,139,170,.34);
+}
+
+.journey-mobile-core {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: var(--journey-mobile-center-x);
+  display: grid;
+  place-content: center;
+  width: clamp(6.8rem, 29vw, 8rem);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%) scale(.2);
+  border: 1px solid rgba(139,47,104,.16);
+  border-radius: 50%;
+  opacity: 0;
+  text-align: center;
+  background:
+    radial-gradient(circle at 34% 27%, rgba(255,255,255,.98), rgba(255,255,255,.72) 34%, rgba(243,219,224,.94));
+  box-shadow:
+    0 18px 46px rgba(139,47,104,.14),
+    inset 0 0 0 .42rem rgba(255,255,255,.44);
+  pointer-events: none;
+}
+
+.journey-mobile-stage.is-mobile-ready .journey-mobile-core {
+  animation: journeyMobileCoreEnter .9s cubic-bezier(.16,.8,.22,1) 1.05s forwards;
+}
+
+.journey-mobile-core span,
+.journey-mobile-core strong {
+  position: relative;
+  z-index: 1;
+}
+
+.journey-mobile-core span {
+  color: #922d73;
+  font-family: var(--rb-font-script, "Brush Script MT", "Segoe Script", cursive);
+  font-size: clamp(1rem, 4.2vw, 1.28rem);
+  line-height: .85;
+}
+
+.journey-mobile-core strong {
+  margin-top: .15rem;
+  color: #1f171b;
+  font-family: var(--rb-font-reference, "Segoe Script", cursive);
+  font-size: clamp(1.35rem, 5.3vw, 1.7rem);
+  font-weight: 400;
+  line-height: .9;
+}
+
+.journey-mobile-orbit {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  opacity: 0;
+  transform-origin: var(--journey-mobile-center-x) 50%;
+}
+
+.journey-mobile-stage.is-mobile-ready .journey-mobile-orbit {
+  opacity: 1;
+  transform: rotate(0deg);
+  transform-origin: var(--journey-mobile-center-x) 50%;
+  animation: journeyMobileOrbitClockwise var(--journey-mobile-duration) linear 1.65s infinite;
+  transition: opacity .72s ease .78s;
+  will-change: transform;
+}
+
+.journey-orb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  aspect-ratio: 1;
+  outline: none;
+}
+
+.journey-orb__anti-spin {
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.journey-orb__flip {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.journey-orb:focus-visible {
+  border-radius: 50%;
+  outline: 3px solid rgba(139, 47, 104, .36);
+  outline-offset: .45rem;
+}
+
+.journey-orb__face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: .68rem;
+  overflow: hidden;
+  border: 1px solid rgba(139, 47, 104, .10);
+  border-radius: 50%;
+  padding: 1rem;
+  text-align: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow:
+    0 22px 46px rgba(31, 23, 27, .12),
+    inset 0 0 0 .46rem rgba(255,255,255,.38);
+}
+
+.journey-orb__face::before,
+.journey-orb__face::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.journey-orb__face::before {
+  inset: .48rem;
+  border: 1px dashed color-mix(in srgb, var(--accent), white 48%);
+  opacity: .5;
+}
+
+.journey-orb__face::after {
+  top: 8%;
+  right: 9%;
+  width: 41%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(255,255,255,.72), transparent 72%);
+}
+
+.journey-orb__face--front {
+  background:
+    radial-gradient(circle at 29% 24%, rgba(255,255,255,.99), rgba(255,255,255,.75) 36%, rgba(255,255,255,.15) 79%),
+    linear-gradient(155deg, color-mix(in srgb, var(--accent), white 83%), color-mix(in srgb, var(--accent), white 62%));
+}
+
+.journey-orb__icon,
+.journey-orb__face h3 {
+  position: relative;
+  z-index: 1;
+}
+
+.journey-orb--mobile {
+  --journey-mobile-orb-size: clamp(7.2rem, 32vw, 8.55rem);
+  position: absolute;
+  z-index: 6;
+  top: 50%;
+  left: var(--journey-mobile-center-x);
+  width: var(--journey-mobile-orb-size);
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--angle))
+    translateY(calc(var(--journey-mobile-radius) * -1))
+    rotate(calc(var(--angle) * -1));
+}
+
+.journey-orb__anti-spin--mobile {
+  transform: rotate(0deg);
+  transform-origin: center;
+  will-change: transform;
+}
+
+.journey-mobile-stage.is-mobile-ready .journey-orb__anti-spin--mobile {
+  animation: journeyMobileOrbKeepUpright var(--journey-mobile-duration) linear 1.65s infinite;
+}
+
+.journey-mobile-stage.is-mobile-ready .journey-orb--mobile {
+  animation: journeyMobileOrbReveal .72s ease-out calc(.95s + var(--i) * .07s) forwards;
+}
+
+.journey-orb--mobile .journey-orb__flip {
+  transform: none !important;
+  filter: none !important;
+}
+
+.journey-orb--mobile .journey-orb__face {
+  display: grid;
+  place-items: center;
+  gap: 0;
+  padding: .72rem;
+  opacity: 1 !important;
+  transform: none !important;
+  box-shadow:
+    0 18px 38px rgba(31,23,27,.14),
+    inset 0 0 0 .4rem rgba(255,255,255,.42);
+}
+
+.journey-orb--mobile .journey-orb__icon {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  display: grid;
+  place-items: center;
+  width: 90%;
+  height: 90%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  color: var(--accent);
+  background: transparent;
+  box-shadow: none;
+  opacity: .60;
+}
+
+.journey-orb--mobile .journey-orb__icon mat-icon {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: clamp(5.9rem, 26vw, 7rem);
+  line-height: 1;
+}
+
+.journey-orb--mobile .journey-orb__face h3 {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 88%;
+  min-height: 3rem;
+  margin: 0;
+  border: 1px solid rgba(255,255,255,.72);
+  border-radius: 1.15rem;
+  padding: .38rem .48rem;
+  color: #24181e;
+  background: rgba(255,255,255,.64);
+  box-shadow: 0 8px 22px rgba(31,23,27,.08);
+  font-family: var(--rb-font-seasons, "Cormorant Garamond", Georgia, serif);
+  font-size: clamp(.84rem, 3.8vw, 1.02rem);
+  font-weight: 700;
+  line-height: 1.03;
+  text-shadow: 0 1px 0 rgba(255,255,255,.96);
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
+}
+
+@media (max-width: 360px) {
+  .journey-mobile-stage {
+    --journey-mobile-diameter: clamp(34rem, 176vw, 36rem);
+    --journey-mobile-center-x: 2rem;
+    --journey-mobile-radius: calc(var(--journey-mobile-diameter) * .5 - 4.5rem);
+  }
+
+  .journey-orb--mobile {
+    width: 7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-mobile-giant__bloom,
+  .journey-mobile-giant__glow,
+  .journey-mobile-giant__rotor,
+  .journey-mobile-core,
+  .journey-mobile-orbit,
+  .journey-orb__anti-spin--mobile,
+  .journey-orb--mobile .journey-orb__flip {
+    animation: none !important;
+  }
+
+  .journey-mobile-giant__rotor {
+    stroke-dashoffset: 0;
+  }
+
+  .journey-mobile-stage {
+    min-height: auto;
+    padding: 2rem .25rem;
+  }
+
+  .journey-mobile-giant {
+    left: 50%;
+    width: min(150vw, 40rem);
+    opacity: .38;
+  }
+
+  .journey-mobile-giant__bloom {
+    opacity: 1;
+    transform: scale(1);
+    clip-path: circle(75% at 50% 50%);
+  }
+
+  .journey-mobile-giant__glow {
+    opacity: .78;
+  }
+
+  .journey-mobile-core {
+    display: none;
+  }
+
+  .journey-mobile-orbit {
+    position: relative;
+    inset: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .8rem;
+    opacity: 1;
+    transform: none !important;
+  }
+
+  .journey-orb--mobile {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: min(8.4rem, 42vw);
+    margin-inline: auto;
+    transform: none;
+  }
+}
+
+@keyframes journeyMobileOrbitClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes journeyMobileOrbKeepUpright {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes journeyMobileOrbReveal {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes journeyMobileMandalaBloom {
+  0% {
+    opacity: 0;
+    transform: scale(.03) rotate(-18deg);
+    clip-path: circle(0% at 50% 50%);
+  }
+  48% {
+    opacity: .92;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    clip-path: circle(75% at 50% 50%);
+  }
+}
+
+@keyframes journeyMobileMandalaDraw {
+  from { stroke-dashoffset: 2200; opacity: .18; }
+  to { stroke-dashoffset: 0; opacity: 1; }
+}
+
+@keyframes journeyMobileCoreEnter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.2) rotate(-12deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes journeyMandalaTurn {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes journeyMandalaBreathe {
+  0%, 100% { transform: scale(.94); opacity: .58; }
+  50% { transform: scale(1.05); opacity: .95; }
+}

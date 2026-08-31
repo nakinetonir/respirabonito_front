@@ -1,15 +1,83 @@
 <main>
-  <app-hero></app-hero>
-  <app-pain-points></app-pain-points>
-  <app-story></app-story>
-  <app-guiding-purpose></app-guiding-purpose>
-  <app-method></app-method>
-  <app-roadmap></app-roadmap>
-  <app-ideal-for></app-ideal-for>
-  <app-experience></app-experience>
-  <app-process></app-process>
+  @if (isMobile()) {
+    <app-hero-mobile></app-hero-mobile>
+  } @else {
+    <app-hero-desktop-tablet></app-hero-desktop-tablet>
+  }
+
+  @if (isMobile()) {
+    <app-pain-points-mobile></app-pain-points-mobile>
+  } @else {
+    <app-pain-points-desktop-tablet></app-pain-points-desktop-tablet>
+  }
+
+  @if (isMobile()) {
+    <app-story-mobile></app-story-mobile>
+  } @else {
+    <app-story-desktop-tablet></app-story-desktop-tablet>
+  }
+
+  <div class="section">
+    <div class="shell">
+      <app-signup-cta></app-signup-cta>
+    </div>
+  </div>
+
+  @if (isMobile()) {
+    <app-guiding-purpose-mobile></app-guiding-purpose-mobile>
+  } @else {
+    <app-guiding-purpose-desktop-tablet></app-guiding-purpose-desktop-tablet>
+  }
+
+  @if (isMobile()) {
+    <app-method-mobile></app-method-mobile>
+  } @else {
+    <app-method-desktop-tablet></app-method-desktop-tablet>
+  }
+
+  @if (isMobile()) {
+    <app-roadmap-mobile></app-roadmap-mobile>
+  } @else {
+    <app-roadmap-desktop-tablet></app-roadmap-desktop-tablet>
+  }
+
+  <div class="section">
+    <div class="shell">
+      <app-signup-cta></app-signup-cta>
+    </div>
+  </div>
+
+  @if (isMobile()) {
+    <app-ideal-for-mobile></app-ideal-for-mobile>
+  } @else {
+    <app-ideal-for-desktop-tablet></app-ideal-for-desktop-tablet>
+  }
+
+  @if (isMobile()) {
+    <app-experience-mobile></app-experience-mobile>
+  } @else {
+    <app-experience-desktop-tablet></app-experience-desktop-tablet>
+  }
+
+  @if (isMobile()) {
+    <app-process-mobile></app-process-mobile>
+  } @else {
+    <app-process-desktop-tablet></app-process-desktop-tablet>
+  }
+
   <!-- <app-opportunity></app-opportunity> -->
-  <app-faq></app-faq>
+
+  @if (isMobile()) {
+    <app-faq-mobile></app-faq-mobile>
+  } @else {
+    <app-faq-desktop-tablet></app-faq-desktop-tablet>
+  }
+
   <!-- <app-final-cta></app-final-cta> -->
 </main>
-<app-footer></app-footer>
+
+@if (isMobile()) {
+  <app-footer-mobile></app-footer-mobile>
+} @else {
+  <app-footer-desktop-tablet></app-footer-desktop-tablet>
+}

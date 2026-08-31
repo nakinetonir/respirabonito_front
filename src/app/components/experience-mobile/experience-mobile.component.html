@@ -1,0 +1,55 @@
+<section id="experiencia" class="laurem-story laurem-story--experience" aria-labelledby="experiencia-title">
+  <div class="shell laurem-story__grid">
+    <aside class="laurem-story__authority">
+      <div class="laurem-story__authority-visual" aria-hidden="true">
+        <span class="laurem-story__authority-glow laurem-story__authority-glow--one"></span>
+        <span class="laurem-story__authority-glow laurem-story__authority-glow--two"></span>
+        <span class="laurem-story__authority-ring"></span>
+      </div>
+
+      <div class="laurem-story__authority-head">
+        <h2 id="experiencia-title" class="laurem-story__authority-title rb-component-first-text">Durante 6 años he trabajado como profesora de Yoga, Pilates, Meditación, educación alternativa y otras disciplinas holísticas</h2>
+        <p>
+          Estos son algunos de los éxitos y reconocimientos que sostienen la propuesta de la Escuela RespiraBonito.
+        </p>
+      </div>
+
+      <div class="laurem-story__authority-grid">
+        <article
+          class="laurem-story__authority-card"
+          *ngFor="let a of achievements"
+          [class.laurem-story__authority-card--with-logos]="a.logos.length > 0"
+        >
+          <span class="laurem-story__authority-icon"><mat-icon aria-hidden="true">{{ a.icon }}</mat-icon></span>
+
+          <div class="laurem-story__authority-content">
+            <h3>{{ a.title }}</h3>
+            <p>{{ a.text }}</p>
+
+            <div
+              class="laurem-story__authority-logos"
+              *ngIf="a.logos.length > 0"
+              [attr.aria-label]="'Entidades relacionadas con ' + a.title"
+            >
+              <figure
+                class="laurem-story__authority-logo"
+                *ngFor="let logo of a.logos"
+                [class.laurem-story__authority-logo--seal]="logo.kind === 'seal'"
+                [class.laurem-story__authority-logo--square]="logo.kind === 'square'"
+                [class.laurem-story__authority-logo--landscape]="logo.kind === 'landscape'"
+                [class.laurem-story__authority-logo--wide]="logo.kind === 'wide'"
+              >
+                <img
+                  [src]="logo.src"
+                  [alt]="logo.alt"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </figure>
+            </div>
+          </div>
+        </article>
+      </div>
+    </aside>
+  </div>
+</section>

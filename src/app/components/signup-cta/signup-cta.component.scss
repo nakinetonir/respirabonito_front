@@ -1,0 +1,61 @@
+.rb-signup-cta {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100%, 36rem);
+  margin-inline: auto;
+}
+
+.rb-signup-cta__illustration {
+  width: 100%;
+  opacity: .94;
+}
+
+.rb-signup-cta__illustration svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.rb-signup-cta__illus-arc,
+.rb-signup-cta__illus-figures circle,
+.rb-signup-cta__illus-figures path,
+.rb-signup-cta__illus-lotus {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.rb-signup-cta__illus-arc--soft {
+  opacity: .24;
+  stroke-width: 7;
+}
+
+.rb-signup-cta__illus-figures circle {
+  fill: rgba(139, 47, 104, .05);
+}
+
+.rb-signup-cta__illus-lotus {
+  stroke-width: 3.5;
+}
+
+.rb-signup-cta__action {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: clamp(1.75rem, 3.4vw, 2.6rem);
+}
+
+.rb-signup-cta__action .rb-btn {
+  min-width: min(100%, 20rem);
+}
+
+@media (max-width: 620px) {
+  .rb-signup-cta {
+    width: min(100%, 22rem);
+  }
+}

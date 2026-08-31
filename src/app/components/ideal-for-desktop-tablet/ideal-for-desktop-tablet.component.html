@@ -1,0 +1,85 @@
+<section id="para-ti" class="rb-yinyang" aria-labelledby="para-ti-title">
+  <div class="rb-yinyang__nature rb-yinyang__nature--left" aria-hidden="true">
+    <span class="rb-yinyang__tree rb-yinyang__tree--one"></span>
+    <span class="rb-yinyang__tree rb-yinyang__tree--two"></span>
+    <span class="rb-yinyang__walker rb-yinyang__walker--one"><i></i></span>
+    <span class="rb-yinyang__walker rb-yinyang__walker--two"><i></i></span>
+  </div>
+
+  <div class="rb-yinyang__nature rb-yinyang__nature--right" aria-hidden="true">
+    <span class="rb-yinyang__tree rb-yinyang__tree--three"></span>
+    <span class="rb-yinyang__tree rb-yinyang__tree--four"></span>
+    <span class="rb-yinyang__walker rb-yinyang__walker--three"><i></i></span>
+    <span class="rb-yinyang__walker rb-yinyang__walker--four"><i></i></span>
+  </div>
+
+  <div class="rb-yinyang__symbol" aria-hidden="true">
+    <div class="rb-yinyang__symbol-disc">
+      <span class="rb-yinyang__symbol-dot rb-yinyang__symbol-dot--light"></span>
+      <span class="rb-yinyang__symbol-dot rb-yinyang__symbol-dot--wine"></span>
+    </div>
+  </div>
+
+  <div class="shell rb-yinyang__shell">
+    <header class="rb-yinyang__heading">
+      <h2 id="para-ti-title" class="rb-section-title rb-component-first-text">
+        Por qué esta Escuela es para ti*
+      </h2>
+      <p class="rb-yinyang__intro">
+        A veces el cambio empieza al reconocer con ternura cómo te sientes. Al otro lado,
+        la Escuela te ofrece recursos concretos para volver a ti, avanzar a tu ritmo y sentirte acompañada.
+      </p>
+    </header>
+
+    <div class="rb-yinyang__board" aria-label="Beneficios de la Escuela y situaciones en las que puede ayudarte">
+      <div class="rb-yinyang__column-heads" aria-hidden="true">
+        <div class="rb-yinyang__column-head rb-yinyang__column-head--benefit">
+          <span class="rb-yinyang__column-icon"><mat-icon>auto_awesome</mat-icon></span>
+          <div>
+            <span class="rb-yinyang__column-label">La Escuela te aportará</span>
+            <span class="rb-yinyang__column-note">Lo que puede empezar a florecer</span>
+          </div>
+        </div>
+
+
+        <div class="rb-yinyang__column-head rb-yinyang__column-head--feeling">
+          <span class="rb-yinyang__column-icon"><mat-icon>favorite_border</mat-icon></span>
+          <div>
+            <span class="rb-yinyang__column-label">Si te sientes así</span>
+            <span class="rb-yinyang__column-note">Lo que hoy necesita ser escuchado</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rb-yinyang__pairs">
+        <article class="rb-yinyang__pair" *ngFor="let pair of pairs">
+          <div class="rb-yinyang__card rb-yinyang__card--benefit">
+            <span class="rb-yinyang__mobile-label">La Escuela te aportará</span>
+            <span class="rb-yinyang__card-icon" aria-hidden="true">
+              <mat-icon>{{ pair.benefit.icon }}</mat-icon>
+            </span>
+            <p>
+              {{ pair.benefit.before }}<strong>{{ pair.benefit.emphasis }}</strong>{{ pair.benefit.after }}
+            </p>
+          </div>
+
+
+          <div class="rb-yinyang__card rb-yinyang__card--feeling">
+            <span class="rb-yinyang__mobile-label">Si te sientes así</span>
+            <span class="rb-yinyang__card-icon" aria-hidden="true">
+              <mat-icon>{{ pair.feeling.icon }}</mat-icon>
+            </span>
+            <p>
+              {{ pair.feeling.before }}<strong>{{ pair.feeling.emphasis }}</strong>{{ pair.feeling.after }}
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <footer class="rb-yinyang__closing">
+        <span class="rb-yinyang__closing-mark" aria-hidden="true">✦</span>
+        <p>No necesitas tenerlo todo claro para empezar: solo darte permiso para escucharte.</p>
+      </footer>
+    </div>
+  </div>
+</section>

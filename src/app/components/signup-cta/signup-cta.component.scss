@@ -4,8 +4,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: min(100%, 36rem);
+  width: min(100%, 38rem);
   margin-inline: auto;
+  padding: clamp(1.85rem, 4vw, 2.75rem) clamp(1.25rem, 4vw, 2.5rem) clamp(2rem, 4.5vw, 2.75rem);
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, .56);
+  border: 1px solid rgba(139, 47, 104, .12);
+  box-shadow: 0 26px 70px rgba(139, 47, 104, .10);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.rb-signup-cta__prompt {
+  margin: 0 0 .35rem;
+  color: rgba(31, 23, 27, .84);
+  font-family: var(--rb-font-seasons, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  line-height: 1.4;
+  text-align: center;
+  text-wrap: balance;
 }
 
 .rb-signup-cta__illustration {
@@ -36,7 +53,7 @@
 }
 
 .rb-signup-cta__illus-figures circle {
-  fill: rgba(139, 47, 104, .05);
+  fill: rgba(31, 23, 27, .04);
 }
 
 .rb-signup-cta__illus-lotus {
@@ -50,12 +67,21 @@
   margin-top: clamp(1.75rem, 3.4vw, 2.6rem);
 }
 
-.rb-signup-cta__action .rb-btn {
-  min-width: min(100%, 20rem);
+.rb-signup-cta__link {
+  gap: .55rem;
+  min-width: min(100%, 21rem);
+}
+
+.rb-signup-cta__link-icon {
+  width: 1.05rem;
+  height: 1.05rem;
+  font-size: 1.05rem;
+  line-height: 1;
+  opacity: .85;
 }
 
 @media (max-width: 620px) {
   .rb-signup-cta {
-    width: min(100%, 22rem);
+    width: min(100%, 24rem);
   }
 }

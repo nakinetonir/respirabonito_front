@@ -244,7 +244,6 @@ a:hover {
 
 @media (max-width: 760px) {
   .rb-mobile-cta { display: block; }
-  body { padding-bottom: 5.5rem; }
   .rb-header__cta { display: none !important; }
 }
 
@@ -421,7 +420,8 @@ p {
 }
 
 @supports (animation-timeline: view()) {
-  main > * > section:not(#inicio) {
+  main > * > section:not(#inicio),
+  .rb-reveal-on-scroll {
     animation: rbSectionReveal both linear;
     animation-timeline: view();
     animation-range: entry 4% cover 24%;

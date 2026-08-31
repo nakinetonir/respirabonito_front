@@ -1,11 +1,15 @@
 <div class="rb-signup-cta">
+  @if (prompt) {
+    <p class="rb-signup-cta__prompt">{{ prompt }}</p>
+  }
+
   <div class="rb-signup-cta__illustration" aria-hidden="true">
     <svg viewBox="0 0 560 200" focusable="false">
       <defs>
         <linearGradient [attr.id]="gradientId" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#b04a7a" />
-          <stop offset="55%" stop-color="#8b2f68" />
-          <stop offset="100%" stop-color="#cf8cab" />
+          <stop offset="0%" [attr.stop-color]="colors.start" />
+          <stop offset="55%" [attr.stop-color]="colors.mid" />
+          <stop offset="100%" [attr.stop-color]="colors.end" />
         </linearGradient>
       </defs>
       <path class="rb-signup-cta__illus-arc" [attr.stroke]="gradientRef" d="M60 126 C 140 76, 220 74, 280 108 S 418 144, 500 92" />
@@ -24,13 +28,14 @@
 
   <div class="rb-signup-cta__action">
     <a
-      class="rb-btn"
+      class="rb-btn rb-signup-cta__link"
       href="https://forms.gle/KxsRE9NDdr3mrPTx6"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Abrir formulario externo para inscribirse en la Escuela RespiraBonito"
+      aria-label="Abrir formulario externo para inscribirse en la Escuela RespiraBonito (se abre en una pestaña nueva)"
     >
-      Quiero inscribirme en la Escuela
+      <span>Quiero inscribirme en la Escuela</span>
+      <mat-icon aria-hidden="true" class="rb-signup-cta__link-icon">open_in_new</mat-icon>
     </a>
   </div>
 </div>

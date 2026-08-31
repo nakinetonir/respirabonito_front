@@ -8,4 +8,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './footer-desktop-tablet.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FooterDesktopTabletComponent {}
+export class FooterDesktopTabletComponent {
+  readonly year = new Date().getFullYear();
+}

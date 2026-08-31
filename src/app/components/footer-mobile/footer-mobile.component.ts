@@ -8,4 +8,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './footer-mobile.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FooterMobileComponent {}
+export class FooterMobileComponent {
+  readonly year = new Date().getFullYear();
+}

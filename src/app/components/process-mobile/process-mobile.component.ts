@@ -19,11 +19,11 @@ export class ProcessMobileComponent {
   readonly steps: readonly ProcessStep[] = [
     {
       title: 'Envía tus datos',
-      text: 'Solo tienes que enviar tu nombre y dirección de correo electrónico en el formulario que se despliega al darle al botón de Quiero Inscribirme.'
+      text: 'Envía tu nombre y correo electrónico en el formulario que se abre al pulsar Quiero Inscribirme.'
     },
     {
       title: 'Nos pondremos en contacto contigo',
-      text: 'En los días posteriores, nos pondremos en contacto contigo a través del contacto que hayas facilitado, para conocernos mejor.'
+      text: 'En los días siguientes te contactaremos para conocernos mejor.'
     },
     {
       title: 'Vemos si es tu momento',

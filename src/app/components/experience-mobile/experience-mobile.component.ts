@@ -30,7 +30,7 @@ export class ExperienceMobileComponent {
     {
       icon: 'self_improvement',
       title: 'Yoga, Pilates y acompañamiento personal',
-      text: 'Enseñanza del Yoga y el Pilates, y acompañamiento personal desde un enfoque sano, cercano y divertido. Reconocimiento por Yoga Alliance y la Clínica Mayuben.',
+      text: 'Enseñanza de Yoga y Pilates con un enfoque sano, cercano y divertido. Reconocida por Yoga Alliance y la Clínica Mayuben.',
       logos: [
         { src: 'assets/logos-vino/yoga-alliance.svg', alt: 'Yoga Alliance', kind: 'seal' },
         { src: 'assets/logos-vino/mayuben.svg', alt: 'Clínica Mayuben', kind: 'square' }
@@ -39,7 +39,7 @@ export class ExperienceMobileComponent {
     {
       icon: 'workspace_premium',
       title: 'Formaciones con mirada integral',
-      text: 'Realización de formaciones con mirada integral como el Máster de IPP o el curso de Liderazgo y Dirección de organizaciones de la Comunidad de Madrid.',
+      text: 'Formación con mirada integral: Máster de IPP y curso de Liderazgo y Dirección de la Comunidad de Madrid.',
       logos: [
         {
           src: 'assets/logos-vino/ipp-master-desarrollo-personal-comunidad-madrid.svg',
@@ -51,7 +51,7 @@ export class ExperienceMobileComponent {
     {
       icon: 'child_care',
       title: 'Métodos respetuosos y alternativos',
-      text: 'Experiencia como acompañante y educadora en métodos respetuosos y alternativos con niños entre los 3 y los 15 años.',
+      text: 'Acompañante y educadora en métodos respetuosos y alternativos con niños de 3 a 15 años.',
       logos: [
         { src: 'assets/logos-vino/flor-de-lis.svg', alt: 'Flor de lis', kind: 'seal' },
         { src: 'assets/logos-vino/fundacion-prodis.svg', alt: 'Fundación Prodis', kind: 'landscape' },
@@ -75,7 +75,7 @@ export class ExperienceMobileComponent {
     {
       icon: 'music_note',
       title: 'Trabajo vocal, musical y artístico',
-      text: 'Amplia experiencia en trabajo vocal, musical y artístico, con actuaciones en lugares emblemáticos de Madrid como el Museo Nacional de Ciencias Naturales, la Sala Caracol y la sala Lemon.',
+      text: 'Trabajo vocal, musical y artístico, con actuaciones en Madrid: Museo de Ciencias Naturales, Sala Caracol y Sala Lemon.',
       logos: []
     }
   ];

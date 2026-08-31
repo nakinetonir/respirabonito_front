@@ -7,7 +7,7 @@
 
     <mat-accordion class="rb-faq__accordion" multi>
       <mat-expansion-panel *ngFor="let f of faqs" class="rb-faq__panel">
-        <mat-expansion-panel-header>
+        <mat-expansion-panel-header collapsedHeight="auto" expandedHeight="auto">
           <mat-panel-title>
             <span class="rb-faq__icon"><mat-icon aria-hidden="true">{{ f.icon }}</mat-icon></span>
             <span>{{ f.q }}</span>

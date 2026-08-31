@@ -37,12 +37,13 @@ no sobre suposiciones.
 
 ## Plan de mejora SEO (priorizado)
 
-1. **Crítico — activar SSR/prerender nativo de Angular** (`ng add @angular/ssr`, con
-   prerender en build ya que el contenido es estático). Esto es lo único que resuelve de
-   raíz el "body vacío": el HTML servido pasa a contener todo el contenido real sin
-   depender de que el bot ejecute JS. Es el cambio de mayor impacto de esta lista, y es
-   nativo del framework actual — no requiere cambiar de stack (ver análisis de Next.js más
-   abajo).
+1. ~~**Crítico — activar SSR/prerender nativo de Angular**~~ **HECHO** (commit `39908cd2`,
+   rama `feature/seo-plan`). Se usó `ng add @angular/ssr` + `outputMode: "static"` en
+   `angular.json` (la app es una única página 100% prerenderizable, no hace falta un
+   servidor Node en producción, solo los ficheros HTML/CSS/JS estáticos ya generados).
+   Verificado: el `index.html` de `dist/lienzo-sol-angular/browser/` ya contiene todo el
+   contenido real (hero, FAQ, CTAs...) sin depender de JS, y la app hidrata sin errores ni
+   duplicados (comprobado con capturas desktop/mobile y dump del DOM tras hidratación).
 2. **Ampliar structured data (JSON-LD).** Hoy solo hay `Organization` y `FAQPage`. Añadir
    `EducationalOrganization` o `Course` (más específico para una escuela online) y `sameAs`
    con las redes sociales del proyecto, si existen.

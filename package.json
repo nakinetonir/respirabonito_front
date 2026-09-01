@@ -1,8 +1,10 @@
 {
   "scripts": {
     "start": "ng serve",
+    "generate:sitemap": "node scripts/generate-sitemap.mjs",
+    "prebuild": "npm run generate:sitemap",
     "build": "ng build",
-    "build:prod": "ng build --configuration production",
+    "build:prod": "npm run build",
     "test": "ng test",
     "serve:ssr:lienzo-sol-angular": "node dist/lienzo-sol-angular/server/server.mjs"
   },

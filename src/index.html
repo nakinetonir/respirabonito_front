@@ -34,14 +34,49 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": ["Organization", "EducationalOrganization"],
+        "@id": "https://respirabonito-front.vercel.app/#organization",
         "name": "Respira Bonito",
         "url": "https://respirabonito-front.vercel.app/",
+        "logo": "https://respirabonito-front.vercel.app/assets/apple-touch-icon.png",
+        "image": "https://respirabonito-front.vercel.app/assets/og-respirabonito.jpg",
         "description": "Escuela online de bienestar integral con yoga, pilates, meditación, movimiento consciente, rituales y comunidad.",
         "areaServed": "ES",
+        "knowsAbout": [
+          "Yoga",
+          "Pilates",
+          "Meditación",
+          "Movimiento consciente",
+          "QiGong",
+          "Bienestar integral",
+          "Alimentación de temporada",
+          "Rituales de bienestar"
+        ],
         "founder": {
           "@type": "Person",
           "name": "Laurem"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://respirabonito-front.vercel.app/#website",
+        "url": "https://respirabonito-front.vercel.app/",
+        "name": "Respira Bonito",
+        "inLanguage": "es-ES",
+        "publisher": { "@id": "https://respirabonito-front.vercel.app/#organization" }
+      },
+      {
+        "@type": "Course",
+        "name": "Escuela Online RespiraBonito",
+        "description": "Membresía online de bienestar integral: un contenido central progresivo más contenidos dinámicos con yoga, pilates, meditación, movimiento consciente, alimentación, rituales y comunidad. Avanzas a tu ritmo, con o sin experiencia previa.",
+        "url": "https://respirabonito-front.vercel.app/",
+        "inLanguage": "es-ES",
+        "provider": { "@id": "https://respirabonito-front.vercel.app/#organization" },
+        "hasCourseInstance": {
+          "@type": "CourseInstance",
+          "courseMode": "Online",
+          "courseWorkload": "PT2H",
+          "inLanguage": "es-ES"
         }
       },
       {

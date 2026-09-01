@@ -195,6 +195,20 @@
   100% { opacity: 0; transform: translateY(1rem); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .rb-hero__copy,
+  .rb-hero__glow--one,
+  .rb-hero__glow--two,
+  .rb-hero__scroll-cue::after {
+    animation: none;
+  }
+
+  .rb-hero__copy {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (max-width: 1023px) {
   .rb-hero {
     min-height: clamp(42rem, 100svh, 54rem);

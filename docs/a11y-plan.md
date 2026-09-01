@@ -7,66 +7,84 @@ enlaces/botones). Nada especulativo: cada punto tiene el fichero y la línea de 
 
 ## Crítico (rompe para lector de pantalla / teclado)
 
-1. **`aria-labelledby` roto en `pain-points`**
-   - Ficheros: `src/app/components/pain-points-desktop-tablet/pain-points-desktop-tablet.component.html`,
-     `src/app/components/pain-points-mobile/pain-points-mobile.component.html`
-   - `<section aria-labelledby="bloqueos-title">` pero no existe ningún `id="bloqueos-title"`:
-     la sección nunca tuvo `<h2>`, solo tarjetas de texto suelto.
-   - Fix: añadir `<h2 id="bloqueos-title">` visualmente coherente con el resto de secciones
-     (o `<h2 class="sr-only">` si no se quiere título visible).
+1. ~~**`aria-labelledby` roto en `pain-points`**~~ **HECHO** (en el trabajo de SEO, commit
+   `b5e7a96a`, ya en `main`). Se añadió
+   `<h2 id="bloqueos-title">¿Te suena alguna de estas situaciones?</h2>` en los dos
+   componentes `pain-points-*`.
 
-2. **Contraste insuficiente en texto real con verde salvia `#6f8f6c`** (falla WCAG AA, necesita 4.5:1
-   y da 3.4–3.6:1 sobre `--rb-cream`/blanco)
-   - `.rb-guiding-purpose__kicker` en `guiding-purpose-desktop-tablet.component.scss:145` y
-     `guiding-purpose-mobile.component.scss:145` (etiqueta eyebrow "CUERPO/MENTE/ALMA")
-   - `.rb-guiding-purpose__facet--body` en los mismos ficheros, línea ~356 — afecta a
-     `<span>Cuerpo</span>` y `<small>conectar</small>` en el html
-   - `.rb-journey-merged__kicker` en `process-desktop-tablet.component.scss:37` y
-     `process-mobile.component.scss:37`
-   - Fix: oscurecer el tono (ej. `#4f6b4c`, verificar contraste antes de aplicar) o buscar un
-     verde que cumpla 4.5:1 sin desentonar con la paleta.
-   - Nota: los usos del mismo verde en iconos decorativos (`.rb-method__icon`,
-     `.rb-pain__personal-icon`) llevan `aria-hidden` y ya cumplen 3:1 de gráfico UI — esos no
-     hace falta tocarlos.
+2. ~~**Contraste insuficiente en texto real con verde salvia `#6f8f6c`**~~ **HECHO.**
+   Verificado ~3.6:1 sobre blanco (falla AA). Se cambia el verde de texto a `#4f6b4c`
+   (~5.7:1 sobre `--rb-cream`, cumple AA):
+   - `--rb-green` en `styles.scss:16` (solo lo usa `.rb-guiding-purpose__kicker` en los dos
+     ficheros; los iconos decorativos usan el hex literal, no la variable).
+   - `color: #6f8f6c` → `#4f6b4c` en `guiding-purpose-{mobile,desktop-tablet}.scss:356`
+     (`.rb-guiding-purpose__facet--body`, hereda a `<small>conectar</small>`; el
+     `<span>Cuerpo</span>` ya iba en `--rb-ink`) y en
+     `process-{mobile,desktop-tablet}.scss:37` (`.rb-journey-merged__kicker`).
+   - Los usos decorativos de `#6f8f6c` (gradientes, `--pair-accent`, iconos con
+     `aria-hidden`) se dejan igual.
 
-3. **Falta `prefers-reduced-motion` en el hero**
-   - Ficheros: `hero-desktop-tablet.component.scss`, `hero-mobile.component.scss`
-   - Animaciones siempre activas: `rbHeroContentIn`, `rbHeroGlowOne`/`rbHeroGlowTwo`, `rbScrollCue`.
-   - El resto del sitio ya respeta `prefers-reduced-motion: reduce` en 14 componentes
-     (`guiding-purpose-*`, `process-*`, `roadmap-*`, `ideal-for-*`, `method-*`, `pain-points-*`,
-     `school-content`, y la regla global de `styles.scss:250`) — el hero es la excepción.
-   - Fix: añadir el mismo bloque `@media (prefers-reduced-motion: reduce) { animation: none; }`
-     que ya usan las otras secciones.
+3. ~~**Falta `prefers-reduced-motion` en el hero**~~ **HECHO** (consistencia; la regla global
+   de `styles.scss:250` sobre `*,*::before,*::after` ya neutralizaba las animaciones, así que
+   el impacto real era bajo). Añadido bloque
+   `@media (prefers-reduced-motion: reduce)` en `hero-{mobile,desktop-tablet}.scss` que pone
+   `animation: none` en `.rb-hero__copy`, `.rb-hero__glow--one/two` y
+   `.rb-hero__scroll-cue::after`, y fija `.rb-hero__copy` a `opacity:1; transform:none`.
 
 ## Importante
 
-4. **Enlace "Contacto" del footer sin aviso de apertura en pestaña nueva**
-   - Ficheros: `footer-desktop-tablet.component.html:14`, `footer-mobile.component.html:13`
-   - `<a href="https://forms.gle/..." target="_blank">Contacto</a>` sin `aria-label` ni
-     indicación visual (no cumple WCAG 3.2.5), mientras que `signup-cta.component.html:35` sí
-     lo hace bien: `aria-label="...se abre en una pestaña nueva)"`.
-   - Fix: replicar el mismo patrón de `aria-label` (y opcionalmente icono `open_in_new` como en
-     signup-cta).
+4. ~~**Enlace "Contacto" del footer sin aviso de apertura en pestaña nueva**~~ **HECHO.**
+   Añadido `aria-label="Contacto: abrir formulario externo (se abre en una pestaña nueva)"`
+   en `footer-mobile.component.html` y `footer-desktop-tablet.component.html`. Sin icono para
+   no meter `MatIconModule` en el footer (hoy solo tiene enlaces de texto).
 
-5. **Botón secundario del hero (`.rb-hero__secondary-button`) sobre foto**
-   - `--mdc-outlined-button-outline-color: rgba(255,255,255,.72)` — borde translúcido sobre una
-     foto variable (atardecer), sin verificar el contraste 3:1 de borde/UI component en las
-     zonas más claras de la imagen (cielo).
-   - Fix: fondo semitransparente algo más opaco, o `box-shadow` interior que garantice el
-     contraste del borde en cualquier zona de la foto. Verificar con captura real tras aplicar.
+5. ~~**Botón secundario del hero (`.rb-hero__secondary-button`) sobre foto**~~ **OBSOLETO.**
+   Verificado en la app real: el hero **ya no tiene botones** (`hero-*.component.html` solo
+   renderiza `<h1>` + `<p class="rb-hero-lead">`). La regla `.rb-hero__secondary-button` en
+   el SCSS es estilo muerto. No se toca. Ver punto 8 (el problema real de contraste del hero
+   está en el texto, no en un botón).
 
 ## Deseable (pulido, no bloqueante)
 
-6. **Skip-link "Saltar al contenido"**: no existe. Como hoy no hay `<app-header>` renderizado
-   (`header/` está en el repo pero no se importa en `app.component.ts` — código muerto), el
-   primer foco ya cae cerca del `<h1>`/CTAs del hero, así que el impacto es bajo. Añadirlo es
-   barato y previene problemas si en el futuro se reactiva un header con navegación.
+6. ~~**Skip-link "Saltar al contenido"**~~ **HECHO.** `<a class="rb-skip-link" href="#contenido">`
+   como primer elemento de `app.component.html`; `<main>` pasa a `<main id="contenido">`.
+   Estilo `.rb-skip-link` en `styles.scss` (oculto con `translateY(-150%)`, visible al
+   recibir foco).
 
 7. **`deliverables.component.scss` tiene `outline: none`** sin sustituto de foco — pero
    `deliverables/` tampoco se importa en `app.component.ts` (código muerto, igual que
    `header/`, `opportunity/`, `final-cta/`, `achievements/`, `testimonials/`,
    `wellness-break/`, `school-content/`, `purpose/`, `story/`). No tocar salvo que se pida
    limpiar código muerto aparte.
+
+## Hallazgos de la auditoría automatizada (axe-core 4.10, 2026-09-01)
+
+Ejecutada con axe sobre el build servido en local (`app-root` como contexto).
+
+8. ~~**`aria-label` en `<div>` sin `role` (aria-prohibited-attr, 10 nodos)**~~ **HECHO.**
+   axe no garantiza que un lector de pantalla anuncie `aria-label` en un `div` genérico.
+   Añadido `role="group"` a los contenedores de agrupación (`.laurem-story__chapters`,
+   `.rb-guiding-purpose__promise`, `.rb-yinyang__board`, `.rb-process__group-message`,
+   `.laurem-story__authority-logos`) y `role="img"` a las composiciones visuales
+   (`.journey-stage`/`.journey-mobile-stage`, `.rb-guiding-purpose__visual`), en los pares
+   mobile/desktop.
+
+9. ~~**`<aside>` anidado dentro de `<main>` (landmark-complementary-is-top-level)**~~ **HECHO.**
+   `<aside class="laurem-story__authority">` de `experience-{mobile,desktop-tablet}` pasa a
+   `<div>` (contenía el `<h2>` principal de la sección, no era contenido complementario).
+
+10. **Contraste del texto del hero sobre la foto** — PENDIENTE, decisión de diseño.
+    `.rb-hero-lead` (blanco `rgba(255,255,255,.94)`) y `#hero-title` sobre el atardecer.
+    Muestreo de píxeles reales bajo el texto: ratio ~2.0–2.8:1 en gran parte del ancho
+    (WCAG AA para texto grande pide 3:1); el `text-shadow` actual ayuda a la percepción pero
+    no cuenta para WCAG. Opciones: (a) oscurecer el gradiente de `.rb-hero__overlay` en la
+    zona del copy, (b) scrim local detrás de `.rb-hero__copy`, (c) `text-shadow` más marcado.
+    Todas afectan al look del hero — que lo valide Laurem.
+
+Tras los puntos 8 y 9: **axe da 0 violaciones**. Queda solo `color-contrast` como
+"incomplete" (140 nodos: axe no puede calcular sobre gradientes/pseudo-elementos). Revisión
+visual: el resto de textos (dark/plum sobre cream, verde `#4f6b4c`) se ven correctos; el
+único contraste real por debajo de umbral es el del punto 10.
 
 ## Ya verificado como correcto (no tocar)
 
@@ -80,12 +98,13 @@ enlaces/botones). Nada especulativo: cada punto tiene el fichero y la línea de 
 - Contraste de `ink` sobre `cream` (9–16.7:1) y `plum` sobre `cream`/blanco (7.4–7.8:1):
   sobrado.
 
-## Cómo retomarlo otro día
+## Estado (2026-09-01)
 
-```
-git checkout feature/accesibilidad-a11y
-git pull   # si se ha trabajado en remoto
-```
+Puntos 1–4, 6, 8, 9 aplicados en `feature/accesibilidad-a11y` (rebasada sobre `main`, que ya
+incluye SSR y el trabajo de SEO). Punto 5 obsoleto (no hay botón). Punto 7 = código muerto.
+Auditoría axe: **0 violaciones**.
 
-Pedir a Claude: "sigue el plan de docs/a11y-plan.md, aplica los puntos críticos (1-3)"
-(o el número que toque). El plan no ha tocado código todavía — es solo el documento.
+Pendiente:
+- **Punto 10**: contraste del texto del hero sobre la foto (decisión de diseño de Laurem).
+- Repaso visual rápido sobre el deploy: verde `#4f6b4c` y hero con `prefers-reduced-motion`.
+- Opcional: prueba con lector de pantalla y reflow al 400% (no cubierto por axe).

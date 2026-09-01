@@ -13,7 +13,7 @@
   --rb-plum: #8b2f68;
   --rb-plum-2: #922d73;
   --rb-ink: #1f171b;
-  --rb-green: #6f8f6c;
+  --rb-green: #4f6b4c;
   --rb-blue: #9fb2cf;
   --rb-surface: rgba(255, 255, 255, .72);
   --rb-border: rgba(139, 47, 104, .16);
@@ -78,6 +78,24 @@ a:hover {
   outline: 3px solid color-mix(in srgb, var(--rb-plum), white 20%);
   outline-offset: 4px;
   border-radius: .35rem;
+}
+
+.rb-skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 999;
+  padding: .6rem 1rem;
+  background: var(--rb-cream);
+  color: var(--rb-plum);
+  font-weight: 700;
+  border-radius: .5rem;
+  box-shadow: 0 8px 24px rgba(31, 23, 27, .18);
+  transform: translateY(-150%);
+}
+
+.rb-skip-link:focus-visible {
+  transform: translateY(0);
 }
 
 .section { @apply px-5 py-20 md:px-10 lg:px-20; }

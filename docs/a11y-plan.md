@@ -73,18 +73,25 @@ Ejecutada con axe sobre el build servido en local (`app-root` como contexto).
    `<aside class="laurem-story__authority">` de `experience-{mobile,desktop-tablet}` pasa a
    `<div>` (contenía el `<h2>` principal de la sección, no era contenido complementario).
 
-10. **Contraste del texto del hero sobre la foto** — PENDIENTE, decisión de diseño.
-    `.rb-hero-lead` (blanco `rgba(255,255,255,.94)`) y `#hero-title` sobre el atardecer.
-    Muestreo de píxeles reales bajo el texto: ratio ~2.0–2.8:1 en gran parte del ancho
-    (WCAG AA para texto grande pide 3:1); el `text-shadow` actual ayuda a la percepción pero
-    no cuenta para WCAG. Opciones: (a) oscurecer el gradiente de `.rb-hero__overlay` en la
-    zona del copy, (b) scrim local detrás de `.rb-hero__copy`, (c) `text-shadow` más marcado.
-    Todas afectan al look del hero — que lo valide Laurem.
+10. ~~**Contraste del texto del hero sobre la foto**~~ **HECHO** (combinación de las tres
+    vías, midiendo píxeles reales tras cada iteración):
+    - `.rb-hero__overlay`: gradiente base más oscuro (`.28 / .24@42% / .50@100%` de
+      `rgba(31,23,27)`), en `hero-{mobile,desktop-tablet}.scss` y su override de
+      `@media (max-width: 640px)`.
+    - `.rb-hero__copy::before`: viñeta radial suave (`rgba(31,23,27,.46)` centro → transparente
+      al 76%) que se extiende `inset: -4rem -1.5rem` más allá del bloque de texto, así el
+      degradado termina fuera de la vista y no se percibe una caja ni un borde.
+    - `.rb-hero-title` y `.rb-hero-lead`: texto blanco puro + `text-shadow` en capas con halo
+      corto (`0 0 6px` / `0 0 14px`) que define cada letra.
+    Resultado medido: **lead ~3.8–8.7:1** (0 % por debajo de 3:1), **título media ~6:1** con
+    ~87 % del texto por encima de 3:1 (los slivers restantes son bordes de glifo sobre el
+    cielo más claro, con el halo de sombra encima). Verificado visualmente: el hero mantiene
+    el look de atardecer con texto flotante.
 
-Tras los puntos 8 y 9: **axe da 0 violaciones**. Queda solo `color-contrast` como
-"incomplete" (140 nodos: axe no puede calcular sobre gradientes/pseudo-elementos). Revisión
-visual: el resto de textos (dark/plum sobre cream, verde `#4f6b4c`) se ven correctos; el
-único contraste real por debajo de umbral es el del punto 10.
+Tras los puntos 8, 9 y 10: **axe da 0 violaciones**. Queda solo `color-contrast` como
+"incomplete" (~142 nodos: axe no puede calcular sobre gradientes/pseudo-elementos, incluido
+ahora el texto del hero bajo la viñeta). Revisión visual: el resto de textos (dark/plum sobre
+cream, verde `#4f6b4c`) se ven correctos.
 
 ## Ya verificado como correcto (no tocar)
 
@@ -100,11 +107,11 @@ visual: el resto de textos (dark/plum sobre cream, verde `#4f6b4c`) se ven corre
 
 ## Estado (2026-09-01)
 
-Puntos 1–4, 6, 8, 9 aplicados en `feature/accesibilidad-a11y` (rebasada sobre `main`, que ya
-incluye SSR y el trabajo de SEO). Punto 5 obsoleto (no hay botón). Punto 7 = código muerto.
-Auditoría axe: **0 violaciones**.
+Puntos 1–4, 6, 8, 9, 10 aplicados en `feature/accesibilidad-a11y` (rebasada sobre `main`, que
+ya incluye SSR y el trabajo de SEO). Punto 5 obsoleto (no hay botón). Punto 7 = código
+muerto. Auditoría axe: **0 violaciones**. Build (`npm run build`) OK.
 
-Pendiente:
-- **Punto 10**: contraste del texto del hero sobre la foto (decisión de diseño de Laurem).
-- Repaso visual rápido sobre el deploy: verde `#4f6b4c` y hero con `prefers-reduced-motion`.
+Pendiente (nada bloqueante):
+- Repaso visual de Laurem sobre el deploy: viñeta del hero (¿demasiado oscura?), verde
+  `#4f6b4c`, hero con `prefers-reduced-motion`.
 - Opcional: prueba con lector de pantalla y reflow al 400% (no cubierto por axe).

@@ -241,6 +241,7 @@
 @media (max-width: 1023px) {
   .rb-hero {
     min-height: clamp(36rem, 100svh, 50rem);
+    place-items: end center;
   }
 
   .rb-hero__background {

@@ -143,8 +143,9 @@
   border-radius: 2.35rem;
   padding: clamp(1.5rem, 3vw, 2rem);
   background:
-    radial-gradient(circle at 82% 16%, rgba(231,189,200,.18), transparent 14rem),
-    linear-gradient(135deg, #922d73 0%, #81265e 100%);
+    radial-gradient(circle at 82% 16%, rgba(231,189,200,.16), transparent 14rem),
+    linear-gradient(135deg, rgba(146,45,115,.62) 0%, rgba(129,38,94,.74) 100%),
+    url('/assets/laurem-yoga-trayectoria.webp') center 22% / cover no-repeat;
   box-shadow: 0 28px 80px rgba(139,47,104,.24);
   color: #fff;
   overflow: hidden;

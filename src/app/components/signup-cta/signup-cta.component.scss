@@ -1,3 +1,42 @@
+.rb-signup-cta-wrap {
+  position: relative;
+}
+
+.rb-signup-cta-wrap--media {
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(28rem, 46vw, 38rem);
+  padding-block: clamp(3rem, 6vw, 4.5rem);
+}
+
+.rb-signup-cta__media {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.rb-signup-cta__media-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rb-signup-cta__media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 253, 246, .26), rgba(255, 253, 246, .46));
+}
+
 .rb-signup-cta {
   position: relative;
   z-index: 2;

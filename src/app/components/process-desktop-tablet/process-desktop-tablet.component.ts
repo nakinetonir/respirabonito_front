@@ -26,8 +26,8 @@ export class ProcessDesktopTabletComponent {
       text: 'En los días posteriores, nos pondremos en contacto contigo a través del contacto que hayas facilitado, para conocernos mejor.'
     },
     {
-      title: 'Vemos si es tu momento',
-      text: 'Veremos si es tu momento para comenzar esta aventura. Las plazas son limitadas.'
+      title: 'Vemos si es tu oportunidad',
+      text: 'Veremos si es tu oportunidad para comenzar esta aventura. Las plazas son limitadas.'
     }
   ];
 }

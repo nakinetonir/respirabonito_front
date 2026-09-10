@@ -42,6 +42,16 @@ export class SignupCtaComponent {
   /** Acento de color de la ilustracion; el boton siempre mantiene el mismo tono de marca. */
   @Input() tone: SignupCtaTone = 'plum';
 
+  /** Ruta base (sin extensión) de una imagen de fondo a sangre completa: se resuelve a `.webp` y `.jpg`. */
+  @Input() bgImageBase?: string;
+
+  /** Encuadre de la imagen de fondo (valor CSS de `object-position`); varía porque cada foto centra el sujeto en un punto distinto. */
+  @Input() bgPosition = 'center 42%';
+
+  get hasBackgroundMedia(): boolean {
+    return !!this.bgImageBase;
+  }
+
   readonly gradientId = `rb-signup-cta-gradient-${instanceCount++}`;
 
   get gradientRef(): string {

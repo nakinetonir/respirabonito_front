@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
+import { NgFor, isPlatformBrowser } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -10,7 +10,29 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './pain-points-mobile.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PainPointsMobileComponent {
+export class PainPointsMobileComponent implements AfterViewInit {
+  @ViewChild('mandalaVideo') private readonly mandalaVideo?: ElementRef<HTMLVideoElement>;
+
+  constructor(@Inject(PLATFORM_ID) private readonly platformId: object) {}
+
+  /**
+   * Android/Chrome a veces ignora el atributo HTML `muted` y bloquea el
+   * autoplay si la propiedad del elemento no está en `true` en el momento
+   * de llamar a `play()`; se fuerza aquí para que el vídeo no se quede solo
+   * en el poster. Solo aplica en el navegador: el DOM del renderizado en
+   * servidor no implementa `play()`.
+   */
+  ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+    const video = this.mandalaVideo?.nativeElement;
+    if (!video) {
+      return;
+    }
+    video.muted = true;
+    video.play().catch(() => {});
+  }
   readonly points = [
     {
       icon: 'schedule',

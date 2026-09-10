@@ -20,13 +20,15 @@
 </section>
 <section class="dynamic-mandala-section rb-visual-bridge" aria-label="Mandala espiritual y elegante de Respira Bonito">
   <video
+    #mandalaVideo
     class="dynamic-mandala__video"
     aria-hidden="true"
     poster="/assets/laurem-mandala-poster.jpg"
     autoplay
-    muted
+    [muted]="true"
     loop
     playsinline
+    webkit-playsinline
     preload="auto"
   >
     <source src="/assets/laurem-mandala-video.mp4" type="video/mp4">

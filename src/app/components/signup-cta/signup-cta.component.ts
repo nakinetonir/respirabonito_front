@@ -48,6 +48,9 @@ export class SignupCtaComponent {
   /** Encuadre de la imagen de fondo (valor CSS de `object-position`); varía porque cada foto centra el sujeto en un punto distinto. */
   @Input() bgPosition = 'center 42%';
 
+  /** Texto del botón de inscripción; se mantiene igual en la primera aparición y varía en el resto para no repetirse. */
+  @Input() linkText = 'Quiero inscribirme en la Escuela';
+
   get hasBackgroundMedia(): boolean {
     return !!this.bgImageBase;
   }

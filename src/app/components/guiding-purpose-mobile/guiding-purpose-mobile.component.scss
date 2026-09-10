@@ -603,42 +603,42 @@
   }
 
   .rb-guiding-purpose__visual {
-    width: min(100%, 30rem);
+    width: min(100%, 32rem);
     aspect-ratio: 1;
     margin-inline: auto;
     transform: none;
   }
 
   .rb-guiding-purpose__facet {
-    width: clamp(7rem, 28vw, 8rem);
-    padding: .6rem;
+    width: clamp(8.4rem, 33.6vw, 9.6rem);
+    padding: .65rem;
   }
 
   .rb-guiding-purpose__facet--body {
-    left: -6%;
-    bottom: -3%;
+    left: -12%;
+    bottom: -6%;
   }
 
   .rb-guiding-purpose__facet--mind {
-    top: -4%;
+    top: -12%;
   }
 
   .rb-guiding-purpose__facet--soul {
-    right: -6%;
-    bottom: -3%;
+    right: -12%;
+    bottom: -6%;
   }
 
   .rb-guiding-purpose__facet-photo {
-    width: 4.8rem;
+    width: 5.76rem;
     margin-bottom: -.1rem;
   }
 
   .rb-guiding-purpose__facet-icon {
-    width: 1.85rem;
+    width: 2.22rem;
   }
 
   .rb-guiding-purpose__facet-icon svg {
-    width: 1.05rem;
+    width: 1.26rem;
   }
 
   .rb-guiding-purpose__facet > span:not(.rb-guiding-purpose__facet-photo) {
@@ -704,20 +704,20 @@
   }
 
   .rb-guiding-purpose__facet {
-    width: clamp(6.4rem, 30vw, 7.2rem);
-    padding: .5rem;
+    width: clamp(7.68rem, 36vw, 8.64rem);
+    padding: .55rem;
   }
 
   .rb-guiding-purpose__facet-photo {
-    width: 4.2rem;
+    width: 5.04rem;
   }
 
   .rb-guiding-purpose__facet-icon {
-    width: 1.6rem;
+    width: 1.92rem;
   }
 
   .rb-guiding-purpose__facet-icon svg {
-    width: .92rem;
+    width: 1.1rem;
   }
 
   .rb-guiding-purpose__facet > span:not(.rb-guiding-purpose__facet-photo) {
@@ -762,19 +762,19 @@
 
 @media (max-width: 350px) {
   .rb-guiding-purpose__facet {
-    width: 6.3rem;
+    width: 7.56rem;
   }
 
   .rb-guiding-purpose__facet-photo {
-    width: 3.8rem;
+    width: 4.56rem;
   }
 
   .rb-guiding-purpose__facet-icon {
-    width: 1.5rem;
+    width: 1.8rem;
   }
 
   .rb-guiding-purpose__facet-icon svg {
-    width: .86rem;
+    width: 1.03rem;
   }
 
   .rb-guiding-purpose__facet > span:not(.rb-guiding-purpose__facet-photo) {

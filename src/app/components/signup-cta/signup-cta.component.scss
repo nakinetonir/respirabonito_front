@@ -111,6 +111,10 @@
   min-width: min(100%, 21rem);
 }
 
+.rb-signup-cta__link span {
+  text-wrap: balance;
+}
+
 .rb-signup-cta__link-icon {
   width: 1.05rem;
   height: 1.05rem;

@@ -90,6 +90,8 @@
   margin: 2.75rem 0 0 -.8rem;
   overflow: hidden;
   isolation: isolate;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 6%, black 88%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, black 6%, black 88%, transparent 100%);
 }
 
 .journey-mobile-stage::before,

@@ -99,6 +99,7 @@ a:hover {
 }
 
 .section { @apply px-5 py-20 md:px-10 lg:px-20; }
+.section--flush-block { padding-top: 0; padding-bottom: 0; }
 .shell { width: min(var(--rb-container), 100%); margin-inline: auto; }
 .brand-font { font-family: var(--rb-font-script); }
 .script { font-family: var(--rb-font-script); }
@@ -454,6 +455,7 @@ p {
 @media (max-width: 760px) {
   :root { --rb-section-y: clamp(3.4rem, 12vw, 5rem); }
   .section { padding-inline: 1rem; padding-block: clamp(3.5rem, 12vw, 5rem); }
+  .section--flush-block { padding-block: 0; }
   .title { font-size: clamp(2.35rem, 11vw, 3.7rem); }
   .card { border-radius: 1.45rem !important; }
   .rb-kicker { font-size: clamp(1.9rem, 9vw, 2.7rem); }

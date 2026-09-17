@@ -2,6 +2,7 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  padding-block: clamp(2.5rem, 9vw, 3.5rem);
   background: #fffdf7;
 }
 

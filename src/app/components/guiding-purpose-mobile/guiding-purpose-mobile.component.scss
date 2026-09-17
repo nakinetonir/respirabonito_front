@@ -2,7 +2,7 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding-block: clamp(5rem, 10vw, 9rem);
+  padding-block: clamp(3.5rem, 7vw, 6rem);
   background:
     radial-gradient(circle at 12% 22%, rgba(231, 189, 200, .35), transparent 24rem),
     radial-gradient(circle at 88% 74%, rgba(111, 143, 108, .18), transparent 27rem),
@@ -466,7 +466,7 @@
 
 @media (max-width: 940px) {
   .rb-guiding-purpose {
-    padding-block: clamp(4.75rem, 9vw, 6.5rem);
+    padding-block: clamp(3.25rem, 6vw, 4.5rem);
   }
 
   .rb-guiding-purpose__shell {
@@ -508,7 +508,7 @@
 
 @media (max-width: 700px) {
   .rb-guiding-purpose {
-    padding-block: 4.5rem 5.25rem;
+    padding-block: 3.25rem 3.75rem;
   }
 
   .rb-guiding-purpose__shell {
@@ -568,7 +568,7 @@
 
 @media (max-width: 580px) {
   .rb-guiding-purpose {
-    padding-block: 4rem 4.75rem;
+    padding-block: 3rem 3.5rem;
     padding-inline: max(1rem, env(safe-area-inset-left)) max(1rem, env(safe-area-inset-right));
   }
 
@@ -674,7 +674,7 @@
 
 @media (max-width: 420px) {
   .rb-guiding-purpose {
-    padding-block: 3.75rem 4.35rem;
+    padding-block: 2.75rem 3.25rem;
     padding-inline: max(.9rem, env(safe-area-inset-left)) max(.9rem, env(safe-area-inset-right));
   }
 

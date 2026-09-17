@@ -1,7 +1,8 @@
 .rb-faq {
   position: relative;
   overflow: hidden;
-  padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 4vw, 5rem);
+  padding-block: clamp(2.5rem, 9vw, 3.5rem);
+  padding-inline: clamp(1rem, 4vw, 5rem);
   background:
     radial-gradient(circle at 5% 18%, rgba(231, 189, 200, .32), transparent 20rem),
     radial-gradient(circle at 92% 82%, rgba(111, 143, 108, .14), transparent 22rem),

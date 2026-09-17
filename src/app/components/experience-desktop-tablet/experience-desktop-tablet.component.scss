@@ -605,6 +605,8 @@
 /* Al separarse de Historia, conserva la continuidad visual sin duplicar espacio. */
 .laurem-story--experience {
   padding-top: clamp(1.25rem, 2.5vw, 2.5rem);
+  /* Proceso comparte el mismo fondo crema; se evita duplicar espacio en la costura. */
+  padding-bottom: clamp(1.5rem, 3vw, 3rem);
 }
 
 /* La jerarquía cambia a h2/h3 al convertirse en una sección independiente. */

@@ -2,12 +2,16 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding-block: clamp(4.5rem, 9vw, 8rem);
+  padding-block: clamp(2.75rem, 6vw, 4.5rem);
   background:
     radial-gradient(circle at 12% 18%, rgba(231, 189, 200, .28), transparent 24rem),
     radial-gradient(circle at 86% 22%, rgba(111, 143, 108, .15), transparent 22rem),
     radial-gradient(circle at 70% 88%, rgba(159, 178, 207, .18), transparent 25rem),
     linear-gradient(180deg, #fffdf4 0%, #fbfbe7 48%, #fffdf4 100%);
+}
+
+@media (max-width: 760px) {
+  .rb-journey-merged { padding-block: clamp(2.25rem, 8vw, 3.25rem); }
 }
 
 .rb-journey-merged::before {

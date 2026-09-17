@@ -2,7 +2,14 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  padding-block: clamp(3rem, 6vw, 5rem);
   background: #fffdf7;
+}
+
+@media (max-width: 760px) {
+  .rb-method {
+    padding-block: clamp(2.5rem, 9vw, 3.5rem);
+  }
 }
 
 /*

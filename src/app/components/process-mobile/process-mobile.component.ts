@@ -18,8 +18,8 @@ interface ProcessStep {
 export class ProcessMobileComponent {
   readonly steps: readonly ProcessStep[] = [
     {
-      title: 'Envía tus datos',
-      text: 'Envía tu nombre y correo electrónico en el formulario que se abre al pulsar Quiero Inscribirme.'
+      title: 'Envía tu formulario con tus datos',
+      text: 'Envía tus datos en el formulario que se abre al pinchar en el botón "Quiero inscribirme".'
     },
     {
       title: 'Nos pondremos en contacto contigo',

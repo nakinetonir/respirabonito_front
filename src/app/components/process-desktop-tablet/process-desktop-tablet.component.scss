@@ -239,38 +239,10 @@
   transform: translateY(-8%) rotate(2deg);
 }
 
-.rb-journey-column__badge,
-.rb-journey-column__eyebrow,
 .rb-journey-column__card h3,
 .rb-journey-column__card p {
   position: relative;
   z-index: 2;
-}
-
-.rb-journey-column__badge {
-  display: inline-flex;
-  align-items: center;
-  min-height: 1.8rem;
-  width: fit-content;
-  margin-bottom: .7rem;
-  border: 1px solid color-mix(in srgb, var(--pair-accent) 20%, transparent);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, .72);
-  padding: .25rem .7rem;
-  color: var(--pair-accent);
-  font-size: .74rem;
-  font-weight: 800;
-  letter-spacing: .11em;
-  text-transform: uppercase;
-}
-
-.rb-journey-column__eyebrow {
-  margin: 0 0 .5rem;
-  color: color-mix(in srgb, var(--pair-accent) 92%, #77515d 8%);
-  font-size: .74rem;
-  font-weight: 800;
-  letter-spacing: .11em;
-  text-transform: uppercase;
 }
 
 .rb-journey-column__card h3 {
@@ -474,7 +446,6 @@
   }
 
   .rb-journey-column__card h3 { font-size: 1.42rem; }
-  .rb-journey-column__badge { font-size: .68rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -47,6 +47,69 @@
 .rb-method__shell { position: relative; z-index: 3; }
 .rb-method__intro { position: relative; }
 
+.rb-method__kicker {
+  display: block;
+  position: relative;
+  margin: 0 0 .4rem;
+  padding-left: clamp(1rem, 2vw, 1.6rem);
+  color: var(--rb-green);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+
+
+.rb-method__membership {
+  margin-top: clamp(2rem, 4vw, 2.75rem);
+  max-width: 46rem;
+}
+
+.rb-method__membership-text {
+  margin: 0;
+  color: rgba(31, 23, 27, .82);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.rb-method__membership-title {
+  margin: 1.6rem 0 .9rem;
+  color: var(--rb-plum);
+  font-family: var(--rb-font-reference, Georgia, serif);
+  font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+  font-weight: 600;
+}
+
+.rb-method__membership-list {
+  display: grid;
+  gap: .65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rb-method__membership-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+  color: rgba(31, 23, 27, .82);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.rb-method__membership-list mat-icon {
+  flex: none;
+  width: 1.3rem;
+  height: 1.3rem;
+  font-size: 1.3rem;
+  margin-top: .1rem;
+  color: #7c1f43;
+}
+
+.rb-method__membership-list li[data-tone='green'] mat-icon { color: #6f8f6c; }
+.rb-method__membership-list li[data-tone='blue'] mat-icon { color: #738baa; }
+
 .rb-method__aura {
   position: absolute;
   z-index: 2;

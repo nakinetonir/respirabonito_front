@@ -3,6 +3,7 @@
   overflow: hidden;
   padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 4vw, 5rem);
   background:
+    var(--rb-seam-edges),
     radial-gradient(circle at 8% 20%, rgba(231, 189, 200, .34), transparent 22rem),
     radial-gradient(circle at 92% 78%, rgba(111, 143, 108, .16), transparent 24rem),
     linear-gradient(180deg, #fbfbe1 0%, #fffdf4 100%);
@@ -605,8 +606,8 @@
 /* Al separarse de Historia, conserva la continuidad visual sin duplicar espacio. */
 .laurem-story--experience {
   padding-top: clamp(1.25rem, 2.5vw, 2.5rem);
-  /* Proceso comparte el mismo fondo crema; se evita duplicar espacio en la costura. */
-  padding-bottom: clamp(1.5rem, 3vw, 3rem);
+  /* Hueco suficiente para que la sombra de la tarjeta no se corte en la costura con Proceso. */
+  padding-bottom: clamp(4.5rem, 7.5vw, 7rem);
 }
 
 /* La jerarquía cambia a h2/h3 al convertirse en una sección independiente. */

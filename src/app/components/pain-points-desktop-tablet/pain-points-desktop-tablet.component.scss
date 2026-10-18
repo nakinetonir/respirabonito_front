@@ -3,6 +3,7 @@
   overflow: hidden;
   isolation: isolate;
   background:
+    var(--rb-seam-edges),
     radial-gradient(circle at 8% 16%, rgba(231,189,200,.28), transparent 22rem),
     radial-gradient(circle at 90% 84%, rgba(111,143,108,.16), transparent 24rem),
     rgba(255,255,255,.58);
@@ -98,20 +99,6 @@
   overflow: hidden;
 }
 
-.rb-visual-bridge::before,
-.rb-visual-bridge::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  width: min(42rem, 90vw);
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(139,47,104,.24), transparent);
-  transform: translateX(-50%);
-}
-
-.rb-visual-bridge::before { top: 0; }
-.rb-visual-bridge::after { bottom: 0; }
-
 @media (max-width: 640px) {
   .rb-pain__grid { gap: .9rem !important; }
   .rb-pain__card { padding: 1.2rem !important; }
@@ -170,6 +157,7 @@
   overflow: hidden;
   isolation: isolate;
   background:
+    var(--rb-seam-edges),
     radial-gradient(circle at 50% 50%, rgba(255,255,255,.92) 0 10%, rgba(243,219,224,.18) 34%, rgba(111,143,108,.08) 56%, transparent 76%),
     linear-gradient(180deg, rgba(255,253,246,.42), rgba(251,251,225,.28));
 }
@@ -186,6 +174,9 @@
   transform: translateX(-50%);
   object-fit: cover;
   object-position: center top;
+  /* El video se disuelve en ovalo: sin bordes rectos sobre el fondo. */
+  -webkit-mask-image: radial-gradient(closest-side, #000 62%, transparent);
+  mask-image: radial-gradient(closest-side, #000 62%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -199,6 +190,7 @@
   inset: 0;
   z-index: -1;
   background:
+    var(--rb-seam-edges),
     radial-gradient(circle at 50% 50%, rgba(255,255,255,.7) 0 12%, rgba(255,253,246,.4) 40%, rgba(255,253,246,.62) 70%),
     linear-gradient(180deg, rgba(255,253,246,.5), rgba(251,251,225,.42));
 }

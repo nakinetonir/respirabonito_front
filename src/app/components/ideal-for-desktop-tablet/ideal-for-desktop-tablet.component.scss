@@ -8,6 +8,7 @@
   overflow: hidden;
   padding: clamp(4.5rem, 8vw, 7.5rem) clamp(1rem, 4vw, 5rem);
   background:
+    var(--rb-seam-edges),
     radial-gradient(circle at 13% 15%, rgba(255, 255, 240, .98), transparent 25rem),
     radial-gradient(circle at 85% 18%, rgba(231, 189, 200, .34), transparent 23rem),
     radial-gradient(circle at 83% 86%, rgba(139, 47, 104, .12), transparent 27rem),
@@ -114,6 +115,10 @@
   transform-origin: center;
   pointer-events: none;
   animation: rbYinYangReveal .95s cubic-bezier(.16,.84,.2,1) .08s forwards;
+  /* Se desvanece por abajo: el simbolo sobresale de la seccion y, sin esto,
+     el borde inferior lo cortaria en recto. */
+  -webkit-mask-image: linear-gradient(180deg, #000 68%, transparent 97%);
+  mask-image: linear-gradient(180deg, #000 68%, transparent 97%);
 }
 
 .rb-yinyang__symbol-disc {
@@ -577,6 +582,7 @@
   .rb-yinyang {
     padding-inline: .75rem;
     background:
+      var(--rb-seam-edges),
       radial-gradient(circle at 14% 10%, rgba(255, 255, 240, .98), transparent 18rem),
       radial-gradient(circle at 88% 88%, rgba(231, 189, 200, .52), transparent 20rem),
       linear-gradient(180deg, #fbfbe1 0 48%, #f5e1e3 48% 100%);

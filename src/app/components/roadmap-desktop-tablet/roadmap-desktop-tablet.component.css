@@ -4,10 +4,11 @@
   overflow: hidden;
   padding: clamp(4.5rem, 8vw, 7rem) clamp(1rem, 4vw, 4rem) clamp(4.5rem, 8vw, 7rem);
   background:
+    var(--rb-seam-edges),
     radial-gradient(circle at 12% 14%, rgba(231, 189, 200, .31), transparent 23rem),
     radial-gradient(circle at 88% 18%, rgba(159, 178, 207, .24), transparent 22rem),
     radial-gradient(circle at 50% 80%, rgba(111, 143, 108, .11), transparent 30rem),
-    linear-gradient(180deg, #fbfbe1 0%, #fffdf6 52%, #f4f0e7 100%);
+    linear-gradient(180deg, #fbfbe1 0%, #fffdf6 52%, var(--rb-seam-cream) 100%);
 }
 
 .journey-section::before {

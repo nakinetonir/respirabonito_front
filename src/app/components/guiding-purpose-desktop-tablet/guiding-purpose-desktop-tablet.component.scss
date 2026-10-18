@@ -4,6 +4,7 @@
   overflow: hidden;
   padding-block: clamp(3.5rem, 7vw, 6rem);
   background:
+    var(--rb-seam-edges),
     radial-gradient(circle at 12% 22%, rgba(231, 189, 200, .35), transparent 24rem),
     radial-gradient(circle at 88% 74%, rgba(111, 143, 108, .18), transparent 27rem),
     linear-gradient(135deg, #fffaf5 0%, #fffdf4 48%, #f5f8e9 100%);
@@ -22,8 +23,7 @@
   min-width: 0;
 }
 
-.rb-guiding-purpose::before,
-.rb-guiding-purpose::after {
+.rb-guiding-purpose::before {
   content: '';
   position: absolute;
   z-index: -1;
@@ -40,14 +40,6 @@
   box-shadow:
     0 0 0 5rem rgba(231, 189, 200, .045),
     0 0 0 10rem rgba(111, 143, 108, .025);
-}
-
-.rb-guiding-purpose::after {
-  right: 0;
-  bottom: 0;
-  width: 42%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(139, 47, 104, .24));
 }
 
 .rb-guiding-purpose__background {

@@ -19,21 +19,18 @@ export class MethodMobileComponent implements AfterViewInit {
   readonly pillars = [
     {
       icon: 'favorite',
-      number: '01',
       tone: 'rose',
       title: 'Bienestar',
       text: 'A través de un enfoque integral, el objetivo es mejorar la salud en el plano mental, físico y emocional.'
     },
     {
       icon: 'trending_up',
-      number: '02',
       tone: 'green',
       title: 'Progreso',
       text: 'Queremos crecer, y eso implica trabajo y compromiso: propuestas que cada alumna adapta a su tiempo y organización.'
     },
     {
       icon: 'groups',
-      number: '03',
       tone: 'blue',
       title: 'Comunidad',
       text: 'Nos abrimos con confianza a la Guía y a las compañeras: afianza nuestra raíz y hace el camino más fácil y divertido.'

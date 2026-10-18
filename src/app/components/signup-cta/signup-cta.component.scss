@@ -21,6 +21,15 @@
   z-index: -1;
   overflow: hidden;
   pointer-events: none;
+  background: var(--rb-seam-cream);
+}
+
+/* La foto se disuelve arriba y abajo en el tono de costura, para que no
+   haya corte recto con las secciones vecinas. */
+.rb-signup-cta__media-img,
+.rb-signup-cta__media-overlay {
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 var(--rb-seam-fade), #000 calc(100% - var(--rb-seam-fade)), transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 var(--rb-seam-fade), #000 calc(100% - var(--rb-seam-fade)), transparent);
 }
 
 .rb-signup-cta__media-img {

@@ -14,8 +14,31 @@
         aria-label="Contacto: abrir formulario externo (se abre en una pestaña nueva)">Contacto</a>
     </nav>
 
+    <div class="rb-footer__social">
+      <a class="rb-footer__social-link" [href]="instagramUrl" target="_blank" rel="noopener noreferrer"
+        aria-label="Instagram de Laurem, @_lauremm (se abre en una pestaña nueva)">
+        <app-brand-icon name="instagram" />
+      </a>
+      <a class="rb-footer__social-link" [href]="whatsappUrl" target="_blank" rel="noopener noreferrer"
+        aria-label="Unirse al grupo de WhatsApp de RespiraBonito (se abre en una pestaña nueva)">
+        <app-brand-icon name="whatsapp" />
+      </a>
+    </div>
+
     <span class="rb-footer__divider" aria-hidden="true"></span>
 
     <p class="rb-footer__legal">© {{ year }} RespiraBonito. Todos los derechos reservados.</p>
+  </div>
+
+  <!-- Si vuelve a renderizarse .rb-mobile-cta (app-header), añadir rb-float-stack--above-cta. -->
+  <div class="rb-float-stack">
+    <a class="rb-ig-float" [href]="instagramUrl" target="_blank" rel="noopener noreferrer"
+      aria-label="Instagram de Laurem, @_lauremm (se abre en una pestaña nueva)">
+      <app-brand-icon name="instagram" />
+    </a>
+    <a class="rb-wa-float" [href]="whatsappUrl" target="_blank" rel="noopener noreferrer"
+      aria-label="Únete al grupo de WhatsApp de RespiraBonito (se abre en una pestaña nueva)">
+      <app-brand-icon name="whatsapp" />
+    </a>
   </div>
 </footer>

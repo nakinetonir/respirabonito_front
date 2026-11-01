@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
 // Configuracion
-const SITE_URL = 'https://respirabonito.org/';
+const SITE_URL = 'https://www.respirabonito.org/';
 const lastmod = new Date().toISOString().slice(0, 10);
 
 // Contenido

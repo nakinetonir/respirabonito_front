@@ -45,6 +45,90 @@
   color: var(--rb-plum);
 }
 
+.rb-footer__social {
+  display: flex;
+  justify-content: center;
+  gap: .75rem;
+}
+
+.rb-footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(139, 47, 104, .14);
+  background: rgba(255, 255, 255, .6);
+  color: rgba(31, 23, 27, .78);
+  font-size: 1.2rem;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.rb-footer__social-link:active,
+.rb-footer__social-link:focus-visible {
+  background: rgba(231, 189, 200, .5);
+  border-color: rgba(139, 47, 104, .28);
+  color: var(--rb-plum);
+}
+
+/* Botones flotantes circulares; respetan el notch/barra inferior con safe-area. */
+.rb-float-stack {
+  position: fixed;
+  right: 1rem;
+  bottom: calc(1rem + env(safe-area-inset-bottom));
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .65rem;
+}
+
+.rb-ig-float {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: var(--rb-plum);
+  color: #fff;
+  font-size: 1.75rem;
+  box-shadow: 0 12px 30px rgba(139, 47, 104, .22);
+  transition: background .2s ease, transform .2s ease;
+}
+
+.rb-ig-float:active,
+.rb-ig-float:focus-visible {
+  background: var(--rb-plum-2);
+  transform: scale(.96);
+}
+
+.rb-wa-float {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: #25D366;
+  color: #fff;
+  font-size: 1.75rem;
+  box-shadow: 0 12px 30px rgba(139, 47, 104, .22);
+  transition: background .2s ease, transform .2s ease;
+}
+
+.rb-wa-float:active,
+.rb-wa-float:focus-visible {
+  background: #1ebe5b;
+  transform: scale(.96);
+}
+
+/* Sube los botones por encima de .rb-mobile-cta (styles.scss, 3.25rem de alto) si se reactiva app-header. */
+.rb-float-stack--above-cta {
+  bottom: calc(1rem + 3.25rem + .75rem + env(safe-area-inset-bottom));
+}
+
 .rb-footer__divider {
   width: min(100%, 16rem);
   height: 1px;
@@ -54,4 +138,15 @@
 .rb-footer__legal {
   color: rgba(31, 23, 27, .55);
   font-size: .82rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rb-footer__social-link,
+  .rb-ig-float,
+  .rb-wa-float { transition: none; }
+
+  .rb-ig-float:active,
+  .rb-ig-float:focus-visible,
+  .rb-wa-float:active,
+  .rb-wa-float:focus-visible { transform: none; }
 }

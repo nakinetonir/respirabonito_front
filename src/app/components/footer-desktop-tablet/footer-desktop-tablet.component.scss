@@ -47,6 +47,99 @@
   transform: translateY(-1px);
 }
 
+.rb-footer__social {
+  display: flex;
+  gap: .6rem;
+}
+
+.rb-footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(139, 47, 104, .14);
+  background: rgba(255, 255, 255, .5);
+  color: rgba(31, 23, 27, .78);
+  font-size: 1.15rem;
+  transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+}
+
+.rb-footer__social-link:hover,
+.rb-footer__social-link:focus-visible {
+  background: rgba(231, 189, 200, .5);
+  border-color: rgba(139, 47, 104, .3);
+  transform: translateY(-1px);
+}
+
+.rb-footer__social-link--instagram:hover,
+.rb-footer__social-link--instagram:focus-visible { color: var(--rb-plum); }
+
+.rb-footer__social-link--whatsapp:hover,
+.rb-footer__social-link--whatsapp:focus-visible { color: #25D366; }
+
+/* Botones flotantes: viven en el footer para no tocar app.component. Quedan por debajo del header (z-50). */
+.rb-float-stack {
+  position: fixed;
+  right: 1.5rem;
+  bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* ambas pildoras toman el ancho de la mas larga */
+  gap: .7rem;
+}
+
+/* Misma geometria que .rb-wa-float; solo cambia el color. */
+.rb-ig-float {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  min-height: 3rem;
+  padding: .7rem 1.3rem .7rem 1.1rem;
+  border-radius: 999px;
+  background: var(--rb-plum);
+  color: #fff;
+  font-size: .98rem;
+  font-weight: 700;
+  box-shadow: 0 14px 36px rgba(139, 47, 104, .18);
+  transition: background .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.rb-ig-float app-brand-icon { font-size: 1.35rem; }
+
+.rb-ig-float:hover,
+.rb-ig-float:focus-visible {
+  background: var(--rb-plum-2);
+  box-shadow: 0 18px 44px rgba(139, 47, 104, .24);
+  transform: translateY(-1px);
+}
+
+.rb-wa-float {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  min-height: 3rem;
+  padding: .7rem 1.3rem .7rem 1.1rem;
+  border-radius: 999px;
+  background: #25D366;
+  color: #fff;
+  font-size: .98rem;
+  font-weight: 700;
+  box-shadow: 0 14px 36px rgba(139, 47, 104, .18);
+  transition: background .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.rb-wa-float app-brand-icon { font-size: 1.35rem; }
+
+.rb-wa-float:hover,
+.rb-wa-float:focus-visible {
+  background: #1ebe5b;
+  box-shadow: 0 18px 44px rgba(139, 47, 104, .24);
+  transform: translateY(-1px);
+}
+
 .rb-footer__divider {
   display: block;
   width: 100%;
@@ -64,5 +157,19 @@
   .rb-footer__top { justify-content: center; text-align: center; }
   .rb-footer__brand { text-align: center; }
   .rb-footer__nav { justify-content: center; }
+  .rb-footer__social { justify-content: center; }
   .rb-footer__legal { text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rb-footer__social-link,
+  .rb-ig-float,
+  .rb-wa-float { transition: none; }
+
+  .rb-footer__social-link:hover,
+  .rb-footer__social-link:focus-visible,
+  .rb-ig-float:hover,
+  .rb-ig-float:focus-visible,
+  .rb-wa-float:hover,
+  .rb-wa-float:focus-visible { transform: none; }
 }
